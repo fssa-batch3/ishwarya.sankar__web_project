@@ -1,0 +1,92 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: "Poppins,san-serif";
+
+}
+.appoin{
+    min-height: 100vh;
+    background: #08071d;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background:url(../image/Web-Background.jpg) no-repeat center center/cover;   
+
+}
+.appoin form{
+    width:670px;
+    height:400px;
+    display:flex;
+    justify-content: center;
+    box-shadow: 20px 20px 50px rgba(0,0,0,0,5);
+    border-radius: 15px;
+    background: rgba(255,255,255,0,1);
+    backdrop-filter:blur(10px);
+    flex-wrap:wrap;
+}
+.appoin form h1{
+             color:#fff;
+             font-weight:20px;
+             margin-top:20px;
+             width:500px;
+             text-align:center;
+}
+.appoin form input{
+               width:290px;
+               height:40px;
+               padding-left:10px;
+               outline:none;
+               border:none;
+               font-size: 15px;
+               margin-bottom:10px;
+               background:none;
+               border-bottom:2px solid #fff;
+}
+.appoin form input ::placeholder{
+    color:#ddd;
+}
+.appoin form #lastname,
+.appoin form #mobile{
+      margin-left: #fff;
+      font-weight:300;
+      width:600px;
+      margin-top:20px;
+
+}
+.appoin form textarea{
+            background: none;
+            border:none;
+            border-bottom:2px solid #fff;
+            color:#fff;
+            font-weight: 200;
+            font-size: 15px;
+            padding:10px;
+            outline:none;
+            min-width:600px;
+            min-height:80px;
+}
+.textarea:-webkit-scrollbar{
+    width:1em;
+}
+.textarea::-webkit-scrollbar-thumb{
+    background-color: #ddd;
+}
+.appoinm form #button{
+    border:none;
+    background: #fff;
+    border-radius: 5px;
+    margin-top: 20px;
+    font-weight: 600;
+    font-size:20px ;
+    color:#333;
+    width:100px;
+    padding:0;
+    margin-right:500px;
+    margin-bottom: 30px;
+    transition: 0.3s;
+}
+.appoinm form #button:hover{
+    opacity:0.7;
+}
+

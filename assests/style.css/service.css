@@ -3,7 +3,7 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: linear-gradient(#748d91, #1a4e8e 50%, #fff 50%, #fff 100%);
+    background: linear-gradient(#b6a2b0, #96588b 50%, #fff 50%, #fff 100%);
     position: absolute;
     top:10px;
     left:5px;
@@ -33,7 +33,7 @@
     left: 0;
    width: 100%;
    height: 100%;
-   background:rgb(118, 53, 53);
+   background:rgba(159, 100, 154, 0.154);
    transform: scaleY(0);
    transform-origin: top;
    transition: transform 0.5s;
@@ -41,7 +41,7 @@
  
  .container .box:hover:before {
    transform: scaleY(1);
-   transform-origin: bottom;
+   transform-origin: top;
    transition: transform 0.5s;
  }
  
