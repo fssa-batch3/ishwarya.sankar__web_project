@@ -53,8 +53,8 @@
     border:2px solid #f2f2f2;
     border-radius: 50%;
     position: absolute;
-    top: 100px;
-    left:20px;
+    top: 150px;
+    left:140px;
 
 }
 .card p{
@@ -67,7 +67,7 @@
     margin-bottom: 4px;
 }
 .card h4{
-        color:#333;
+        color:rgb(211, 24, 24);
         font-weight:400px;
         font-size: 16px; 
 }

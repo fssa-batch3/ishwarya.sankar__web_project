@@ -84,17 +84,18 @@
  }
  .btn1{
    /* justify-content: left; */
-   padding:10px 5px;
-   border-radius: 70px;
+   padding:10px 2px;
+   border-radius: 120px;
    top:440px;
    position:absolute;
    left:20px;
-   color:rgb(23, 22, 22);
-   font-size: 15px;
+   color:rgb(11, 11, 11);
+   font-size: 17px;
+   font-style:italic;
  }
  .btn1:hover{
-       color:rgb(195, 44, 44);
-       font-size:17px;
+       color:rgb(151, 36, 36);
+       font-size:16px;
  }
  .material-symbols-outlined{
               background-color:rgb(95, 87, 87);
@@ -166,7 +167,7 @@
 
 .container .box:hover h2 {
   opacity: 1;
-  color: #fff;
+  color: rgb(67, 58, 58);
   transform: translateY(-40px);
 }
 
@@ -310,4 +311,7 @@ footer{
  border-top-left-radius: 0;
  border-bottom-left-radius: 0;
  background-color: rgb(249, 147, 178);
+}
+.submit{
+         
 }

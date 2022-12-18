@@ -1,41 +1,93 @@
 .block{
            width:100%;
            min-height: 100vh;
-           background: linear-gradient(#e2d6dd, #a83bda 250%, #fff 250%, #fff 100%);
-           
+           margin-top: 0px;       
 }
 .block img{
-    width: 300px;
+    width: 270px;
     height:auto;
 }
 .block.blog-section{
          width:80%;
          margin:0px auto;
+         
+         
 }
 .block .blog-section .heading{
-    width:60%;
+    width:100%;
+    height:auto;
     text-align: center ;
     margin:0px auto;
+    background-color:#fff;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 .block .blog-section .heading h1{
-    padding-top:20px;
-    font-size: 42px;
-    color:#1c1b1b;
+    padding-top:2px;
+    font-size: 32px;
+    color:#070707;
 }
 .block .blog-section .heading p{
     margin-top:10px;
-    color:#630e0e;
+    color:#79109c;
+    font-size: 15px;
 }
 .content{
          display:flex;
          justify-content:center;
          align-items: center;  
          margin:0px auto;
+         background-color: #F3CCFF;
+         font-style: italic;
+         
 }
-.content .card{
-              flex:1;
-              margin:30px 15px;
-              box-shadow: 0px 0px 2px 0px rgba(0,0,0,0,2);
+.content1{
+    display:flex;
+    justify-content:center;
+    align-items: center;  
+    margin:0px auto;
+    background-color: #D09CFA;
+    font-style: italic;
+}
+.content .card img{
+    position:relative;
+    top:10px;
+    left:300px;
+}
+
+.content2{
+    display:flex;
+    justify-content:center;
+    align-items: center;  
+    margin:0px auto;
+    background-color: #BA94D1;
+    font-style: italic;
+    
+}
+.content1 .card2 img{
+    position:relative;
+    top:25px;
+    left:300px;
+}
+.content2 .card3 img{
+                    position:relative;
+                    top:30px;
+                    left:300px;
+                    font-size: medium;
+                
+}
+.block .blog-section .heading p:hover{
+                        color:#e31111;
+                        font-weight: 100px;
+                        
+                        
+}
+.button{
+         color:rgb(101, 4, 17);
+}
+.text-title{
+    position:relative;
+    top:10px;
+    left:300px
 }
 
   
