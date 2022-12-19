@@ -89,5 +89,10 @@
     top:10px;
     left:300px
 }
-
+.block .blog-section .heading h1:hover{
+    padding-top:0px;
+    font-size: 37px;
+    color:#a32889;
+    background-color: antiquewhite;
+}
   
