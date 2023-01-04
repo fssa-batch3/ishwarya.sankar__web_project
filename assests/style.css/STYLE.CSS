@@ -17,19 +17,15 @@
   
  }
  .m1{
-  margin-top: 30px;
-  margin-left: 70px;
-  
+      position: relative;
+      top:-75px;
+      left:65px;
  }
 
  .logo-1{
     position:absolute;
-    top: -30px;
+    top: -25px;
     left: -50px;
-    /* left: -100px; */
-    /* width: 70px; */
-    /* height: 100px; */
-    /* margin-right: 20px;   */
  }
  .navbar{
     display:flex;
@@ -37,32 +33,32 @@
     margin-right: 20px;
   } 
  .navbar a{
-    color:white;
-    font-size:18px;
+    color:rgb(14, 14, 14);
+    font-size:22px;
     text-decoration: none;
  }
  .navbar a:hover{
-   color:pink;
+   color:rgb(27, 69, 236);
    font-size: medium;
  }
  body{
-    background-image: url(../image/wallhaven-0j1vjq_3840x2160.png);
+    /* background-image: url(../image/wallhaven-0j1vjq_3840x2160.png); */
+    background: linear-gradient(#5090f6ef, #fbfdfe 50%, #fbfffd 50%, #6ca4f3 100%);
     background-size: cover;
     background-position:center;
     /* background: no-repeat; */
     background-blend-mode: multiply;
-    background-color: rgb(63, 62, 62);
+    background-color:#fff;
     background-repeat: no-repeat;
     height: 810px;
  }
  .nav1{
-   color:rgb(183, 209, 215);
-   font-size: xx-large;
-
+   color:rgb(22, 21, 21);
+   font-size:47px;
  }
  .nav2{
-   color:rgb(178, 110, 234);
-   font-size: xx-large;
+   color:rgb(242, 34, 6);
+   font-size:47px;
  }
  .m1{
    justify-content: center;
@@ -76,39 +72,28 @@
  }
  .p1{
     position: absolute;
-    top:280px;
-    left:25px;
-    color:rgba(238, 245, 239, 0.893);
+    top:270px;
+    left:90px;
+    color:rgba(18, 18, 18, 0.893);
     font-size:22px;
-    font-weight:bold;
-    font-style:italic;
  }
  .btn1{
    /* justify-content: left; */
-   padding:10px 2px;
-   border-radius: 120px;
-   top:440px;
+   padding:9px;
+   top:530px;
    position:absolute;
-   left:20px;
-   color:rgb(84, 52, 52);
-   font-size: 17px;
-   font-style:italic;
+   left:220px;
+   font-size:15px;
+   background-color: #f51111a3;
+   border: #fff;
  }
  .btn1:hover{
-       color:rgb(151, 36, 36);
+       color:rgb(122, 57, 57);
        font-size:16px;
- }
- .material-symbols-outlined{
-              background-color:rgb(95, 87, 87);
-             font-size:smaller;
- }
- .material-symbols-outlined:hover{
-                     color:pink;
-                     font-size: medium;
-
  }
  a{
   text-decoration: none;
+  cursor: pointer;
  }
  
  .main {
@@ -116,14 +101,14 @@
    justify-content: center;
    align-items: center;
    min-height: 100vh;
-   background: linear-gradient(#f2b6ea, #a872f8 50%, #fff 50%, #fff 100%);
+   background: linear-gradient(#5b9cf6, #dfe7ec 50%, #fff 50%, #fff 100%);
    position: absolute;
    top:870px;
    left:5px;
  }
  
  .container {
-   width: 460px;
+   width: 492px;
    display: flex;
    justify-content: space-between;
    flex-wrap: wrap;
@@ -197,9 +182,8 @@
   min-height: 100vh;
   margin-top: 1100px;
 }
-
 footer{
-  background-color: rgba(226, 218, 222, 0.733);
+  background-color:#ecf1f9 ;
   position: relative;
   width: 100%;
   min-height: 350px;
@@ -212,18 +196,15 @@ footer{
  justify-content: center;
  align-items: center;
  flex-direction: column;
-
-
 }
 .row{
  display: flex;
  justify-content: space-between;
  align-items: center;
 }
-
 .col{
  min-width: 250px;
- color:rgb(15, 14, 14);
+ color:rgb(8, 8, 8);
  font-family:"Poppins";
  padding:0 2rem;
 }
@@ -246,7 +227,6 @@ footer{
  bottom: 0;
  left:0;
  transition: 0.3s ease;
-
 }
 .col h3:hover::after{
  width:30px
@@ -276,7 +256,7 @@ footer{
  position: absolute;
  top:5px;
  left:-10px;
- background-color: rgb(29, 28, 29);
+ background-color: rgb(213, 16, 16);
  transition: 0.5s ease;
  opacity: 0;
 }
@@ -320,3 +300,8 @@ footer{
 /* .submit{
          
 } */
+.gif{
+       position: absolute;
+       top:290px;
+       left:900px;    
+}

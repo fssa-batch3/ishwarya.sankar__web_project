@@ -3,15 +3,15 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: linear-gradient(#b6a2b0, #96588b 50%, #fff 50%, #fff 100%);
-    position: absolute;
+    background: linear-gradient(#f2eff1, #4474f9 50%, #fff 50%, #fff 100%);
+    position:fixed;
     top:10px;
     left:5px;
     /* flex-wrap: wrap;     */
   }
   
   .container {
-    width: 450px;
+    width: 490px;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -19,6 +19,7 @@
   
   .container .box {
     margin-left:10px;
+    top:-130px;
     position: relative;
     width: 420px;
     background:#fff;
