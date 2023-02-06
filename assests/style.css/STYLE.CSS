@@ -1,71 +1,80 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins:200;300;400;500;600;700;800;900&display=swap");
+body{
+  margin: 0px;
+  padding: 0px;
+  height: auto;
+}
 *{
    font-family:"Poppins", sans-serif;
    margin:0px;
    padding:0px;
    box-sizing: border-box;
+   transition: all .2s ease-out; 
+   text-transform: capitalize;
+  
 }
 .project{
   margin-top: 50px;
 }
  .header{
-   
     display:flex;
     justify-content:space-between;
     align-items: center;
-    margin-top: 50px;
-  
+    margin-top:1px;
+    padding:2rem 9%;
+    background:#fff;
+    box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, 0.1);
  }
  .m1{
-      position: relative;
-      top:-75px;
-      left:65px;
+      position:absolute;
+      /* top:-95px; */
+      left:99px;
  }
-
  .logo-1{
     position:absolute;
-    top: -25px;
-    left: -50px;
+    top: -36px;
+    left: -10px;
  }
  .navbar{
     display:flex;
     gap:40px;
-    margin-right: 20px;
+    margin-right:2px;
   } 
  .navbar a{
-    color:rgb(14, 14, 14);
-    font-size:22px;
-    text-decoration: none;
+    color:rgb(15, 15, 15);
+    font-size:36px;
+    text-decoration:none;
  }
  .navbar a:hover{
    color:rgb(27, 69, 236);
    font-size: medium;
+   font-size: 40px;
  }
  body{
     /* background-image: url(../image/wallhaven-0j1vjq_3840x2160.png); */
-    background: linear-gradient(#5090f6ef, #fbfdfe 50%, #fbfffd 50%, #6ca4f3 100%);
+    /* background: linear-gradient(#7af4bbef 70%, #fbfdfe 100%, #65fda2 100%); */
     background-size: cover;
     background-position:center;
     /* background: no-repeat; */
     background-blend-mode: multiply;
-    background-color:#fff;
+    background-color:lightblue;
     background-repeat: no-repeat;
-    height: 810px;
+    height: 1000px;
  }
  .nav1{
    color:rgb(22, 21, 21);
-   font-size:47px;
+   font-size:54px;
  }
  .nav2{
-   color:rgb(242, 34, 6);
-   font-size:47px;
+   color:rgb(6, 184, 9);
+   font-size:54px;
  }
  .m1{
    justify-content: center;
    padding: 10px;
-   position: absolute;
-   top:-4px;
-   right:1160px;
+   /* position: absolute; */
+   top:4px;
+   /* right:800px; */
    font-size:medium;
    font-size: 29px;
    
@@ -74,93 +83,92 @@
     position: absolute;
     top:270px;
     left:90px;
-    color:rgba(18, 18, 18, 0.893);
-    font-size:22px;
+    color:rgba(12, 12, 12, 0.893);
+    font-size:42px;
  }
  .btn1{
    /* justify-content: left; */
    padding:9px;
-   top:530px;
+   top:730px;
    position:absolute;
-   left:220px;
-   font-size:15px;
-   background-color: #f51111a3;
+   left:290px;
+   font-size:25px;
+   background-color: #11b437a3;
    border: #fff;
  }
  .btn1:hover{
        color:rgb(122, 57, 57);
-       font-size:16px;
+       background-color: antiquewhite;
+       font-size:26px;
  }
  a{
   text-decoration: none;
   cursor: pointer;
  }
- 
  .main {
    display: flex;
    justify-content: center;
    align-items: center;
    min-height: 100vh;
-   background: linear-gradient(#5b9cf6, #dfe7ec 50%, #fff 50%, #fff 100%);
+   background: linear-gradient(#f2f3f5c9, #c3c6c8 50%, #fff 0%, rgb(250, 245, 245) 00%);
+   /* background: #fff; */
    position: absolute;
-   top:870px;
-   left:5px;
+   top:1090px;
  }
  
  .container {
-   width: 492px;
    display: flex;
    justify-content: space-between;
    flex-wrap: wrap;
-   /* margin-top: 100px; */
+   padding: 200px 75px;
+   /* height: 100%; */
+   /* width: fit-content ;   */
  }
  
  .container .box {
-   margin-left:10px;
-   position: relative;
-   width: 400px;
    background: rgb(241, 235, 244);
    padding: 100px 40px 60px;
    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.1);
+   flex: 1;
+   /* width:100%; */
  }
- 
  .container .box:before {
    content: "";
    position: absolute;
-   top: 0;
-   left: 0;
-  width: 100%;
-  height: 100%;
+   /* width:28%; */
+   /* height:0%; */
   background:rgba(144, 92, 140, 0.154);
   transform: scaleY(0);
   transform-origin:top;
   transition: transform 0.5s;
+  margin-top: auto;
 }
-
 .container .box:hover:before {
   transform: scaleY(1);
   transform-origin: bottom;
   transition:  0.5s;
 }
-
 .container .box h2 {
   position: absolute;
-  top: 30px;
-  left: 60px;
   font-size: 4rem;
   font-weight: 800;
   z-index: 1;
   opacity: 0.5;
   transition: 0.5s;
-  /* margin-bottom: 2px; */
+  margin-bottom: 2px;
+  justify-content: center;
+  display: flex;
+  margin-right: 100%;
+  margin-top:-4%;
 }
-
 .container .box:hover h2 {
   opacity: 1;
   color: rgb(67, 58, 58);
   transform: translateY(-40px);
 }
-
+.container .box p {
+  font-size: 28px;
+}
 .container .box h3 {
   position: relative;
   font-size: 1.5rem;
@@ -172,7 +180,6 @@
       position: absolute;
       top:1300px;
       display: flex;
-
 }
 .main-branch{
   display: flex;
@@ -180,7 +187,7 @@
   align-items: center;
   flex-direction: column;
   min-height: 100vh;
-  margin-top: 1100px;
+  margin-top: 1500px;
 }
 footer{
   background-color:#ecf1f9 ;
@@ -190,7 +197,7 @@ footer{
   padding: 3rem 1rem;
 }
 .container-1 {
- max-width: 1140px;
+ max-width: 1100px;
  margin: 0 auto;
  display: flex;
  justify-content: center;
@@ -256,7 +263,7 @@ footer{
  position: absolute;
  top:5px;
  left:-10px;
- background-color: rgb(213, 16, 16);
+ background-color: rgb(147, 37, 37);
  transition: 0.5s ease;
  opacity: 0;
 }
@@ -297,11 +304,50 @@ footer{
  border-bottom-left-radius: 0;
  background-color: rgb(249, 147, 178);
 }
-/* .submit{
-         
-} */
 .gif{
        position: absolute;
-       top:290px;
-       left:900px;    
+       top:310px;
+       left:1040px;    
+}
+.map{
+      position: absolute;
+      top:1960px;
+
+}
+.fa-solid fa-hospital{
+height:500px;
+ width:700px;
+}
+@media screen and (max-width:410px) { 
+ body{
+  padding: 0px;
+  margin: 0px;
+ }
+  .header{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+  }
+  .navbar{
+    display: flex;
+    margin-left: 20px; 
+     gap: 10px;
+     
+  }
+  .navbar a{
+    font-size: 16px;
+  }
+  .icong img{
+    margin-top: -25px;
+  }
+  .p1 h1{
+    font-size: 50px;
+
+  }
+  .gif{
+       display:flex;
+       margin-left:-1280px;
+       margin-top: 50px;
+       height:
+  }
 }

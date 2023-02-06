@@ -1,4 +1,4 @@
-.block{
+/* .block{
            width:100%;
            min-height: 100vh;
            margin-top: 0px;
@@ -38,7 +38,7 @@
          align-items: center;  
          margin:0px auto;
          /* background-color: #717ffb; */
-         font-style: italic;
+         /* font-style: italic;
          
 }
 .content1{
@@ -47,7 +47,7 @@
     align-items: center;  
     margin:0px auto;
     /* background-color: #D09CFA; */
-    font-style: italic;
+    /* font-style: italic;
 }
 .content .card img{
     position:relative;
@@ -61,10 +61,10 @@
     align-items: center;  
     margin:0px auto;
     /* background-color: #BA94D1; */
-    font-style: italic;
+    /* font-style: italic;
     
-}
-.content1 .card2 img{
+} */
+/* .content1 .card2 img{
     position:relative;
     top:25px;
     left:300px;
@@ -78,10 +78,10 @@
 }
 .block .blog-section .heading p:hover{
                         color:#e31111;
-                        font-weight: 100px;
+                        font-weight: 100px; */
+                         
                         
-                        
-}
+/* }
 .button{
          color:rgb(101, 4, 17);
 }
@@ -89,11 +89,5 @@
     position:relative;
     top:10px;
     left:300px
-}
-.block .blog-section .heading h1:hover{
-    padding-top:0px;
-    font-size: 37px;
-    color:#a32889;
-    background-color: antiquewhite;
-}
-  
+/* } */
+*

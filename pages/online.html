@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../assests/style.css/online.css">
+</head>
+<body>
+            
+    
+    <section class="first-fold">
+        <div class ="first">
+        <div class="content">
+        <h1>Skip the Travel!</h1>
+        <h3>TAKE ONLINE DOCTOR CONSULTATION </h1>
+        </div>
+        <p class="description">
+            Private consultation + audio call .Start at just "₹199"
+        </p>
+        <a class="primary-button" href="">CONSULT NOW</a>
+       
+    </div>
+    <div class="second">
+         <img alt="med banner" class="imageweb" src="../assests/image/homepage-hero-image-web-v1.png" height="250px" width="auto">
+
+    </div>
+    </section>  <div class="second">
+        <div class="main2">
+            <h1>10 + SPECIALITIES</h1>
+            <h4>Consult with top doctors across specialities</h4>
+               <h1>OUR DOCTORS</h1></div>
+               <section id="raz">
+                   <div class="container"> 
+                   <!-- <button class="details"><a href="./details.html"><b>Learn More</b></a></button> -->
+                <img src="../assests/image/IMG-20230131-WA0006 (1).jpg">
+                  <h2>Ishusankar</h2>
+                  <p>Gynocology</p> 
+        </div> 
+               </section>
+               <script>
+                const online=[
+              {
+                image:"../assests/image/IMG-20230131-WA0006 (1).jpg",
+                heading:"ishusankar",
+                para:"gynocology",
+
+              },
+            {
+                image:"../assests/image/IMG-20230131-WA0006 (1).jpg",
+                heading:"vanitha",
+                para:"paeditrician",
+            },
+            {
+                image:"../assests/image/IMG-20230131-WA0006 (1).jpg",
+                heading:"vanitha",
+                para:"paeditrician",
+            },
+            {
+                image:"../assests/image/IMG-20230131-WA0006 (1).jpg",
+                heading:"vanitha",
+                para:"paeditrician",
+            },
+            {
+                image:"../assests/image/IMG-20230131-WA0006 (1).jpg",
+                heading:"vanitha",
+                para:"paeditrician",
+            }
+     ]
+              
+                for(let i=1;i<=4;i++){
+                  let section=document.createElement("div")
+                  section.setAttribute("class","container")
+                  let secimg=document.createElement("img")
+                  secimg.setAttribute("src",online[i]["image"])
+                  section.append(secimg)
+                  let h2=document.createElement("h2")
+                  h2.innerText=online[i]["heading"]
+                  section.append(h2)
+                  let para=document.createElement("p")
+                  para.innerText=""
+                  section.append(para)
+                  let details=document.createElement("btn")
+                  details.setAttribute("details","./details.html")
+                  section.append(details)
+                  let finalpage=document.getElementById("raz")
+                  finalpage.append(section)}
+               </script>
+          </body>
+          </html>
+            
+        
+
+</body>
+</html>

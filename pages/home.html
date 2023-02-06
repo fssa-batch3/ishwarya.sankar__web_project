@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../assests/style.css/home.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap">
+</head>
+
+<body>
+    <div class="pov">
+        <div class="wrapper">
+            <h1>HEAR WHAT OUR CUSTOMERS SAY</h1>
+            <h5>CHECK WHAT THEY SAY ABOUT US</h5>
+
+            <div class="main"> -->
+                <div class="cards">
+        <div class="card ">
+            <img src="../assests/image/nurses_with_icu_patient-mufid_majnun.png">
+            <p>Had irritation in my eyes.Dr.Atul raj did the check up.Very satisfied with the diagnosis and treatment.the doctor was very professional and efficient and explained everything.</p>
+            <h2>RAM</h2>
+            <h3 id="user_name">ramksr@gamil.com</h3>
+            <h4>PATIENT</h4>
+            <i class="fa fa-quote-left"></i>
+        </div>
+      </div>
+     <div class="cards">
+        <div class="card">
+            <img src="../assests/image/photo-1578496781985-452d4a934d50.png">
+            <p>Visited Dr.Nithya(Oncologist).She gave me positive  words and confident thought which created me fearless about my treatment.Her approach is so kind. </p>
+            <h2>ANI</h2>
+            <h4>PATIENT</h4>
+            <i class="fa fa-quote-left"></i>
+        </div>
+      </div>
+      <div class="cards">
+        <div class="card ">
+                <img src="../assests/image/photo-1578496781985-452d4a934d50.png">
+            <p>I am Kani.I am an lymphoma patient and I had taken treatment from 2019 march till last February now I am absolutely alright, Here the doctors (Dr. Shashidhar, Dr. Manjunath and team) are very kind and good.</p>
+            <h2>KANI</h2>
+            <h4>PATIENT</h4>
+            <i class="fa fa-quote-left"></i>
+                 </div>
+      </div> 
+             </div>
+        </div>
+    </div>
+    <script>
+        let card_content = [
+            {
+                image: "../assests/image/nurses_with_icu_patient-mufid_majnun.png",
+                para: "Had irritation in my eyes.Dr.Atul raj did the check up.Very satisfied with the diagnosis and treatment.the doctor was very professional and efficient and explained everything",
+                heading: "RAM",
+                heading_2: "PATIENT"
+            },
+            {
+                image: "../assests/image/photo-1578496781985-452d4a934d50.png",
+                para: "Visited Dr.Nithya(Oncologist).She gave me positive  words and confident thought which created me fearless about my treatment.Her approach is so kind",
+                heading: "ANI", heading_2: "PATIENT"
+            },
+            { image: "../assests/image/photo-1578496781985-452d4a934d50.png",
+             para: "I am Kani.I am an lymphoma patient and I had taken treatment from 2019 march till last February now I am absolutely alright, Here the doctors (Dr. Shashidhar, Dr. Manjunath and team) are very kind and good",
+              heading: "kani", heading_2: "PATIENT" }]
+
+        for (let i = 0; i < card_content.length; i++) {
+            let cardscontainer = document.createElement("div")
+            cardscontainer.setAttribute("class", "cards")
+            let firstcard = document.createElement("div")
+            firstcard.setAttribute("class", "card")
+            cardscontainer.append(firstcard)
+            let cardimage = document.createElement("img")
+            cardimage.setAttribute("src", card_content[i]["image"]);
+            firstcard.append(cardimage)
+            let paragraph = document.createElement("p")
+            paragraph.innerText = card_content[i]["para"];
+            firstcard.append(paragraph)
+            let h2 = document.createElement("h2")
+            h2.innerText = card_content[i]["heading"];
+            firstcard.append(h2)
+            let h4 = document.createElement("h4")
+            h4.innerText = card_content[i]["heading_2"];
+            firstcard.append(h4)
+            let main = document.querySelector(".main")
+            main.append(cardscontainer)
+        } 
+        // <firstcard>
+
+
+     </script>
+    
+
+    
+</body>
+
+</html>

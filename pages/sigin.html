@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login page</title>
+    <link rel="stylesheet" href="../assests/style.css/sigin.css">
+</head>
+<body>
+    <div class="main">  	
+		<input type="checkbox" id="chk" aria-hidden="true">
+			<div class="signup">
+				<form id="signup">
+					<label for="chk">Sign up</label>
+					<input type="text" id="txt" placeholder="User name" required="">
+					<input type="email" id="email" placeholder="Email" required="">
+					<input type="password" id="pswd" placeholder="Password" required="">
+					<button type="submit">Sign up</button>
+				</form>
+			</div>
+
+			<div class="login">
+				<form id="log">
+					<label for="chk" aria-hidden="true">Login</label>
+					<input type="email" id="mail" placeholder="Email" required="">
+					<input type="password" id="swd" placeholder="Password" required="">
+					<button type="submit">Login</button>
+				</form>
+			</div>
+	</div>
+	<script>
+		//assigning the variable		  
+		 const form=document.getElementById("signup");
+		   const name=document.getElementById("txt");
+		   const email =document.getElementById("email");
+		   const pass=document.getElementById("pswd");
+        //array
+		 const users=[]
+//function
+           signup.addEventListener("submit",function(event){
+		    event.preventDefault();
+			// if()
+			const name=document.getElementById("txt").value;
+		    const email =document.getElementById("email").value;
+		    const pass=document.getElementById("pswd").value;
+            let userdata={name,email,pass}
+			console.log(userdata);
+			users.push(userdata)
+			localStorage.setItem("users",JSON.stringify(users))
+			alert("sucessfully Created")
+})
+		    let  getdata=JSON.parse(localStorage.getItem("users"))
+			console.log(getdata);
+
+			
+		
+			 //array
+			  const user=[]
+            const form2  = document.getElementById("log")
+			//function
+			form2.addEventListener("submit",function(event){
+				  event.preventDefault();
+				  const email2=document.getElementById("mail").value;
+			      const password=document.getElementById("swd").value;
+			//	  
+				  const main = user.find(function (data){
+					//variable store
+			     const email = data["email2"];
+				 const pass=data["swd"];
+                 if(email2 === )
+
+				  })
+        
+				  
+ 				  
+				  })		  
+				  let data=JSON.parse(localStorage.getItem("user"))
+				  console.log(data);
+
+
+	</script>
+</body>
+</html>

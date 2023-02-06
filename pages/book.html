@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../assests/style.css/book.css">
+</head>
+<body>
+    <div class="container">
+        <div class="title">
+          <form action="#">
+            <div class="user-details">
+                <div class="input-box">
+                    <span class="details">
+                        Full name
+                    </span>
+            <input type="text" placeholder="enter your name">        
+                </div>
+
+
+                <div class="input-box">
+                    <span class="details">
+                        Address
+                    </span>
+            <input type="text" placeholder="enter your address">        
+                </div>
+
+                <div class="input-box">
+                    <span class="details">
+                     Email
+                    </span>
+            <input type="text" placeholder="enter your email">        
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Phone Number </span>
+            <input type="text" placeholder="enter your number">        
+                </div>
+                <div class="input-box">
+                    <span class="details">Age</span>
+            <input type="text" placeholder="enter your Age">        
+                </div>
+                <span class="details">Date</span>
+                <input type="datetime-local" id="time" name="Appoinment time">
+                <div class="button">
+                    <input type="submit" value="Book">
+
+                </div>
+            </div>
+          </form> 
+        </div>
+    </div>
+    <script>
+         function submit(){
+                const name= document.getElementById("name").value
+                const phone=document.getElementById("address").value
+                const email=document.getElementById("email").value
+                const area=document.getElementById("number").value
+                const city=document.getElementById("age").value
+                const state=document.getElementById("date").value
+                const postcode=document.getElementById("book").value
+
+
+                console.log(name)
+                console.log(address)
+                console.log(email)
+                console.log(number)
+                console.log(age)
+                console.log(date)
+                console.log(book)
+
+                  localStorage.setItem("name",name)
+                localStorage.setItem("address",address)
+                localStorage.setItem("email",email)
+                localStorage.setItem("number",number)
+                localStorage.setItem("age",age)
+                localStorage.getItem("date",date)
+                localStorage.getItem("book",book)
+                
+
+                window.location.href="../index.html"
+         }
+    </script>
+</body>
+</html>
