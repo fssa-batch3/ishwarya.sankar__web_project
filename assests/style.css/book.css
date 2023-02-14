@@ -14,7 +14,7 @@ body{
   padding: 10px;
   background: linear-gradient(135deg, #e9f0f5, #3bcbc1);
 }
-.container{
+.container_{
   max-width: 700px;
   width: 100%;
   background-color: #fff;
@@ -22,13 +22,13 @@ body{
   border-radius: 5px;
   box-shadow: 0 5px 10px rgba(0,0,0,0.15);
 }
-.container .title{
+.container_ .title{
   font-size: 25px;
   font-weight: 500;
   position: relative;
 }
 
-.content form .user-details{
+.content form .usersdetails{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -36,16 +36,16 @@ body{
   height:900px;
   width:1000px;
 }
-form .user-details .input-box{
+form .user-details .inputboxs{
   margin-bottom: 15px;
   width: calc(100% / 2 - 20px);
 }
-form .input-box span.details{
+form .inputboxs span.details{
   display: block;
   font-weight: 500;
   margin-bottom: 5px;
 }
-.user-details .input-box input{
+.userdetails .inputboxs input{
   height: 45px;
   width: 100%;
   outline: none;

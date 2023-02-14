@@ -13,25 +13,63 @@ body{
    text-transform: capitalize;
   
 }
-.project{
-  margin-top: 50px;
-}
  .header{
     display:flex;
     justify-content:space-between;
     align-items: center;
-    margin-top:1px;
-    padding:2rem 9%;
+    /* margin-top:1px;  */
+    padding:0.5rem 9%;
     background:#fff;
     box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, 0.1);
  }
  .m1{
-      position:absolute;
-      /* top:-95px; */
-      left:99px;
+     
+      margin-top:9px;
+      justify-content: center;
+      display: block;
+      margin-top:10px ;
+      margin-left: 500px;
  }
+ .nav1{    
+           margin-left: -570px;
+           font-size: 60px;
+           margin-top: 80px;
+           font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;    
+ }
+ .nav2{
+  margin-left: -2px;
+  font-size: 60px;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
  .logo-1{
-    position:absolute;
+    margin-top: 28px;
+  } 
+ .navbar{
+    display:flex;
+    gap:30px;
+    align-items: center;
+  } 
+ .navbar a{
+    color:rgb(15, 15, 15);
+    font-size:2;
+    text-decoration:none;
+ }
+ .navbar a:hover{
+   color:rgb(27, 69, 236);
+   font-size: medium;
+   font-size: 40px;
+ }
+ body{
+    background-size: cover;
+    background-position:center;
+    /* background: no-repeat; */
+    background-blend-mode: multiply;
+    background-color:lightblue;
+    background-repeat: no-repeat;
+    height: 1000px;
+ }
+  .logo-1{
+     position:absolute;
     top: -36px;
     left: -10px;
  }
@@ -50,30 +88,11 @@ body{
    font-size: medium;
    font-size: 40px;
  }
- body{
-    /* background-image: url(../image/wallhaven-0j1vjq_3840x2160.png); */
-    /* background: linear-gradient(#7af4bbef 70%, #fbfdfe 100%, #65fda2 100%); */
-    background-size: cover;
-    background-position:center;
-    /* background: no-repeat; */
-    background-blend-mode: multiply;
-    background-color:lightblue;
-    background-repeat: no-repeat;
-    height: 1000px;
- }
- .nav1{
-   color:rgb(22, 21, 21);
-   font-size:54px;
- }
- .nav2{
-   color:rgb(6, 184, 9);
-   font-size:54px;
- }
  .m1{
    justify-content: center;
-   padding: 10px;
+   padding: 5px;
    /* position: absolute; */
-   top:4px;
+   /* top:4px; */
    /* right:800px; */
    font-size:medium;
    font-size: 29px;

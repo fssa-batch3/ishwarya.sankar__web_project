@@ -67,6 +67,11 @@ body{
 }
 
  */
+
+
+ *{
+         background-color: lightblue;
+ }
  .heading{
         font-size: 45px;
         color:green;

@@ -1,21 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <body>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../assests/style.css/profile.css">
+</head>
+<body>
+       
 
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../assests/style.css/profile.css">
-    <h2 style="text-align:center">User Profile Card</h2>
 
-<div class="card">
-  <img src="" alt="John" style="width:100%">
-  <h1>aki</h1>
-  <p class="title">Patient</p>
-  <p>chennai</p>
-  <div style="margin: 24px 0;">
-    <p><button>Email</button></p>
+          <div class="profile">Profile Details</div>
+<!-- form -->
+   <div class="containermain">
+    <div class="input"><label>Name:</label><input id="name" type="text" maxlength="20"></div>
+    <!-- <div class="input"><label >Mobile-Number:</label><input id="phno"  type="number" maxlength="10"></div> -->
+    <div class="input"><label >Email:</label><input id="email"  type="email" ></div>
+    <div class="input"><label >Password:</label><input id="password"  type="password" ></div>
+    <a class="inputs" href="../pages/appoin.html"><button class="btn">Save</button></a>
+    <!-- form ends -->
+
+                  
+   </div>
+   <script>
+          let profile=JSON.parse(window.localStorage.getItem("data"));
+          console.log(profile);
+          document.getElementById("name").value=profile[0]["username"];
+          document.getElementById("email").value=profile[0]["useremail"];
+          document.getElementById("password").value=profile[0]["userpassword"]
+      
+
+        
+
+         
+
+   </script>
 </body>
 </html>
+    
+   
+
+   

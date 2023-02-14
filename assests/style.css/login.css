@@ -37,7 +37,7 @@ label{
 	transition: .5s ease-in-out;
 }
 input{
-	width: 60%;
+	width:60%;
 	height: 20px;
 	background: #e0dede;
 	justify-content: center;
@@ -54,7 +54,7 @@ button{
 	margin: 10px auto;
 	justify-content: center;
 	display: block;
-	color: #fff;
+	color: #151616;
 	background: #37f03d;
 	font-size: 1em;
 	font-weight: bold;
@@ -70,28 +70,16 @@ button:hover{
 	background: #46e7e7;
 }
 .login{
-	height: 860px;
-	background: #eee;
+	height: 560px;
+	width:680px;
+	background: #bba8a8;
 	border-radius: 60% / 10%;
 	transform: translateY(-180px);
 	/* transition: .8s ease-in-out; */
 }
 .login label{
 	color: #181818;
-	transform: scale(.10);
 }
-
-#chk:checked ~ .login{
-	transform: translateY(-600px);
-}
-.login label{
-	transform: scale(1);	
-}
-.signup label{
-	transform: scale(.6);
-}
-
-
 input:valid {
     background-color: palegreen;
 }
