@@ -14,80 +14,37 @@ body{
   padding: 10px;
   background: linear-gradient(135deg, #e9f0f5, #3bcbc1);
 }
-.container_{
+.container{
   max-width: 700px;
-  width: 100%;
+  width: 400%;
+  height:400px;
   background-color: #fff;
   padding: 25px 30px;
   border-radius: 5px;
   box-shadow: 0 5px 10px rgba(0,0,0,0.15);
 }
-.container_ .title{
+.container .title{
   font-size: 25px;
   font-weight: 500;
-  position: relative;
+  /* position: relative; */
 }
-
-.content form .usersdetails{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin: 90px 0 12px 0;
-  height:900px;
-  width:1000px;
+   form input[type="radio"]{
+   display;
+   margin-left: 200px;
+ } 
+  form input[type="text"]{
+ 
+  margin-left: 0px;
 }
-form .user-details .inputboxs{
-  margin-bottom: 15px;
-  width: calc(100% / 2 - 20px);
-}
-form .inputboxs span.details{
-  display: block;
-  font-weight: 500;
-  margin-bottom: 5px;
-}
-.userdetails .inputboxs input{
-  height: 45px;
-  width: 100%;
-  outline: none;
-  font-size: 16px;
-  border-radius: 5px;
-  padding-left: 15px;
-  border: 1px solid #ccc;
-  border-bottom-width: 2px;
-  transition: all 0.3s ease;
-}
- form .category{
-   display: flex;
-   width: 80%;
-   margin: 14px 0 ;
-   justify-content: space-between;
- }
- form .category label{
-   display: flex;
-   align-items: center;
-   cursor: pointer;
- }
- form .category label .dot{
-  height: 18px;
-  width: 18px;
-  border-radius: 50%;
-  margin-right: 10px;
-  background: #d9d9d9;
-  border: 5px solid transparent;
-  transition: all 0.3s ease;
-}
- form input[type="radio"]{
-   display: none;
- }
  form .button{
    height: 45px;
    margin: 35px 0
- }
+ } 
  form .button input{
    height: 100%;
    width: 100%;
-   border-radius:25px;
-   border: none;
+   border-radius:65px;
+   border: none; 
    color: #fff;
    font-size: 18px;
    font-weight: 500;
@@ -97,7 +54,7 @@ form .inputboxs span.details{
    background: linear-gradient(135deg, #71b7e6, #9b59b6);
  }
  form .button input:hover{
-  /* transform: scale(0.99); */
+  transform: scale(0.99);
   background: linear-gradient(-135deg, #71b7e6, #9b59b6);
   }
  @media(max-width: 584px){
@@ -123,4 +80,4 @@ form .user-details .input-box{
   .container .content .category{
     flex-direction: column;
   }
-}
+} */
