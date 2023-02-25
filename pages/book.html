@@ -9,7 +9,7 @@
 </head>
 <body>
     
-                    <div class="container">
+                    <!-- <div class="container">
                         <div class="title">
                             <form action="#">
                                 <div class="userdetail">
@@ -55,9 +55,39 @@
                             </form>
                         </div>
                     </div>
+ -->
 
+
+ <div class="main">  	
+    <input type="checkbox" id="chk" aria-hidden="true">
+        <div class="signup">
+            <form name="app" id="signup">
+                <label for="chk">Sign Up</label>
+                <input type="text"  name="reqname"id="txt" placeholder="User name" pattern="[a-z]{6}">
+                <input type="email" name="reqemail" id="email" placeholder="Email">
+                <input type="password" name="reqpass" id="pswd" placeholder="address" > 
+                <input type="password" name="repass" id="cpswd" placeholder="d.o.b" >
+                <input type="password" name="repass" id="cpswd" placeholder="suffering from" >
+                <label for="party"></label>
+                <input
+  id="party"
+  type="datetime-local"
+  name="partydate"
+  value="2017-06-01T08:30" />
+                <button type="submit"  id="signin">BOOK NOW</button>
+           
+                
+            </form>
+        </div>
+
+</div>
              
     <script>
+        
+// function submit() {
+//   alert("Hello! I am an alert box!");
+// }
+
          function submit(){
                 const name= document.getElementById("name").value
                 const phone=document.getElementById("address").value

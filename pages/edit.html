@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../assests/style.css/edit.css">
+</head>
+<body>
+    <!-- <div class="containermain">
+    <div class="input"><label>Name:</label><input id="name" type="text" maxlength="20"></div>
+      <div class="input"><label >Mobile-Number:</label><input id="phno"  type="number" maxlength="10"></div>  -->
+    <!-- <div class="input"><label >Email:</label><input id="email"  type="email" ></div>
+    <div class="input"><label >Password:</label><input id="password"  type="password" ></div>
+    <a class="inputs" href="../pages/appoin.html"><button class="btn" id="saveEdit">Save</button></a>
+     <button class="btn1">DELETE</button>  -->
+
+    <!-- </form>
+  </div>
+</section>
+ -->
+ <div class="box">
+  <div class="form">
+    <h2>Login </h2>
+    
+    <div class="inputBox">
+      <i class="fa-solid fa-user"></i>
+      <input type="text" placeholder="Username" required='required'>     
+    </div>
+    
+    <div class="inputBox">
+      <i class="fa-solid fa-lock"></i>
+      <input type="text" placeholder="Password" required='required'>  
+    </div>
+    
+      <a href="#"> Forgot Password</a> 
+    <input class='loginButton' type="submit" value="Login">
+     <p> Not a member? <a href="#"> Sign up</a> </p>
+    
+  
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+<script>
+     let profile=JSON.parse(localStorage.getItem("data"));
+          console.log(profile);
+          document.getElementById("name").value=profile[0]["username"];
+          document.getElementById("email").value=profile[0]["useremail"];
+          document.getElementById("password").value=profile[0]["userpassword"]
+
+//validation
+          let save = document.getElementById("saveEdit");
+          save.addEventListener("click",(event) => {
+              event.preventDefault();
+
+              let useremail = document.getElementById("email").value;
+              let username = document.getElementById("name").value;
+              let userpassword = document.getElementById("password").value;
+
+              let newData = {
+                useremail,username,userpassword
+              }
+              let data = JSON.parse(localStorage.getItem("data"));
+            console.log(data)
+            let olddata = data.find(i => i.useremail == useremail)
+            console.log(olddata)
+            if (olddata == undefined) {
+                alert("Email Id not match")
+            }
+            
+            else {
+                let updated = Object.assign(olddata, newData);
+                console.log(data)
+                console.log(olddata)
+                let index = data.indexOf(olddata.email);
+                data[index] = updated;
+                console.log(data)
+                localStorage.setItem("data", JSON.stringify(data));
+            
+          }
+        });
+
+        // delete the account
+                        document.getElementById("saveEdit");
+                        
+                      
+
+        //Get New userDatas
+// Get Old User Datas
+// check if email not match alert otherwise combine the old and new userdatas./
+// find the old userdata index in the array/
+// replace the combined data in the old data index/
+</script>
+</html>

@@ -28,28 +28,38 @@
     </div>
     </section>  <div class="second">
         <div class="main2">
-            <h1>10 + SPECIALITIES</h1>
-            <h4>Consult with top doctors across specialities</h4>
+            <!-- <h4>10 + SPECIALITIES</h4>
+            <h4>Consult with top doctors across specialities</h4> -->
                <h1>OUR DOCTORS</h1></div>
                <section id="raz">
-                   <div class="container"> 
+                   <!-- <div class="container">  -->
                    <!-- <button class="details"><a href="./details.html"><b>Learn More</b></a></button> -->
-                <img src="../assests/image/IMG-20230131-WA0006 (1).jpg">
+                 <!-- <img src="../assests/image/IMG-20230131-WA0006 (1).jpg">
                   <h2>Ishusankar</h2>
-                  <p>Gynocology</p> 
-        </div> 
+                   <p>GYNCOLOGY</p> 
+        </div>  -->
                </section>
                <script>
                 const online=[
               {
                 image:"../assests/image/IMG-20230131-WA0006 (1).jpg",
                 heading:"ishusankar",
-                para:"gynocology",
+                para:"gyncology",
 
               },
             {
                 image:"../assests/image/IMG-20230131-WA0006 (1).jpg",
-                heading:"vanitha",
+                heading:"Akash",
+                para:"paeditrician",
+            },
+            {
+                image:"../assests/image/IMG-20230131-WA0006 (1).jpg",
+                heading:"Praveen Pandian",
+                para:"paeditrician",
+            },
+            {
+                image:"../assests/image/IMG-20230131-WA0006 (1).jpg",
+                heading:"Nithya",
                 para:"paeditrician",
             },
             {
@@ -59,17 +69,14 @@
             },
             {
                 image:"../assests/image/IMG-20230131-WA0006 (1).jpg",
-                heading:"vanitha",
+                heading:"Alsabana",
                 para:"paeditrician",
+
             },
-            {
-                image:"../assests/image/IMG-20230131-WA0006 (1).jpg",
-                heading:"vanitha",
-                para:"paeditrician",
-            }
+           
      ]
               
-                for(let i=1;i<=4;i++){
+                for(let i=0;i<=6;i++){
                   let section=document.createElement("div")
                   section.setAttribute("class","container")
                   let secimg=document.createElement("img")
@@ -79,14 +86,23 @@
                   h2.innerText=online[i]["heading"]
                   section.append(h2)
                   let para=document.createElement("p")
-                  para.innerText=""
+                  para.setAttribute("class","paras")
+                  para.innerText=online[i]["para"]
                   section.append(para)
                   let details=document.createElement("btn")
                   details.setAttribute("details","./details.html")
                   section.append(details)
                   let finalpage=document.getElementById("raz")
                   finalpage.append(section)}
-               </script>
+             
+                  <script src="https://cdn.jsdelivr.net/npm/uuid@8.3.2/dist/umd/uuidv4.min.js">
+                  user_uuid=uuidv4();
+                  in function
+                    push(user_uuid)
+             
+             
+             
+             </script>
           </body>
           </html>
             

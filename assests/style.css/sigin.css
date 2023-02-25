@@ -42,7 +42,20 @@ input{
 	background: #e0dede;
 	justify-content: center;
 	display: flex;
+	margin: 10px auto;
+	padding: 10px;
+	border: none;
+	outline: none;
+	border-radius: 5px;
+}
+.Proffession{
+	width: 63%;
+	height: 33px;
+	background: #e0dede;
+	justify-content: center;
+	display: flex;
 	margin: 20px auto;
+	background-color: palegreen;
 	padding: 10px;
 	border: none;
 	outline: none;
@@ -51,7 +64,7 @@ input{
 button{
 	width: 60%;
 	height: 40px;
-	margin: 10px auto;
+	margin: -18px auto;
 	justify-content: center;
 	display: block;
 	color: #fff;

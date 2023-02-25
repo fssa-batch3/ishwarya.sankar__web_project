@@ -4,7 +4,7 @@
 .profile {
   font-size: 32px;
   font-weight: bold;
-  color: var(--body-text-color);
+  /* color: var(--body-text-color); */
   border-bottom: 10px  #1dcba8;
   margin: auto;
   width: 250px;
@@ -34,13 +34,14 @@ input {
   align-items: center;
   width: 120px;
   height: 50px;
-  border-radius: 10px;
+  border-radius: 15px;
   border: none;
   font-weight: bold;
   font-size: 16px;
   cursor: pointer;
   margin: auto;
   text-decoration: none;
+  margin-top: 20px;
 }
 .btn:hover {
   background-color:antiquewhite;

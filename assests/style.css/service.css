@@ -3,7 +3,8 @@
   margin: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
-  background: ;
+  height:fit-content;
+  
 }
 section {
   height: 100vh;
@@ -25,10 +26,10 @@ section {
 .card1 {
   width: 100%;
   height: 150%;
-  padding: 4em 1.5em;
+  padding: 4em .5em;
   margin-left: 150px;
   margin-top: 20px;
-  background: linear-gradient(#ffffff 50%, #c9ced5 50%);
+  background: linear-gradient(#a7d7bd 50%, #c9ced5 50%);
   background-size: 100% 200%;
   background-position: 0 2.5%;
   border-radius: 5px;
@@ -47,19 +48,6 @@ p {
   font-size: 15px;
   /* line-height: 1.6; */
   letter-spacing: 0.03em;
-}
-.icon {
-  /* background-color: #d4d9be; */
-  /* position: relative;
-  margin: auto;
-  font-size: 30px;
-  height: 2.5em;
-  width: 3.5em;
-  color: #ffffff;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  transition: 0.5s; */
 }
 .card1:hover {
   background-position: 0 100%;
