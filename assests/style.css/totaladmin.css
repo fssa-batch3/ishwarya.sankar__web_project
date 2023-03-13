@@ -99,8 +99,15 @@ text-align: center;
 .paras{
     font-size: 20px;
 }
-.btndoc{
+.btndo{
        padding:5px;
+       border-radius: 10px;
+       border: none;
+       width:95px;
+
+}
+.btndoc{
+    padding:5px;
        border-radius: 10px;
        border: none;
        width:95px;

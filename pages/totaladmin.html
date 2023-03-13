@@ -4,15 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../assests/style.css/online.css">
+    <title>full admin page</title>
+    <link rel="stylesheet" href="../assests/style.css/totaladmin.css">
 </head>
-
 <body>
-    
-            
-    
-    <section class="first-fold">
+    <!-- <section class="first-fold">
         <div class ="first">
         <div class="content">
         <h1>Skip the Travel!</h1>
@@ -27,23 +23,15 @@
     <div class="second">
          <img alt="med banner" class="imageweb" src="../assests/image/homepage-hero-image-web-v1.png" height="250px" width="auto">
 
-    </div>
+    </div> -->
     </section>  <div class="second">
         <div class="main2">
-            <!-- <h4>10 + SPECIALITIES</h4>
-            <h4>Consult with top doctors across specialities</h4> -->
-               <h1>OUR DOCTORS</h1></div>
+            <h1>Admin page</h1></div>
                <section id="raz">
-                   <!-- <div class="container">  -->
-                   <!-- <button class="details"><a href="./details.html"><b>Learn More</b></a></button> -->
-                 <!-- <img src="../assests/image/IMG-20230131-WA0006 (1).jpg">
-                  <h2>Ishusankar</h2>
-                   <p>GYNCOLOGY</p> 
-        </div>  -->
-               </section>
-               <script>
-                // let online = JSON.parse(localStorage.getItem("main"));
-    //             let onlineArr=[
+            </section>
+</body>
+<script>
+    //  let onlineArr=[
     //           {
     //             image:"../assests/image/IMG-20230131-WA0006 (1).jpg",
     //             heading:"ishusankar",
@@ -84,15 +72,17 @@
 
     //         },
            
-    //  ]       
-                    let onlineArr = JSON.parse(localStorage.getItem("whole"));
-                    console.log(onlineArr);
-                //     for (let i = 0; i < create_card.length; i++) {
-                //      onlineArr.push(create_card[i]);
-                //     console.log(onlineArr);
-                //    }
+    //  ] 
+    //  let create_card = JSON.parse(localStorage.getItem("main"));
+    //                 console.log(create_card);
+    //                 for (let i = 0; i < create_card.length; i++) {
+    //                  onlineArr.push(create_card[i]);
+    //                 console.log(onlineArr);
+    //                }
 
                                 
+  let onlineArr = JSON.parse(localStorage.getItem("whole"));
+    
                 for(let i=0;i<onlineArr.length;i++){
                   let section=document.createElement("div")
                   section.setAttribute("class","container")
@@ -115,13 +105,27 @@
                   work.innerText=onlineArr[i]["title"]
                   section.append(work)
 
+                  let anchor  =  document.createElement("a")
+                  anchor.setAttribute("href","./update.html?id="+onlineArr[i]["newid"])
+                  section.append(anchor);
+
                   let button =document.createElement("button")
-                  button.setAttribute("class","btndoc")
-                  button.setAttribute("id",onlineArr[i]["newid"])
-                  button.innerText = "Doctordetails"
-                  button.setAttribute("onclick","btn(this.id)")
-                  button.setAttribute("type","submit")
-                  section.append(button)
+                  button.setAttribute("class","btndo")
+                  button.innerText = "edit" 
+                  anchor.append(button)
+                  
+
+                
+                  
+
+                //   let newbtn =document.createElement("button")
+                //   button.setAttribute("class","btndoc")
+                //   button.innerText = "Delete" 
+                //   section.append(newbtn);
+
+
+
+          
                   
                   let details=document.createElement("btn")
                   details.setAttribute("details","./details.html")
@@ -147,15 +151,9 @@ function btn(e){
 
     window.localStorage.setItem("editData",JSON.stringify(editArr)); 
 
-    window.location.href="../pages/doc1.html";
+    window.location.href="../pages/update.html";
 }
 
- 
-
-
-               
-             </script>
-          </body>
-          </html>
-            
-        
+       
+</script>
+</html>

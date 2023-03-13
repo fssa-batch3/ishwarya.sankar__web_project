@@ -1,4 +1,8 @@
-body{
+ 
+ 
+ @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins:wght@500&display=swap');
+
+ body{
 	margin: 0;
 	padding: 0;
 	display: flex;
@@ -6,11 +10,12 @@ body{
 	align-items: center;
 	min-height: 100vh;
 	font-family: 'Jost', sans-serif;
-	background: linear-gradient(to bottom, #ecebf2, #79d1d0, #858588);
+	background: linear-gradient(to bottom, #ecebf2, #c3dada, #5e9fa1);
 	/* margin-left: 690px; */
-}
+ }
 .main{
-	width: 650px;
+	display: block;
+	width: 60px;
 	height: 600px;
 	background: rgb(163, 212, 203);
 	overflow: hidden;
@@ -70,13 +75,14 @@ button:hover{
 	background: #46e7e7;
 }
 .login{
-	height: 560px;
-	width:680px;
-	background: #bba8a8;
-	border-radius: 60% / 10%;
-	transform: translateY(-180px);
-	/* transition: .8s ease-in-out; */
-}
+	height: 450px;
+	width:600px;
+	background: #c9bfbf;
+	border-radius:10%;
+	transform: translateY(-180px); 
+	 transition: .8s ease-in-out; 
+	 margin-top:290px;
+ }
 .login label{
 	color: #181818;
 }
@@ -86,4 +92,4 @@ input:valid {
 
 input:invalid {
     background-color: lightpink;
-}
+} 

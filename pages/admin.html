@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>admin page</title>
+</head>
+<body>
+   
+    <form id="form">
+        <div class="inputBox">
+          <input id="image" type="text" name="" required="required" />
+          <span>Image Url</span>
+        </div>
+        <div class="inputBox">
+          <input id="docname" type="text" name="" required="required" />
+          <span>Doctor Name</span>
+        </div>
+        <div class="inputBox">
+          <input id="Special" type="text" name="" required="required" />
+          <span>specialist</span>
+        </div>
+        <div class="inputBox">
+          <input id="title" type="text" name="" required="required" />
+          <span>experience</span>
+        </div>
+        
+        <button type="submit" class="btn5">Send</button>
+      </form>    
+
+      <script>
+          document.getElementById("form")
+        .addEventListener ("submit",function(event){
+          event.preventDefault();
+
+          let main = {};
+          let img=document.getElementById("image").value;
+           main["image"]=img;
+    
+           let name=document.getElementById("docname").value;
+           main["docname"]=name;
+
+
+           let spl=document.getElementById("Special").value;
+           main["Special"]=spl;
+
+           let exp=document.getElementById("title").value;
+           main["title"]=exp;
+
+           let doctorid=Date.now()
+           main ["newid"]=doctorid
+
+
+           let arr=[];
+           arr.push(main)
+           if(window.localStorage.getItem("whole")===null){
+	 						window.localStorage.setItem("whole",JSON.stringify( arr));
+							console.log(window.localStorage.getItem("whole"));
+	 					  }
+					     else{
+							     let users=window.localStorage.getItem("whole");
+	 								 let userjs=JSON.parse(users);
+                   userjs.push(main)
+								//  if(match==true){
+								// 	alert("signed in suceesfully")
+								//  }
+								 
+								 window.localStorage.setItem("whole",JSON.stringify(userjs));
+							 }
+
+
+          //  let all = [];
+          //  if (localStorage.getItem("main")!=null){
+          //  let  all=JSON.parse(localStorage.getItem("main"));
+          //  }
+
+          //  all.push(main)
+          // let whole=  localStorage.setItem("whole",JSON.stringify(all));
+              
+
+
+        });
+      </script>
+        
+</body>
+</html>

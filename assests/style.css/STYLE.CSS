@@ -1,9 +1,9 @@
 
- 
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
  .btn1{
    /* justify-content: left; */
    padding:9px;
-   /* top:990px; */
+    margin-top:90px; 
 
    /* top: 100px; */
    /* left:290px; */
@@ -21,7 +21,7 @@
  .btn1:hover{
        color:rgb(122, 57, 57);
        background-color: antiquewhite;
-       font-size:26px;
+       /* font-size:26px; */
  }
  a{
   text-decoration: none;
@@ -46,6 +46,10 @@
    /* height: 100%;  */
    /* width: fit-content ;   */
  }
+ .container:hover{
+  color:rebeccapurple;
+ }
+
  
  .container .box {
    background: rgb(241, 235, 244);
@@ -71,13 +75,13 @@
   transition:  0.5s;
 }
 .container .box h2 {
-  /* position: absolute; */
+  position: absolute; 
   font-size: 4rem;
   font-weight: 800;
   z-index: 1;
   opacity: 0.5;
   transition: 0.5s;
-  margin-bottom: 2px;
+  margin-bottom: -2px;
   justify-content: center;
   display: flex;
   margin-right: 100%;
@@ -99,6 +103,7 @@
   color: #333;
   transition: 0.5s;
 }
+
 .opacity{
       /* position: absolute; */
       top:1300px;
@@ -135,8 +140,6 @@ span img{
 }
 .vcall-h2:hover{
  color: royalblue;
- font-size:29px;
- font-family: cursive;
 }
 .vcall-h6{
   position: relative; 
@@ -192,13 +195,13 @@ footer{
  height:3px;
  width:0px;
  background-color: rgba(182, 59, 96, 0.903);
- /* position: absolute; */
+  /* position: absolute;  */
  bottom: 0;
  left:0;
  transition: 0.3s ease;
 }
 .col h3:hover::after{
- width:30px
+ width:30px;
 }
 .col .social a i{
  color:rgb(117, 48, 48);
@@ -221,7 +224,7 @@ footer{
 .col .links a::before{
  content:'';
  height: 6px;
- /* width:3px; */
+ /* width:3px;  */
  position: absolute;
  top:5px;
  left:-40px;
@@ -279,7 +282,7 @@ footer{
   display:flex;
   justify-content: center;
     margin-top: -800px;  
-   background-color: #bcce1c;
+   background-color: #e2e3db;
    height: 150px;
    
 } 
@@ -287,7 +290,7 @@ footer{
   z-index: 4; 
 }
 .benefits{
-         background-color: #ddcee0;
+         background-color: #a49ba5;
 }
 
 .faqwhole {
@@ -295,7 +298,7 @@ footer{
   justify-content: space-around;
   align-items: center;
   padding:30px;
-  gap: 300px;
+  gap: 200px;
 
 }
 .faqwh2 h1{ 
@@ -306,8 +309,7 @@ footer{
       display: flex;
 }
 .faqwh2 h1:hover{
-          color: #100115;
-          font-size:35px;
+  color:red;
 }
 .faqwh2 h3{
     color: #100115;
@@ -336,6 +338,9 @@ footer{
   text-align: center;
   padding-top: 50px;
 }
+.ben:hover{
+  color:violet
+}
 .sec{
   /* max-width: 400px; */
   flex-basis: 33.3%;
@@ -346,9 +351,10 @@ footer{
       display: flex;
       flex-direction:column;
 }
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
 
 * {
+  
       font-family: 'Poppins', sans-serif;
       margin: 0px;
       padding: 0px;
@@ -356,6 +362,7 @@ footer{
       text-decoration: none;
       list-style-type: none;
       overflow-x: hidden;
+     
   }
   .main {
       background:#e3e2e2;
@@ -367,12 +374,15 @@ footer{
      
   }
    .main h1 {
-      color: aqua;
+      color: rgb(3, 3, 3);
       margin-top: 1em;
       margin-left: 2rem;
   }
   h1 span {
       color: black;
+  }
+  h1 span:hover{
+    color:blue;
   }
   .imglogo {
       width: 250px;
@@ -411,6 +421,8 @@ h1 span{
   margin-left:50px;
    
 }
+
+
 
 @media screen and (max-width:410px) { 
  body{

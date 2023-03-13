@@ -22,7 +22,8 @@
 						  <option value="saab">Patient</option>
 						</select>
 					<button type="submit"  id="signin">Sign up</button>
-					<button type="submit"  id="signin">Log In</button>
+					<a><button type="submit"  id="signin" href="./login.html"> Doctor's Log In</button></a>
+					<a><button type="submit"  id="signin" href="../pages/login.html"> Patient's Log In</button></a>
 					
 				</form>
 			</div>
@@ -70,7 +71,7 @@
    if(match==true){
  	alert("already exist");
    }
-	  else{
+	//   else{
 
 		if(window.localStorage.getItem("obj")===null){
 	 						window.localStorage.setItem("obj",JSON.stringify( main));
@@ -80,13 +81,16 @@
 							     let users=window.localStorage.getItem("obj");
 	 								 let userjs=JSON.parse(users);
 								 userjs.push(object);
+								//  if(match==true){
+								// 	alert("signed in suceesfully")
+								//  }
 								 localStorage.removeItem("obj")
 								 window.localStorage.setItem("obj",JSON.stringify(userjs));
 							 }
 
 
 	  }
-	}
+	
 	</script>
  </body>
  </html>
