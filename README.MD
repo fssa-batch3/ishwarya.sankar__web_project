@@ -5,6 +5,7 @@ CRUD For User signing page
 => Delete user details For deactivate [completed]
 CRUD For doctors Features page
 => Create products card/list [completed]
-=> Read Product Data For card [pending]
-=> Update user details For card [pending..]
-=> Deactivate Product details For Card [pending..]
+=> Read Product Data For card [completed]
+=> Update user details For card [
+completed]
+=> Deactivate Product details For Card [completed..]
