@@ -16,8 +16,11 @@ CRUD FOR REVIEW PAGE
 => Read Product Data For card [completed]
 => Update user details For card {
 COMPLETED
-=> Deactivate Product details For Card [WOWRKING..]
-
+=> Deactivate Product details For Card [WORKING..]
+> Create products card/list [PENDING]
+=> Read Product Data For card [PENDING]
+=> Update user details For card {
+PENDING
 APPOINTMENT PAGE [WORKING]
 CHAT OPTION [PENDING]
 
