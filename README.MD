@@ -1,3 +1,4 @@
+
 CRUD For User signing page
 => Create user account [completed]
 => Read User Data For Profile Page [completed]
@@ -6,6 +7,18 @@ CRUD For User signing page
 CRUD For doctors Features page
 => Create products card/list [completed]
 => Read Product Data For card [completed]
-=> Update user details For card [
+=> Update user details For card {
 completed]
-=> Deactivate Product details For Card [completed..]
+=> Deactivate Product details For Card [completed..
+
+CRUD FOR REVIEW PAGE 
+=> Create products card/list [completed]
+=> Read Product Data For card [completed]
+=> Update user details For card {
+COMPLETED
+=> Deactivate Product details For Card [WOWRKING..]
+
+APPOINTMENT PAGE [WORKING]
+CHAT OPTION [PENDING]
+
+
