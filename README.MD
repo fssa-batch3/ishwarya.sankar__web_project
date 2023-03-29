@@ -49,7 +49,7 @@ CHAT OPTION [PENDING]
     3. View the list of  Doctors.
   - Expected Result:
     - The user can view the list of Doctors.
-### View Dietitians details
+### View Doctors details
 - Scenario 1: Successfully view Doctors details
   - Steps:
     1. Log in as a patient.
@@ -57,7 +57,7 @@ CHAT OPTION [PENDING]
     3. Select a doctors to view those details.
   - Expected Result:
     - The user can view the details of the selected Doctors.
-### Book an appoinment with Dietitian
+### Book an appoinment with Doctors
 - Scenario 1: Successfully Book an appoinment
   - Steps:
     1. Log in as a patient.
