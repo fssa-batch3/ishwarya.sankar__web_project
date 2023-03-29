@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>admin review</title>
+    <link rel="stylesheet" href="../assests/style.css/adminrev.css">
+    </head>
+<body>
+    <div class="pov">
+        <div class="wrapper">
+            <h1>admin page</h1>
+            <h1>HEAR WHAT OUR CUSTOMERS SAY</h1>
+            <h5>CHECK WHAT THEY SAY ABOUT US</h5>
+
+            <div class="main"> 
+            </div>
+</body>
+<script>
+    let card_content = JSON.parse(localStorage.getItem("review"))
+
+for (let i = 0; i < card_content.length ; i++) {
+let div_cards = document.createElement("div")
+div_cards.setAttribute("class", "cards")
+document.querySelector("div.main").append(div_cards)
+
+let div_card = document.createElement("div")
+div_card.setAttribute("class", "card")
+div_cards.append(div_card)
+
+let cardimage = document.createElement("img")
+cardimage.setAttribute("src", card_content[i]["im_g"]);
+div_card.append(cardimage)
+
+let paragraph = document.createElement("p")
+paragraph.innerText = card_content[i]["Sp_l"];
+div_card.append(paragraph)
+
+let h2 = document.createElement("h2")
+h2.innerText = card_content[i]["dname"];
+div_card.append(h2)
+
+let h4 = document.createElement("h4")
+h4.innerText = card_content[i]["tx_t"];
+div_card.append(h4)
+
+let anchor=document.createElement("a")
+anchor.setAttribute("href","#")
+let editbutton=document.createElement("button")
+editbutton.innerText=["EDIT"]
+div_card.append(editbutton)
+
+let del=document.createElement("button")
+del.innerText=["delete"]
+div_card.append(del)
+} 
+// <firstcard>
+
+
+</script>
+</html>

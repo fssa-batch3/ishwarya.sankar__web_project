@@ -16,15 +16,15 @@
             <h1>HEAR WHAT OUR CUSTOMERS SAY</h1>
             <h5>CHECK WHAT THEY SAY ABOUT US</h5>
 
-            <div class="main"> -->
-                <div class="cards">
+            <div class="main"> 
+            </div>
         <!-- <div class="card ">
             <img src="../assests/image/nurses_with_icu_patient-mufid_majnun.png">
             <p>Had irritation in my eyes.Dr.Atul raj did the check up.Very satisfied with the diagnosis and treatment.the doctor was very professional and efficient and explained everything.</p>
             <h4>PATIENT</h4>
             <i class="fa fa-quote-left"></i>
         </div> -->
-      </div>
+      
      <!-- <div class="cards">
         <div class="card">
             <img src="../assests/image/photo-1578496781985-452d4a934d50.png">
@@ -47,50 +47,54 @@
         </div>
     </div> -->
     <script>
-        let card_content = [
-            {
-                image: "../assests/image/nurses_with_icu_patient-mufid_majnun.png",
-                para: "Had irritation in my eyes.Dr.Atul raj did the check up.Very satisfied with the diagnosis and treatment.the doctor was very professional and efficient and explained everything",
-                heading: "RAM",
-                heading_2: "PATIENT"
-            },
-            {
-                image: "../assests/image/photo-1578496781985-452d4a934d50.png",
-                para: "Visited Dr.Nithya(Oncologist).She gave me positive  words and confident thought which created me fearless about my treatment.Her approach is so kind",
-                heading: "ANI", 
-                heading_2: "PATIENT"
-            },
-            { image: "../assests/image/photo-1578496781985-452d4a934d50.png",
-             para: "I am Kani.I am an lymphoma patient and I had taken treatment from 2019 march till last February now I am absolutely alright, Here the doctors (Dr. Shashidhar, Dr. Manjunath and team) are very kind and good",
-              heading: "Ishu", 
-              heading_2: "PATIENT" },
-               { image: "../assests/image/photo-1578496781985-452d4a934d50.png",
-             para: "I am Kani.I am an lymphoma patient and I had taken treatment from 2019 march till last February now I am absolutely alright, Here the doctors (Dr. Shashidhar, Dr. Manjunath and team) are very kind and good",
-              heading: "Arun", 
-              heading_2: "PATIENT" }]
+        // let card_content = [
+        //     {
+        //         image: "../assests/image/nurses_with_icu_patient-mufid_majnun.png",
+        //         para: "Had irritation in my eyes.Dr.Atul raj did the check up.Very satisfied with the diagnosis and treatment.the doctor was very professional and efficient and explained everything",
+        //         heading: "RAM",
+        //         heading_2: "PATIENT"
+        //     },
+        //     {
+        //         image: "../assests/image/photo-1578496781985-452d4a934d50.png",
+        //         para: "Visited Dr.Nithya(Oncologist).She gave me positive  words and confident thought which created me fearless about my treatment.Her approach is so kind",
+        //         heading: "ANI", 
+        //         heading_2: "PATIENT"
+        //     },
+        //     { image: "../assests/image/photo-1578496781985-452d4a934d50.png",
+        //      para: "I am Kani.I am an lymphoma patient and I had taken treatment from 2019 march till last February now I am absolutely alright, Here the doctors (Dr. Shashidhar, Dr. Manjunath and team) are very kind and good",
+        //       heading: "Ishu", 
+        //       heading_2: "PATIENT" },
+        //        { image: "../assests/image/photo-1578496781985-452d4a934d50.png",
+        //      para: "I am Kani.I am an lymphoma patient and I had taken treatment from 2019 march till last February now I am absolutely alright, Here the doctors (Dr. Shashidhar, Dr. Manjunath and team) are very kind and good",
+        //       heading: "Arun", 
+        //       heading_2: "PATIENT" }]
 
-        for (let i = 0; i <=3; i++) {
+        let card_content = JSON.parse(localStorage.getItem("review"))
+
+        for (let i = 0; i < card_content.length ; i++) {
             let cardscontainer = document.createElement("div")
             cardscontainer.setAttribute("class", "cards")
+            document.querySelector("div.main").append(cardscontainer)
+
 
             let firstcard = document.createElement("div")
             firstcard.setAttribute("class", "card")
             cardscontainer.append(firstcard)
 
             let cardimage = document.createElement("img")
-            cardimage.setAttribute("src", card_content[i]["image"]);
+            cardimage.setAttribute("src", card_content[i]["im_g"]);
             firstcard.append(cardimage)
 
             let paragraph = document.createElement("p")
-            paragraph.innerText = card_content[i]["para"];
+            paragraph.innerText = card_content[i]["Sp_l"];
             firstcard.append(paragraph)
 
             let h2 = document.createElement("h2")
-            h2.innerText = card_content[i]["heading"];
+            h2.innerText = card_content[i]["dname"];
             firstcard.append(h2)
 
             let h4 = document.createElement("h4")
-            h4.innerText = card_content[i]["heading_2"];
+            h4.innerText = card_content[i]["tx_t"];
             firstcard.append(h4)
             
             let main = document.querySelector(".main")
