@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./productlist.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+    
+  <div class="second">
+    
+    
+    <div class="main2">
+       
+        <h1>OUR PRODUCTS</h1></div>
+                
+                 
+          
+       
+                    <i id="cart-icon" class='bx bx-shopping-bag' ></i>
+
+                    <div class="cart">
+                        <h2 class="cart-title">Your Cart</h2>
+                
+                        <div class="cart-content">
+                
+                        </div>
+                        <!-- total -->
+                        <div class="total">
+                            <div class="total-title">Total</div>
+                            <div class="total-price">$0</div>
+                        </div>
+                        <!-- buy button -->
+                        <button class="btn-buy" type="button">Buy Now</button>
+                        <!-- cart close -->
+                        <i id="close-cart" class='bx bx-x'></i>
+                    </div>
+                
+                </div>
+                </header>
+           <section id="product">
+              
+           </section>
+           <script>
+            // let online = JSON.parse(localStorage.getItem("main"));
+            const onlineArr=[
+        //   {
+        //     image:"https://www.practostatic.com/practopedia-images/v3/res-750/zincovit-tablet-15-s_b65a0677-01fc-4490-aa89-d357ecab7166.JPG",
+        //     heading:"ishusankar",
+        //     para:"$100",
+        //  uuid :self.crypto.randomUUID(),
+
+        //   },
+        // {
+        //     image:"https://www.netmeds.com/images/product-v1/600x600/22528/becosules_performance_capsule_15_s_0.jpg",
+        //     heading:"Akash",
+        //     para:"$100",
+        //     uuid :Date.now(),
+
+           
+        // },
+        // {
+        //     image:"https://meds.myupchar.com/2641/Neurobion-Forte-Tablet-1.jpg",
+        //     heading:"Praveen Pandian",
+        //     para:"$100",
+        //     uuid : Date.now(),
+
+        // },
+        // {
+        //     image:"https://meds.myupchar.com/2641/Neurobion-Forte-Tablet-1.jpg",
+        //     heading:"Nithya",
+        //     para:"$100",
+        //     uuid :Date.now(),
+
+        // },
+        // {
+        //     image:"https://meds.myupchar.com/2641/Neurobion-Forte-Tablet-1.jpg",
+        //     heading:"vanitha",
+        //     para:"$100",
+        //     uuid :Date.now(),
+
+           
+        // },
+        // {
+        //     image:"https://meds.myupchar.com/2641/Neurobion-Forte-Tablet-1.jpg",
+        //     heading:"Alsabana",
+        //     para:"$100",
+        //     uuid :Date.now(),
+        // }, {
+        //     image:"https://meds.myupchar.com/2641/Neurobion-Forte-Tablet-1.jpg",
+        //     heading:"Alsabana",
+        //     para:"$100",
+        //     uuid :Date.now(),
+           
+
+        // },
+        // {
+        //     image:"https://meds.myupchar.com/2641/Neurobion-Forte-Tablet-1.jpg",
+        //     heading:"Alsabana",
+        //     para:"$100",
+        //     uuid :Date.now(),
+           
+
+        // },
+        // {
+        //     image:"https://meds.myupchar.com/2641/Neurobion-Forte-Tablet-1.jpg",
+        //     heading:"Alsabana",
+        //     para:"$100",
+        //     uuid :Date.now(),
+           
+
+        // }
+
+       
+            
+ ]     ;  
+
+ let medicine = JSON.parse(localStorage.getItem("Medicine"));
+ console.log(medicine)
+for (let i=0; i <medicine.length; i++ ){
+    onlineArr.push(medicine[i]);
+}
+ 
+ 
+             
+            
+
+                            
+            for(let i=0;i<onlineArr.length;i++){
+              let section=document.createElement("div")
+              section.setAttribute("class","container")
+
+              let secimg=document.createElement("img")
+              secimg.setAttribute("src",onlineArr[i]["image"])
+              section.append(secimg)
+
+              let h2=document.createElement("h2")
+              h2.innerText=onlineArr[i]["heading"]
+              section.append(h2)
+
+              let para=document.createElement("p")
+              para.setAttribute("class","paras")
+              para.innerText=onlineArr[i]["para"]
+              section.append(para)
+
+           
+              let button =document.createElement("button")
+              button.setAttribute("id","add-to-cart")
+              
+
+              button.innerText = "Add to cart"
+
+              button.setAttribute("onclick","addToCart()")
+           
+               section.append(button)
+               
+
+
+
+             
+
+            
+              let finalpage=document.getElementById("product")
+              finalpage.append(section)
+            }
+    
+           
+localStorage.setItem("array",JSON.stringify(onlineArr));  
+			
+function btn(e){
+
+let array=[];
+
+let pid={
+    newid:e,
+}
+
+array.push(pid)
+console.log(array)
+
+}
+
+
+		// Get the "Add to Cart" button element
+		var addToCartBtn = document.getElementById("add-to-cart");
+
+		// Add a click event listener to the button
+		addToCartBtn.addEventListener("click", function() {
+			// When the button is clicked, add the product to the cart
+			addToCart();
+		});
+
+		function addToCart() {
+			// Code to add the product to the cart goes here
+			alert("Product added to cart!");
+		}
+
+      
+    let cartIcon = document.querySelector('#cart-icon');
+let cart = document.querySelector('.cart');
+let closeCart = document.querySelector('#close-cart');
+
+// == Open cart
+cartIcon.onclick = () => {
+	cart.classList.add('active');
+};
+
+// == Close cart
+closeCart.onclick = () => {
+	cart.classList.remove('active');
+};
+function addCartClicked(event) {
+  var button = event.target;
+  var shopProducts = button.parentElement;
+  var title = shopProducts.getElementsByClassName('product-title')[0].innerText;
+  var price = shopProducts.getElementsByClassName('price')[0].innerText;
+  var productImg = shopProducts.getElementsByClassName('product-img')[0].src;
+  addProductToCart(title, price, productImg);
+  updatetotal();
+};  
+
+
+// == Making Function
+function ready() {
+	// Remove items from cart
+	var removeCartButtons = document.getElementsByClassName('cart-remove');
+	console.log(removeCartButtons);
+	for (var i = 0; i < removeCartButtons.length; i++) {
+		var button = removeCartButtons[i];
+		button.addEventListener('click', removeCartItem);
+	}
+	// == Quantity changes
+	var quantityInputs = document.getElementsByClassName('cart-quantity');
+	for (var i = 0; i < quantityInputs.length; i++) {
+		var input = quantityInputs[i];
+		input.addEventListener('change', quantityChanged);
+	}
+	// Add to cart
+	var addCart = document.getElementsByClassName('add-cart');
+	for (var i = 0; i < addCart.length; i++) {
+		var button = addCart[i];
+		button.addEventListener('click', addCartClicked);
+	}
+}
+
+         </script>
+      
+      </html>
+        
+
+</body>

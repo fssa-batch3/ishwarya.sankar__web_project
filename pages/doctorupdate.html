@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doctor update</title>
+  <link rel="stylesheet" href="../assests/style.css/update.css">
+</head>
+<div class="form">
+  <form id="all">
+    <div class="inputBox">
+      <input id="image" type="text" name="" required="required" />
+      <span>Image Url</span>
+    </div>
+    <div class="inputBox">
+      <input id="docname" type="text" name="" required="required" />
+      <span>Doctor Name</span>
+    </div>
+    <div class="inputBox">
+      <input id="Sp_cecial" type="text" name="" required="required" />
+      <span>specialist</span>
+    </div>
+    <div class="inputBox">
+      <input id="title" type="text" name="" required="required" />
+      <span>experience</span>
+    </div>
+
+    <button type="submit" id="edit" class="btn5">edit</button>
+<body>
+
+
+  <button type="submit" id="del" onclick="delData()" class="btn5">Delete</button>
+  <script>
+    //update
+    //url params//
+    let array = JSON.parse(localStorage.getItem("whole"))
+    let url = location.search
+    let prams = new URLSearchParams(url)
+    let id = prams.get("id")
+    console.log(id)
+    let findarray= array.find(function (user){
+      let newid = user["newid"];
+      console.log(id);
+      if(id == newid){
+        return true;
+      } else{
+        return false;
+      }
+    });
+    console.log(findarray)
+    let index = array.indexOf(findarray);
+
+    let image = document.getElementById("image");
+      let docname = document.getElementById("docname");
+      let Sp_cecial = document.getElementById("Sp_cecial");
+      let title = document.getElementById("title");
+
+      image.value = findarray["image"]
+      docname.value = findarray["docname"];
+      Sp_cecial.value = findarray["Special"];
+      title.value = findarray["title"]
+
+    document.getElementById("edit").addEventListener("click", (event) => {
+      event.preventDefault();
+
+      let image = document.getElementById("image").value;
+      let docname = document.getElementById("docname").value;
+      let Sp_cecial = document.getElementById("Sp_cecial").value;
+      let title = document.getElementById("title").value;
+
+      let newData = {
+        image,
+        docname,
+        Special: Sp_cecial,
+        title
+      }
+      console.log(newData);
+
+      let oldData = array.find(A => A.newid == id);
+      console.log(oldData);
+      let updated = Object.assign(oldData,newData);
+      array[index] = updated;
+
+      localStorage.setItem("whole",JSON.stringify(array));
+      location.href = "totaladmin.html";
+    })
+
+
+    //delete 
+
+        function delData() {
+          let  con = confirm("are you sure ")
+            if (con == true) {
+                // let uid = JSON.parse(localStorage.getItem("whole"));
+                // let product = JSON.parse(localStorage.getItem("whole"))
+                array.splice(index, -1);
+
+                localStorage.setItem('whole', JSON.stringify(array));
+                alert("deleted successfully")
+            };
+        }
+
+  </script>
+</body>
+
+</html>

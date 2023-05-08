@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rev edit</title>
+</head>
+<body>
+    <form id="form">
+        <div class="inputBox">
+          <input id="im_g" type="text" name="" required="required" />
+          <span>Image Url</span>
+        </div>
+        <div class="inputBox">
+          <input id="dname" type="text" name="" required="required" />
+          <span>Patient Name</span>
+        </div>
+        <div class="inputBox">
+          <input id="Sp_l" type="text" name="" required="required" />
+          <span>illness</span>
+        </div>
+        <div class="inputBox">
+          <input id="tx_t" type="text" name="" required="required" />
+          <span>Text</span>
+        </div>
+        <button type="submit" class="btn5">Send</button>
+    
+        <button type="submit" id="editer" class="btn5">edit</button>
+        
+        
+      </form>
+      <button type="submit" id="del" onclick="delData()" class="btn5">Delete</button>
+      <script>
+       let form= document.getElementById("form")
+       console.log(form);
+      form  .addEventListener("submit",function(event){
+          event.preventDefault();
+    
+          let obj={};
+          let photos=document.getElementById("im_g").value;
+          obj["im_g"]=photos;
+    
+          let patientname=document.getElementById("dname").value;
+          obj["dname"]=patientname;
+    
+          let illnessname=document.getElementById("Sp_l").value;
+          obj["Sp_l"]=illnessname;
+          
+          let paragraph =document.getElementById("tx_t").value;
+          obj["tx_t"]=paragraph;
+    
+          
+          let uuid = crypto.randomUUID();
+          obj["uuid"]=uuid;
+          console.log(uuid)
+    
+          
+          
+          let newarr=[];
+          newarr.push(obj)
+          if(window.localStorage.getItem("review")===null){
+                                 window.localStorage.setItem("review",JSON.stringify(newarr));
+                                console.log(window.localStorage.getItem("review"));
+                               }
+                             else{
+                                     let user=window.localStorage.getItem("review");
+                                          let userjs=JSON.parse(user);
+                       userjs.push(obj)
+                       window.localStorage.setItem("review",JSON.stringify(userjs));
+        }
+      });
+        //update
+        //url params//
+        // let array = JSON.parse(localStorage.getItem("review"))
+        // console.log(array);
+        // let url = window.location.search
+        // console.log(url);
+        // let prams = new URLSearchParams(url)
+        // console.log(prams);
+        // let id1 = prams.get("id")
+        // console.log(id1);
+        // let index = array.indexOf(id1);
+        // console.log(id1)
+    
+    
+    
+        // edit html
+    
+    
+        let old = JSON.parse(localStorage.getItem("review"))
+    
+    
+        document.getElementById("editer").addEventListener("click", (event) => {
+          event.preventDefault();
+    
+          let image = document.getElementById("im_g").value;
+          let docname = document.getElementById("dname").value;
+          let Sp_cecial = document.getElementById("Sp_l").value;
+          let title = document.getElementById("tx_t").value;
+    
+          let newvalue= {
+            image,
+            docname,
+            Sp_cecial,
+            title
+          }
+          console.log(newvalue);
+    
+          let old = array.find(A => A.newid == id);
+          console.log(old);
+          let updated = Object.assign(old,newvalue);
+          array[index] = updated;
+    
+          localStorage.setItem("review",JSON.stringify(array));
+          location.href = "pages\home.html";
+        });</script>
+</body>
+</html>

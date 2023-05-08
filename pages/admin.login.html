@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Admin Login Page</title>
+    <link rel="stylesheet" type="text/css" href="../assests/style.css/admin.login.css">
+  </head>
+  <body>
+    <div class="login-container">
+      <h1> Admin Login</h1>
+      <form>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="submit" onclick="validate()">Submit</button>
+      </form>
+    </div>
+
+    <script>
+
+function validate() {
+  var username = document.getElementById("username").value;
+  var password = document.getElementById("password").value;
+
+  if (username == "example" && password == "password") {
+    alert("Login successful!");
+  } else {
+    alert("Incorrect username or password.");
+  }
+  
+}
+
+
+
+    </script>
+  </body>
+</html>

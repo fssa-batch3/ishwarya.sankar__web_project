@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cart</title>
+    <link rel="stylesheet" href="../assests/style.css/yourcart.css">
+</head>
+<body>
+    <i id="cart-icon" class='bx bx-shopping-bag'></i>
+
+    <div class="cart">
+        <h2 class="cart-title">Your Cart</h2>
+
+        <div class="cart-content">
+
+        </div>
+        <!-- total -->
+        <div class="total">
+            <div class="total-title">Total</div>
+            <div class="total-price">$0</div>
+        </div>
+        <!-- buy button -->
+        <button class="btn-buy" type="button">Buy Now</button>
+        <!-- cart close -->
+        <i id="close-cart" class='bx bx-x'></i>
+    </div>
+
+</div>
+</header>
+<script>
+    let cartIcon = document.querySelector('#cart-icon');
+let cart = document.querySelector('.cart');
+let closeCart = document.querySelector('#close-cart');
+
+// == Open cart
+cartIcon.onclick = () => {
+	cart.classList.add('active');
+};
+
+// == Close cart
+closeCart.onclick = () => {
+	cart.classList.remove('active');
+};
+</script>
+</body>
+</html>

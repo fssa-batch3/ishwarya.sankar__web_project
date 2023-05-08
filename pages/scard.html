@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>N Appointment</title>
+    <link rel="stylesheet" href="../assests/style.css/card.css">
+</head>
+<body>
+    <form id="main">
+        <div class="wrapper">
+            <div class="title">Appointment</div>
+            <!-- <form action="#"> -->
+                <div class="user-details">
+                    <div class="input-box">
+                        <span class="details"></span>
+                        <input type="text" placeholder="Full Name"  id="username">
+                    </div>
+                    <div class="input-box">
+                        <span class="details" ></span>
+                        <input type="email" placeholder="Email" id="email" >
+                    </div>
+                    <div class="input-box">
+                        <span class="details" ></span>
+                        <input type="number" placeholder="Phone Number" id="mobile" >
+                    </div>
+                    <div class="input-box">
+                        <span class="details"></span>
+                        <input type="text" placeholder="City" id="city">
+                    </div>
+                    <div class="input-box">
+                        <span class="details" ></span>
+                        <input type="text"     placeholder="Address"id="address" >
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-lg-4" id="dates">
+                          Date
+                        </label>
+                        <div class="col-sm-8 col-lg-8">
+                            <input type="date"id="date"class="form-control">
+                        </div>
+                    </div>
+                    <!---->
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-lg-4">
+                           Time
+                        </label>
+                        <div class="col-sm-8 col-lg-8">
+                            <input type="time"id="time"class="form-control">
+                           </div>
+                    </div>
+                    <div class="input-box">
+                        <span class="details" ></span>
+                        <input type="text"   placeholder="Message"id ="suffering">
+                    </div>
+                    <div class="input-box">
+                        <select id="option">
+                            <option >select specialist</option>
+                            <option value="Gynocology">Gynocology</option>
+                            <option value="Paedtrician">Paedtrician</option>
+                            <option value="neurology">neurology</option>
+                            <option value="Stomach and digestion">Stomach and digestion</option>
+                            <option value="Psycologist">Psycologist</option>
+                          </select>
+                        </div>
+                </div>
+                <div class="submit_btn">
+                    <button type="submit" class="button" value="Register">Register</button>
+                </div>
+            </form>
+
+<script>
+let appointments_arr =[]
+let appointments_obj= {}
+let form = document.getElementById("main");
+form.addEventListener("submit", function (event){
+    event.preventDefault();
+let fullname = document.getElementById("username").value;
+let email = document.getElementById("email").value;
+let phonenumber = document.getElementById("mobile").value;
+let city = document.getElementById("city").value;
+let address = document.getElementById("address").value;
+let date = document.getElementById("date").value;
+let time = document.getElementById("time").value;
+let suffering =document.getElementById("suffering").value
+let uuid = self.crypto.randomUUID()
+
+
+appointments_obj["fullname"] = fullname
+appointments_obj["email"] = email.toLowerCase()
+appointments_obj["phonenumber"] = phonenumber
+appointments_obj["city"] = city
+appointments_obj["address"] = address
+appointments_obj["date"] = date
+appointments_obj["time"] = time
+appointments_obj["suffering"] = suffering
+appointments_obj["uuid"] = uuid
+            let slt = document.getElementById("option")
+            if (option.value === "Gynocology") {
+                appointments_obj["specialist"]= "Gynocology";
+            } else if (option === "Paedtrician") {
+            appointments_obj["specialist"]= "Paedtrician";
+            }
+            else if (option.value === "neurology") {
+            appointments_obj["specialist"]= "neurology";
+            }
+            else if (option.value=== "Stomach and digestion") {
+            appointments_obj["specialist"]= "Stomach and digestion";
+            }
+            else if (option.value === "Psycologist") {
+            appointments_obj["specialist"]= "Psycologist";
+            };
+if(window.localStorage.getItem("appointments_arr") === null){
+    appointments_arr.push(appointments_obj)
+window.localStorage.setItem("appointments_arr", JSON.stringify(appointments_arr));
+alert("Appoinment Successfully appointed")
+window.location.href="../pages/newappo.html";
+}else{
+let card_data = JSON.parse(window.localStorage.getItem("appointments_arr"));
+card_data.push(appointments_obj)
+window.localStorage.setItem("appointments_arr",JSON.stringify(card_data))
+alert("Appoinment Successfully appointed")
+window.location.href="../pages/newappo.html";
+}
+});
+
+
+
+
+
+
+
+
+let dataObj= JSON.parse(localStorage.getItem("data"));
+              let objObject=JSON.parse(localStorage.getItem("obj"));
+              console.log(dataObj);
+              console.log(objObject);
+              let get = objObject.find(function (obj) {
+        let checkmail = obj["useremail"];
+        if (dataObj === checkmail) {
+          return true;
+        }
+      });
+
+      console.log(get)
+      let docname = document.getElementById("username");
+      docname.value=get["username"]
+          
+            
+</script>
+        </body>
+</html>

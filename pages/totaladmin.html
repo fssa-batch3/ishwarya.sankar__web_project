@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>full admin page</title>
+    <link rel="stylesheet" href="../assests/style.css/totaladmin.css" >
+    
+</head>
+<body>
+    <section class="first-fold">
+        <div class ="first">
+        <div class="content">
+        <h1>Skip the Travel!</h1>
+        <h3>TAKE ONLINE DOCTOR CONSULTATION </h1>
+        </div>
+        <p class="description">
+            Private consultation + audio call .Start at just "₹199"
+        </p>
+        <a class="primary-button" href="../pages/book.html">CONSULT NOW</a>
+       
+    </div>
+    <div class="second">
+         <img alt="med banner" class="imageweb" src="../assests/image/homepage-hero-image-web-v1.png" height="250px" width="auto">
+
+    </div>
+    </section>  <div class="second">
+        <div class="main2">
+            <h1> doctors</h1></div>
+               <section id="raz">
+            </section>
+</body>
+<script>
+    //  let onlineArr=[
+    //           {
+    //             image:"../assests/image/IMG-20230131-WA0006 (1).jpg",
+    //             heading:"ishusankar",
+    //             para:"gyncology",
+    //             Work:" Experience:5years",
+    //             button:"learn more"
+
+    //           },
+    //         {
+    //             image:"../assests/image/IMG-20230131-WA0006 (1).jpg",
+    //             heading:"Akash",
+    //             para:"paeditrician",
+    //             Work:" Experience:5years",
+    //         },
+    //         {
+    //             image:"../assests/image/IMG-20230131-WA0006 (1).jpg",
+    //             heading:"Praveen Pandian",
+    //             para:"paeditrician",
+    //             Work:" Experience:5years",
+    //         },
+    //         {
+    //             image:"../assests/image/IMG-20230131-WA0006 (1).jpg",
+    //             heading:"Nithya",
+    //             para:"paeditrician",
+    //             Work:" Experience:5years",
+    //         },
+    //         {
+    //             image:"../assests/image/IMG-20230131-WA0006 (1).jpg",
+    //             heading:"vanitha",
+    //             para:"paeditrician",
+    //             Work:" Experience:5years",
+    //         },
+    //         {
+    //             image:"../assests/image/IMG-20230131-WA0006 (1).jpg",
+    //             heading:"Alsabana",
+    //             para:"paeditrician",
+    //             Work:" Experience:5years",
+
+    //         },
+           
+    //  ] 
+    //  let create_card = JSON.parse(localStorage.getItem("main"));
+    //                 console.log(create_card);
+    //                 for (let i = 0; i < create_card.length; i++) {
+    //                  onlineArr.push(create_card[i]);
+    //                 console.log(onlineArr);
+    //                }
+
+                                
+  let onlineArr = JSON.parse(localStorage.getItem("whole"));
+    
+                for(let i=0;i<onlineArr.length;i++){
+                  let section=document.createElement("div")
+                  section.setAttribute("class","container")
+
+                  let secimg=document.createElement("img")
+                  secimg.setAttribute("src",onlineArr[i]["image"])
+                  section.append(secimg)
+
+                  let h2=document.createElement("h2")
+                  h2.innerText=onlineArr[i]["docname"]
+                  section.append(h2)
+
+                  let para=document.createElement("p")
+                  para.setAttribute("class","paras")
+                  para.innerText=onlineArr[i]["Special"]
+                  section.append(para)
+
+                  let work=document.createElement("work")
+                  work.setAttribute("class","experience")
+                  work.innerText=onlineArr[i]["title"]
+                  section.append(work)
+
+                  let anchor  =  document.createElement("a")
+                  anchor.setAttribute("href","./doctorupdate.html?id="+onlineArr[i]["newid"])
+                  anchor.setAttribute("class","btndo")
+                  anchor.innerText = "edit"
+                  section.append(anchor);
+
+                //   let button =document.createElement("button")
+                  
+                //   anchor.append(button)
+                  
+
+                
+                  
+
+                //   let newbtn =document.createElement("button")
+                //   button.setAttribute("class","btndoc")
+                //   button.innerText = "Delete" 
+                //   section.append(newbtn);
+
+
+
+          
+                  
+                  let details=document.createElement("btn")
+                  details.setAttribute("details","./details.html")
+                  section.append(details)
+                  let finalpage=document.getElementById("raz")
+                  finalpage.append(section)}
+    //update//
+
+function btn(e){
+
+    // console.log(e)
+    
+
+    let editArr=[];
+
+    let doc_id={
+        newid:e,
+    }
+    // console.log(doc_id);
+   editArr.push(doc_id)
+   console.log(editArr)
+
+
+    window.localStorage.setItem("editData",JSON.stringify(editArr)); 
+    window.location.href="";
+
+
+}
+
+       
+</script>
+</html>

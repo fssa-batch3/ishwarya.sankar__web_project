@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Skin add medicines</title>
+    <link rel="stylesheet" href="../assests/style.css/seller.css">
+</head>
+
+<body>
+    <div class="form">
+        <form id="skin">
+            <div class="title">Welcome</div>
+            <div class="subtitle">Let's Add</div>
+            <select name="cars" class="Proffession" id="txt2">
+                <option value="skin" id="doc">Skincare</option>
+                <option value="weight" id="patient">weight</option>
+                <option value="pain" id="patient">Pain</option>
+                <option value="dia" id="patient">Diabetes</option>
+                <option value="baby" id="patient">Baby care</option>
+                <option value="fit" id="patient">Fitness</option>
+                <option value="family" id="patient">Family care</option>
+
+              </select>
+            <div class="input-container ic1">
+                <input id="img" class="input" type="url" placeholder=" " />
+                <span>Image Url</span>
+            </div>
+            <div class="input-container ic2">
+                <input id="pname" class="input" type="text" placeholder=" " />
+                <span>Produc Name</span>
+            </div>
+            <div class="input-container ic2">
+                <input id="price" class="input" type="text" placeholder=" " />
+                <span>Price</span>
+            </div>
+            <button type="submit" class="submit">submit</button>
+    </div>
+    </form>
+    <script>
+        let total = [];
+        let form = document.getElementById("skin");
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+            let data = {};
+            const Medname = document.getElementById("pname").value;
+            const MedURl = document.getElementById("img").value;
+            const MedPrice = document.getElementById("price").value;
+            const option=document.getElementById("txt2").value;
+            let id = self.crypto.randomUUID();
+
+            data["Medname"] = Medname;
+            data["MedURl"] = MedURl;
+            data["MedPrice"] = MedPrice;
+            data.id = id;
+            
+            let submit = document.getElementById("button");
+
+            if (option === "skin") {
+                window.localStorage.setItem("Skincare", JSON.stringify(data));
+                window.location.href ="";
+            } else if (option === "weight") {
+                window.localStorage.setItem("weight", JSON.stringify(data));
+                window.location.href = "";
+            }
+            else if (option === "pain") {
+                window.localStorage.setItem("Pain", JSON.stringify(data));
+                window.location.href = "";
+            }
+            else if (option === "dia") {
+                window.localStorage.setItem("Diabetes", JSON.stringify(data));
+                window.location.href = "";
+            }
+            else if (option === "baby") {
+                window.localStorage.setItem("Baby care", JSON.stringify(data));
+                window.location.href = "";
+            }
+            else if (option === "fit") {
+                window.localStorage.setItem("Fitness",JSON.stringify(data) );
+                window.location.href = "";
+            }
+            else  if ( option === "family"){
+                window.localStorage.setItem("Family care", JSON.stringify(data));                            
+            }
+        })
+
+
+
+       
+
+
+    </script>
+</body>
+
+</html>

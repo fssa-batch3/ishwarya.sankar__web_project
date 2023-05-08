@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>add medicines</title>
+    <link rel="stylesheet" href="../assests/style.css/addpro.css">
+</head>
+
+<body>
+    <div class="form">
+        <form id="all">
+            <div class="title">Welcome</div>
+            <div class="subtitle">Let's create your account!</div>
+            <div class="input-container ic1">
+                <input id="img" class="input" type="url" placeholder=" " />
+                <span>Image Url</span>
+            </div>
+            <div class="input-container ic2">
+                <input id="pname" class="input" type="text" placeholder=" " />
+                <span>Produc Name</span>
+            </div>
+            <div class="input-container ic2">
+                <input id="price" class="input" type="text" placeholder=" " />
+                <span>Price</span>
+            </div>
+            <button type="submit" class="submit">submit</button>
+            <!-- <button type="submit" class="submit" class="btn5">edit</button>
+            <button type="submit" class="submit" class="btn6">delete</button> -->
+    </div>
+    </form>
+    <!-- <form id="all">
+        <div class="inputBox">
+          <input id="img" type="url" name="" required="required" />
+          <span>Image Url</span>
+        </div>
+        <div class="inputBox">
+          <input id="pname" type="text" name="" required="required" />
+          <span>Produc Name</span>
+        </div>
+        <div class="inputBox">
+          <input id="price" type="text" name="" required="required" />
+          <span>Price</span>
+        </div>
+         <div class="inputBox">
+          <input id="tx_t" type="text" name="" required="required" />
+          <span>Text</span>
+        </div> -->
+    <!-- <button type="submit" class="btn5" id="form">Send</button>
+        <button type="submit" id="editer" class="btn5">edit</button>
+      </form> -->
+    <script>
+        let arr = [];
+        let form = document.getElementById("all");
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+            let meddata = {};
+            const Medname = document.getElementById("pname").value;
+            const MedURl = document.getElementById("img").value;
+            const MedPrice = document.getElementById("price").value;
+            let id = self.crypto.randomUUID();
+
+            meddata["heading"] = Medname;
+            meddata["image"] = MedURl;
+            meddata["para"] = MedPrice;
+            meddata["uuid"] = id;
+
+            if (window.localStorage.getItem("Medicine") === null) {
+                window.localStorage.setItem("Medicine", JSON.stringify(arr));
+            } else {
+                
+                arr.push(meddata);
+                window.localStorage.setItem("Medicine", JSON.stringify(arr));
+            }
+            window.location.href = "#";
+        });
+    </script>
+</body>
+
+</html>

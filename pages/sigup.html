@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login page</title>
+    <link rel="stylesheet" href="../assests/style.css/sigin.css" >
+</head>
+<body>
+    <div class="main">  	
+		<input type="checkbox" id="chk" aria-hidden="true">
+			<div class="signup">
+				<form name="app" id="signup">
+					<label for="chk">Sign Up</label>
+					<input type="text"  name="reqname"id="txt" placeholder="User name" pattern="[a-zA-Z]+{2,16}" required>
+					<input type="email" name="reqemail" id="email" placeholder="Email" required>
+					<input type="number" name="reqemail" id="mble" placeholder="phone number" maxlength="10" minlength="10" required>
+					<input type="text" name="reqpass" id="swd" placeholder="address"  title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required> 
+					<input type="password" name="reqpass" id="pswd" placeholder="password"  title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required> 
+					<input type="password" name="repass" id="cpswd" placeholder="confirm Password"  title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required> 
+						<select name="cars" class="Proffession" id="txt2">
+						  <option value="Doctor" id="doc">Doctor</option>
+						  <option value="Patient" id="patient">Patient</option>
+						  <option value="seller" id="patient">Seller</option>
+						</select>
+					<button type="submit"  id="signin">Sign up</button>
+					<small>Already I have an Account <a href="./login.html">Login Now</a>
+					</small>
+				</form>
+			</div>
+
+	</div>
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js";
+    import { getDatabase,ref,onValue,} from "https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js";
+
+   
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyD1A8GOjcv0DBvbJNSRPIzURwWBQ9uPsmY",
+      authDomain: "ishwarya-project-8eb0a.firebaseapp.com",
+      projectId: "ishwarya-project-8eb0a",
+      storageBucket: "ishwarya-project-8eb0a.appspot.com",
+      messagingSenderId: "580736208884",
+      appId: "1:580736208884:web:6be89091ee516c7684f3a1"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    //get the database completely
+    let database=getDatabase();
+    console.log(database)
+   //with the reference we can take the value of the name
+const starCountRef = ref(database, 'name/');
+onValue(starCountRef, (snapshot) => {
+  const data = snapshot.val();
+ console.log(data)
+});
+  </script>
+	<script>
+
+
+let main = [];
+let form = document.getElementById("signup");
+form.addEventListener("submit", function(e) {
+  e.preventDefault();
+  const name = document.getElementById("txt").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const address = document.getElementById("swd").value.trim();
+  const pass = document.getElementById("pswd").value.trim();
+  const pass2 = document.getElementById("cpswd").value.trim();
+  const doctors = document.getElementById("txt2").value.trim();
+  const phonenumber = document.getElementById("mble").value.trim();
+  let id = self.crypto.randomUUID();
+  console.log(id);
+  
+  if (pass !== pass2) {
+    alert("Passwords do not match");
+    return;
+  }
+  
+  let object = {};
+  object["username"] = name;
+  object["useremail"] = email;
+  object["userpassword"] = pass;
+  object["userconfirmpass"] = pass2;
+  object["address"] = address;
+  object["doctors"] = doctors;
+  object["mobilenumber"] = phonenumber;
+  object["id"] = id;
+  main.push(object);
+
+  let ject = JSON.parse(localStorage.getItem("obj"));
+  let is = false;
+  for (i = 0; i < ject.length; i++) {
+    if (email == ject[i]["useremail"]) {
+      is = true;
+      break;
+    }
+  }
+  if (is === true) {
+    alert("Email already exists");
+  } else {
+    if (window.localStorage.getItem("obj") === null) {
+      window.localStorage.setItem("obj", JSON.stringify(main));
+    } else {
+      let local = window.localStorage.getItem("obj");
+      let json = JSON.parse(local);
+      json.push(object);
+      window.localStorage.setItem("obj", JSON.stringify(json));
+      window.localStorage.setItem("userpersona", doctors);
+    }
+    if (document.getElementById("txt2").value === "seller") {
+      window.location.href = "../pages/sellerhome.html"
+    } else {
+      window.location.href = "./login.html";
+    }
+  }
+});
+
+	</script>
+ </body>
+ </html>

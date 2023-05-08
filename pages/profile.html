@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../assests/style.css/profile.css">
+</head>
+<body>
+       
+
+
+          <div class="profile"><h1>Profile Details</h1></div>
+<!-- form -->
+   <div class="containermain">
+    <div class="input"><label>Name:</label><input id="name" type="text" maxlength="20"></div>
+    <div class="input"><label >Email:</label><input id="email"  type="email" ></div>
+    <div class="input"><label >Password:</label><input id="password"  type="password" ></div>
+    <div class="input"><label >Proffession:</label><input id="proffession"  type="text" ></div>
+
+    <!-- <a class="inputs" href="../pages/appoin.html"><a class="btn">Save</a></a> -->
+      <a class="btn"  href="../pages/profileedit.html">EDIT PAGE</a>
+      <a class="btn"  href="../pages/docadding.html">ADD DOCTORS TO  EXPERT PAGE</a>
+      <div>   </div>
+    
+
+    <!-- form ends -->
+  <div class="test"></div>
+                  
+   </div>
+   <script>
+          let profile=JSON.parse(window.localStorage.getItem("obj"));
+          let user=JSON.parse(window.localStorage.getItem("data"));
+
+          let userData = profile.find(e=>e["useremail"] === user)
+
+          console.log(profile);
+          document.getElementById("name").value=userData["username"];
+          document.getElementById("email").value=userData["useremail"];
+          document.getElementById("password").value=userData["userpassword"]
+          document.getElementById("proffession").value=userData["doctors"]
+
+          
+
+
+
+   </script>
+
+</body>
+</html>
+    
+   
+
+   

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../assests/style.css/home.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap">
+</head>
+
+<body>    
+    <div class="pov">
+        <div class="wrapper">
+            <h1>HEAR WHAT OUR CUSTOMERS SAY</h1>
+            <h5>CHECK WHAT THEY SAY ABOUT US</h5>
+            <a href="./reviewform.html">Add Review</a>
+           
+
+            
+            <div class="main"> 
+            </div>
+        <!-- <div class="card ">
+            <img src="../assests/image/nurses_with_icu_patient-mufid_majnun.png">
+            <p>Had irritation in my eyes.Dr.Atul raj did the check up.Very satisfied with the diagnosis and treatment.the doctor was very professional and efficient and explained everything.</p>
+            <h4>PATIENT</h4>
+            <i class="fa fa-quote-left"></i>
+        </div> -->
+      
+     <!-- <div class="cards">
+        <div class="card">
+            <img src="../assests/image/photo-1578496781985-452d4a934d50.png">
+            <p>Visited Dr.Nithya(Oncologist).She gave me positive  words and confident thought which created me fearless about my treatment.Her approach is so kind. </p>
+            <h2>ANI</h2>
+            <h4>PATIENT</h4>
+            <i class="fa fa-quote-left"></i>
+        </div>
+      </div>
+      <div class="cards">
+        <div class="card ">
+                <img src="../assests/image/photo-1578496781985-452d4a934d50.png">
+            <p>I am Kani.I am an lymphoma patient and I had taken treatment from 2019 march till last February now I am absolutely alright, Here the doctors (Dr. Shashidhar, Dr. Manjunath and team) are very kind and good.</p>
+            <h2>KANI</h2>
+            <h4>PATIENT</h4>
+            <i class="fa fa-quote-left"></i>
+                 </div>
+      </div> 
+             </div>
+        </div>
+    </div> -->
+    <script>
+        // let card_content = [
+        //     {
+        //         image: "../assests/image/nurses_with_icu_patient-mufid_majnun.png",
+        //         para: "Had irritation in my eyes.Dr.Atul raj did the check up.Very satisfied with the diagnosis and treatment.the doctor was very professional and efficient and explained everything",
+        //         heading: "RAM",
+        //         heading_2: "PATIENT"
+        //     },
+        //     {
+        //         image: "../assests/image/photo-1578496781985-452d4a934d50.png",
+        //         para: "Visited Dr.Nithya(Oncologist).She gave me positive  words and confident thought which created me fearless about my treatment.Her approach is so kind",
+        //         heading: "ANI", 
+        //         heading_2: "PATIENT"
+        //     },
+        //     { image: "../assests/image/photo-1578496781985-452d4a934d50.png",
+        //      para: "I am Kani.I am an lymphoma patient and I had taken treatment from 2019 march till last February now I am absolutely alright, Here the doctors (Dr. Shashidhar, Dr. Manjunath and team) are very kind and good",
+        //       heading: "Ishu", 
+        //       heading_2: "PATIENT" },
+        //        { image: "../assests/image/photo-1578496781985-452d4a934d50.png",
+        //      para: "I am Kani.I am an lymphoma patient and I had taken treatment from 2019 march till last February now I am absolutely alright, Here the doctors (Dr. Shashidhar, Dr. Manjunath and team) are very kind and good",
+        //       heading: "Arun", 
+        //       heading_2: "PATIENT" }]
+
+        let card_content = JSON.parse(localStorage.getItem("review"))
+        let email = JSON.parse(localStorage.getItem("data"))
+
+
+        for (let i = 0; i < card_content.length ; i++) {
+            let cardscontainer = document.createElement("div")
+            cardscontainer.setAttribute("class", "cards")
+            document.querySelector("div.main").append(cardscontainer)
+
+
+            let firstcard = document.createElement("div")
+            firstcard.setAttribute("class", "card")
+            cardscontainer.append(firstcard)
+
+            let cardimage = document.createElement("img")
+            cardimage.setAttribute("src", card_content[i]["im_g"]);
+            firstcard.append(cardimage)
+
+            let paragraph = document.createElement("p")
+            paragraph.innerText = card_content[i]["Sp_l"];
+            firstcard.append(paragraph)
+
+           
+            let h4 = document.createElement("h4")
+            h4.innerText = card_content[i]["tx_t"];
+            firstcard.append(h4)
+            
+
+            let h2 = document.createElement("h2")
+            h2.innerText = card_content[i]["dname"];
+            firstcard.append(h2)
+  if(card_content[i]["mail"] == email){
+            let button =document.createElement("a")
+                  button.setAttribute("class","btnreview")
+                  button.setAttribute("href","../pages/editform.html?id="+card_content[i]["uuid"])
+                  button.innerText = "edit"
+                  firstcard.append(button)
+  }
+
+            let main = document.querySelector(".main")
+            main.append(cardscontainer)
+        } 
+        // <firstcard>
+            let form= document.getElementById("form")
+   console.log(form);
+  form  .addEventListener("submit",function(event){
+      event.preventDefault();
+
+      let obj={};
+      let photos=document.getElementById("im_g").value;
+      obj["im_g"]=photos;
+
+      let patientname=document.getElementById("dname").value;
+      obj["dname"]=patientname;
+
+      let illnessname=document.getElementById("Sp_l").value;
+      obj["Sp_l"]=illnessname;
+      
+      let paragraph =document.getElementById("tx_t").value;
+      obj["tx_t"]=paragraph;
+
+      
+      let uuid = crypto.randomUUID();
+      obj["uuid"]=uuid;
+      console.log(uuid)
+
+        
+      
+      let newarr=[];
+      newarr.push(obj)
+      if(window.localStorage.getItem("review")===null){
+	 						window.localStorage.setItem("review",JSON.stringify(newarr));
+							console.log(window.localStorage.getItem("review"));
+	 					  }
+					     else{
+							     let user=window.localStorage.getItem("review");
+	 								 let userjs=JSON.parse(user);
+                   userjs.push(obj)
+                   window.localStorage.setItem("review",JSON.stringify(userjs));
+    }
+  });
+    //update
+    //url params//
+    // let array = JSON.parse(localStorage.getItem("review"))
+    // console.log(array);
+    // let url = window.location.search
+    // console.log(url);
+    // let prams = new URLSearchParams(url)
+    // console.log(prams);
+    // let id1 = prams.get("id")
+    // console.log(id1);
+    // let index = array.indexOf(id1);
+    // console.log(id1)
+
+
+
+    // edit html
+
+
+    let old = JSON.parse(localStorage.getItem("review"))
+    
+    
+
+
+    document.getElementById("editer").addEventListener("click", (event) => {
+      event.preventDefault();
+
+      let image = document.getElementById("im_g").value;
+      let docname = document.getElementById("dname").value;
+      let Sp_cecial = document.getElementById("Sp_l").value;
+      let title = document.getElementById("tx_t").value;
+
+      let newvalue= {
+        image,
+        docname,
+        Sp_cecial,
+        title
+      }
+      console.log(newvalue);
+
+      let old = array.find(A => A.newid == id);
+      console.log(old);
+      let updated = Object.assign(old,newvalue);
+      array[index] = updated;
+
+      localStorage.setItem("review",JSON.stringify(array));
+      location.href = "pages\home.html";
+    });
+
+
+    //delete 
+
+        function delData() {
+          let  del = confirm("are you sure ")
+            if (del == true) {
+                // let uid = JSON.parse(localStorage.getItem("whole"));
+                // let product = JSON.parse(localStorage.getItem("whole"))
+                array.splice(index, 1);
+
+                localStorage.setItem("review", JSON.stringify(array));
+                alert("deleted successfully")
+            }
+          };
+
+  </script>
+
+    
+
+
+
+    
+</body>
+
+</html>
