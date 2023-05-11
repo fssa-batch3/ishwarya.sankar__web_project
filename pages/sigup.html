@@ -13,15 +13,16 @@
 			<div class="signup">
 				<form name="app" id="signup">
 					<label for="chk">Sign Up</label>
-					<input type="text"  name="reqname"id="txt" placeholder="User name" pattern="[a-z]{6}">
-					<input type="email" name="reqemail" id="email" placeholder="Email">
-					<input type="text" name="reqemail" id="mble" placeholder="phone number">
-					<input type="text" name="reqpass" id="swd" placeholder="address"  title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"> 
-					<input type="password" name="reqpass" id="pswd" placeholder="confirmpassword"  title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"> 
-					<input type="password" name="repass" id="cpswd" placeholder="Password"  title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"> 
+					<input type="text"  name="reqname"id="txt" placeholder="User name" pattern="[a-z]{6}" required>
+					<input type="email" name="reqemail" id="email" placeholder="Email" required>
+					<input type="number" name="reqemail" id="mble" placeholder="phone number" required>
+					<input type="text" name="reqpass" id="swd" placeholder="address"  title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required> 
+					<input type="password" name="reqpass" id="pswd" placeholder="confirmpassword"  title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required> 
+					<input type="password" name="repass" id="cpswd" placeholder="Password"  title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required> 
 						<select name="cars" class="Proffession" id="txt2">
 						  <option value="Doctor" id="doc">Doctor</option>
 						  <option value="Patient" id="patient">Patient</option>
+						  <option value="Patient" id="seller">Seller</option>
 						</select>
 					<button type="submit"  id="signin">Sign up</button>
 				</form>
