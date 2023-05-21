@@ -11,7 +11,7 @@
 
 <body>
   <form id="form">
-    <div class="inputBox">
+    <!-- <div class="inputBox">
       <input id="im_g" type="text" name="" required="required" />
       <span>Image Url</span>
     </div>
@@ -30,14 +30,37 @@
     <div class="inputBox">
       <input id="email" type="email" name="" required="required" />
       <span>email</span>
+    </div> -->
+
+      <div class="title">Welcome</div>
+      <div class="subtitle">Let's create your account!</div>
+      <div class="input-container ic1">
+          <input id="im_g" class="input" type="url" placeholder="Image url "  required/>
+          <span>Image Url</span>
+      </div>
+      <div class="input-container ic2">
+          <input id="dname" class="input" type="text" placeholder=" Patient name"  required/>
+          <span>Patient Name</span>
+      </div>
+      <div class="input-container ic2">
+          <input id="Sp_l" class="input" type="text" placeholder="Illness " required />
+          <span>illness</span>
+      </div>
+      <div class="input-container ic2">
+        <input id="tx_t" class="input" type="text" placeholder=" Reviews " required/>
+        <span>review about hospital</span>
     </div>
-    <button type="submit" class="btn5">Send</button>
+    <div class="input-container ic2">
+      <input id="email" class="input" type="text" placeholder="Email id "  required/>
+      <span>Email Id</span>
+  </div>
+  <button type="submit" class="submit">submit</button>
+     <button type="submit" class="btn5">Send</button>
 
     <button type="submit" id="editer" class="btn5">edit</button>
     
-    
   </form>
-  <button type="submit" id="del" onclick="delData()" class="btn5">Delete</button>
+  <button type="submit" id="del"  onclick="delData()" class="btn5">Delete</button>
   <script>
 
 
@@ -129,7 +152,7 @@ let dataObj= JSON.parse(localStorage.getItem("data"));
       array[index] = updated;
 
       localStorage.setItem("review",JSON.stringify(array));
-      location.href = "pages\home.html";
+      window.location.href="../pages/review edit.html"
     });
 
 
@@ -144,6 +167,9 @@ let dataObj= JSON.parse(localStorage.getItem("data"));
                 alert("deleted successfully")
             }
           };
+
+       
+
 
   </script>
 

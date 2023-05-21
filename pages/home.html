@@ -76,7 +76,7 @@
         let email = JSON.parse(localStorage.getItem("data"))
 
 
-        for (let i = 0; i < card_content.length ; i++) {
+        for (let i = 0; i < card_content ; i++) {
             let cardscontainer = document.createElement("div")
             cardscontainer.setAttribute("class", "cards")
             document.querySelector("div.main").append(cardscontainer)
@@ -116,8 +116,8 @@
         } 
         // <firstcard>
             let form= document.getElementById("form")
-   console.log(form);
-  form  .addEventListener("submit",function(event){
+            console.log(form)
+    addEventListener("submit",function(event){
       event.preventDefault();
 
       let obj={};
@@ -174,7 +174,7 @@
     let old = JSON.parse(localStorage.getItem("review"))
     
     
-
+   console.log(document.getElementById("editer"))
 
     document.getElementById("editer").addEventListener("click", (event) => {
       event.preventDefault();
@@ -218,7 +218,7 @@
 
   </script>
 
-    
+  <script src="../header.js"></script>
 
 
 

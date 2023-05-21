@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>seller verification</title>
+    <link rel="stylesheet" href="../assests/style.css/addpro.css">
+</head>
+
+<body>
+    <div class="form">
+        <form id="all">
+            <div class="title">Welcome!</div>
+            <div class="subtitle">Verification of the seller </div>
+            <div class="input-container ic1">
+                <span>Last worked in Certificate</span>
+                <input type="file" id="myfile" name="myfile"><br>
+               
+            </div>
+           
+            <input type="text" class="input2" id="aadhaarNumber" placeholder="Enter Aadhaar Number">
+            <button onclick="verifyAadhaar()">Verify</button>
+            <p id="result"></p>
+            <div class="input-container ic2">
+                <input id="pname" class="input" type="text" placeholder=" " />
+                <span>Last worked In</span>
+            </div>
+            <div class="input-container ic2">
+                <input id="price" class="input" type="number" placeholder=" " />
+                <span>Work Experience</span>
+            </div>
+           
+            <button type="submit" class="submit">submit</button>
+            
+    </div>
+</form>
+    <script>
+        let arr = [];
+        let form = document.getElementById("all");
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+            let meddata = {};
+            const Medname = document.getElementById("pname").value;
+            const MedURl = document.getElementById("img").value;
+            const MedPrice = parseFloat(document.getElementById("price").value);
+            
+            let id = self.crypto.randomUUID();
+
+            meddata["heading"] = Medname;
+            meddata["image"] = MedURl;
+            meddata["para"] = MedPrice;
+           
+            meddata["uuid"] = id;
+
+            if (window.localStorage.getItem("seller_details") === null) {
+                window.localStorage.setItem("seller_details", JSON.stringify(arr));
+            } else {
+                
+                arr.push(meddata);
+                window.localStorage.setItem("seller_details", JSON.stringify(arr));
+            }
+            window.location.href = "#";
+        });
+
+
+
+        function verifyAadhaar() {
+  const aadhaarNumberInput = document.getElementById("aadhaarNumber");
+  const resultElement = document.getElementById("result");
+
+  // Get the Aadhaar number entered by the user
+  const aadhaarNumber = aadhaarNumberInput.value;
+
+  // Regular expression to validate the Aadhaar number format
+  const aadhaarRegex = /^\d{12}$/;
+
+  if (!aadhaarRegex.test(aadhaarNumber)) {
+    resultElement.innerText = "Invalid Aadhaar number";
+    return;
+  }
+
+  // Make an API request to verify the Aadhaar number
+  // Replace `YOUR_VERIFICATION_API_URL` with the actual URL of the Aadhaar card verification API
+  const verificationApiUrl = "YOUR_VERIFICATION_API_URL";
+  fetch(verificationApiUrl + "?aadhaarNumber=" + aadhaarNumber)
+    .then(response => response.json())
+    .then(data => {
+      if (data.valid) {
+        resultElement.innerText = "Aadhaar number is valid";
+      } else {
+        resultElement.innerText = "Aadhaar number is not valid";
+      }
+    })
+    .catch(error => {
+      console.error("Error:", error);
+      resultElement.innerText = "Verification failed. Please try again later.";
+    });
+}
+
+    </script>
+</body>
+
+</html>

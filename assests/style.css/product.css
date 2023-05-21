@@ -25,12 +25,14 @@
     top: 0px;
     left:0px;
     right:0px;
+  
+    height:90px;
    
 }
 .navbar {
     display: flex;
     justify-content: space-between;
-    /* margin-right:7em; */
+    margin-right:7em;
 }
 .navbar li {
     text-decoration: none;
@@ -173,6 +175,10 @@ span img{
     align-items: center;
     justify-content: center;
    
+ }
+ .picture{
+     margin-top: 75px;
+     
  }
  
 

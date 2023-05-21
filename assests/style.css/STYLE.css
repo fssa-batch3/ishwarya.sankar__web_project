@@ -1,22 +1,25 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
- .btn1{
-    border-radius:45px;
-    padding:10px 20px 20px ;
-     margin-top:80px;
-    margin-left: 90px;
- }
+ 
  .p1 button{
   background-color: green;
   padding: 10px;
   border:none;
   font-size: 26px;
  }
- .btn1:hover{
-       color:rgb(166, 161, 161);
-       background-color: rgb(195, 136, 77);
-       /* font-size:26px; */
- }
+ .btn1{padding: 10px 20px;
+ background-color: #03C988;
+ color: #fff;
+ border: none;
+ border-radius: 5px;
+ font-size: 16px;
+ cursor: pointer;
+ margin-top: 20px;
+ display: block;
+}
+.btn1:hover {
+ background-color: grey;
+}
  a{
   text-decoration: none;
   cursor: pointer;
@@ -354,13 +357,13 @@ footer{
       justify-content: space-between;
      width: 1490px;
       position: fixed;
-      z-index: 1;
+      z-index: 2;
       background-color: white;
       
      
   }
    .main h1 {
-      color: rgb(3, 3, 3);
+      color: #03C988;;
       margin-top: 1em;
       margin-left: 2rem;
   }
@@ -398,7 +401,7 @@ h1 span{
      display: flex;
      justify-content: space-around;
      margin-top: 250px;
-     height:49.6em;
+     height:40.6em;
 }
 .edit {
   height:20px;
@@ -510,7 +513,7 @@ h1 span{
 .para1 h1{
   font-size: 55px;
   
-  color:rgb(25, 25, 134);
+  color: #03C988;;
 }
 
 .contact{
@@ -528,8 +531,8 @@ h1 span{
   margin-top: 5rem;
 }
 .form-element .form-control{
-  width: 100%;
-  background-color: #b8bec8;
+  width: 600px;
+  background-color: #383938;
   border: none;
   outline: 0;
   padding: 1rem 1.6rem;
@@ -542,6 +545,18 @@ h1 span{
 }
 .btn-submit i{
   margin-right: 2rem;
+}
+#submit{
+  background-color: #03C988;
+  padding:20px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+#submit:hover {
+  background-color: rgb(171, 119, 119);
 }
 @media screen and (max-width:410px) { 
  body{

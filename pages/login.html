@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../assests/style.css/login.css">
+
 </head>
 <body>
     <div class="login">
@@ -15,11 +16,11 @@
             <!-- <input type="text" id="adres" placeholder="address">
             <input type="number" id="phne" placeholder="phonenumber"  > -->
             <input type="password" id="swd" placeholder="Password">
+            
             <button type="submit" id="login" onclick="userLogin()" >Login</button>
             <small>Don't have an Account <a href="./sigup.html">Signin Now</a>
             </small>
         </form>
-    
     </div>
 </body>
 
@@ -36,15 +37,19 @@
                             
                           
          let match=false;
+         let userType;
 
 								 for(let i=0;i<main.length;i++){
 									if(
 										email2 ===main[i].useremail&&
 										password2 === main[i].userpassword
+                                        
                                   
 									){
                                       match=true;            
                                      window.localStorage.setItem("data",JSON.stringify(main[i].useremail));
+                                     userType === main[i].doctors 
+
 									 break;
 								 }
                                     else{
@@ -55,12 +60,26 @@
        
                          if (match===true){
                             alert("SUCCESS")
-                            window.location.href = "../pages/profile.html"
+                            window.location.href = "../index.html";
                          }
                          else{
                             alert("Failed")
                          }
                         });
+
+
+                      document.getElementById("login").addEventListener("click",()=>{
+                        if(userType=="ishusankar14@gmail.com"){
+                            window.location.href="../pages/admin_.html"
+                        }
+                        else if(userType="Patient"){
+                            window.location.href="../index.html"
+                        }
+                        else if(userType="Seller"){
+                            window.location.href="../pages/seller.html"
+                        }
+                      })
+
 
                         
      

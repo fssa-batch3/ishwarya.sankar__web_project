@@ -27,9 +27,18 @@
                     <div class="cart">
                         <h2 class="cart-title">Your Cart</h2>
                 
-                        <div class="cart-content">
-                
-                        </div>
+                        <div class="cart_content">
+                          <!-- <div class="product-container">
+                            <img src="path/to/product-image.jpg" alt="Product Image">
+                            <div class="product-details">
+                              <h2 class="product-name">Product Name</h2>
+                              <p class="product-price">$20.00</p>
+                              <input type="number" class="product-quantity" value="1" min="1" max="100">
+                            </div>
+                          </div> -->
+                          </div>
+                          
+                       
                         <!-- total -->
                         <div class="total">
                             <div class="total-title">Total</div>
@@ -46,159 +55,78 @@
            <section id="product">
               
            </section>
-           <script>
-            // let online = JSON.parse(localStorage.getItem("main"));
-            const onlineArr=[
-        //   {
-        //     image:"https://www.practostatic.com/practopedia-images/v3/res-750/zincovit-tablet-15-s_b65a0677-01fc-4490-aa89-d357ecab7166.JPG",
-        //     heading:"ishusankar",
-        //     para:"$100",
-        //  uuid :self.crypto.randomUUID(),
+         
+<script>
 
-        //   },
-        // {
-        //     image:"https://www.netmeds.com/images/product-v1/600x600/22528/becosules_performance_capsule_15_s_0.jpg",
-        //     heading:"Akash",
-        //     para:"$100",
-        //     uuid :Date.now(),
+let medicine = JSON.parse(localStorage.getItem("Medicine"));
+console.log(medicine);
+for (let i=0; i < medicine.length; i++ ){
+  let section=document.createElement("div")
+  section.setAttribute("class","container")
 
-           
-        // },
-        // {
-        //     image:"https://meds.myupchar.com/2641/Neurobion-Forte-Tablet-1.jpg",
-        //     heading:"Praveen Pandian",
-        //     para:"$100",
-        //     uuid : Date.now(),
+  let secimg=document.createElement("img")
+  secimg.setAttribute('class','imageUrl')
+  secimg.setAttribute("src",medicine[i]["image"])
+  section.append(secimg)
 
-        // },
-        // {
-        //     image:"https://meds.myupchar.com/2641/Neurobion-Forte-Tablet-1.jpg",
-        //     heading:"Nithya",
-        //     para:"$100",
-        //     uuid :Date.now(),
+  let h2=document.createElement("h2")
+  h2.setAttribute('class','productName');
+  h2.innerText= medicine[i]["heading"];
+  section.append(h2)
 
-        // },
-        // {
-        //     image:"https://meds.myupchar.com/2641/Neurobion-Forte-Tablet-1.jpg",
-        //     heading:"vanitha",
-        //     para:"$100",
-        //     uuid :Date.now(),
+  let para=document.createElement("p")
+  para.setAttribute("class","paras")
+  para.innerText="Rs ." + medicine[i]["para"];
+  section.append(para)
 
-           
-        // },
-        // {
-        //     image:"https://meds.myupchar.com/2641/Neurobion-Forte-Tablet-1.jpg",
-        //     heading:"Alsabana",
-        //     para:"$100",
-        //     uuid :Date.now(),
-        // }, {
-        //     image:"https://meds.myupchar.com/2641/Neurobion-Forte-Tablet-1.jpg",
-        //     heading:"Alsabana",
-        //     para:"$100",
-        //     uuid :Date.now(),
-           
-
-        // },
-        // {
-        //     image:"https://meds.myupchar.com/2641/Neurobion-Forte-Tablet-1.jpg",
-        //     heading:"Alsabana",
-        //     para:"$100",
-        //     uuid :Date.now(),
-           
-
-        // },
-        // {
-        //     image:"https://meds.myupchar.com/2641/Neurobion-Forte-Tablet-1.jpg",
-        //     heading:"Alsabana",
-        //     para:"$100",
-        //     uuid :Date.now(),
-           
-
-        // }
-
-       
-            
- ]     ;  
-
- let medicine = JSON.parse(localStorage.getItem("Medicine"));
- console.log(medicine)
-for (let i=0; i <medicine.length; i++ ){
-    onlineArr.push(medicine[i]);
-}
- 
- 
-             
-            
-
-                            
-            for(let i=0;i<onlineArr.length;i++){
-              let section=document.createElement("div")
-              section.setAttribute("class","container")
-
-              let secimg=document.createElement("img")
-              secimg.setAttribute("src",onlineArr[i]["image"])
-              section.append(secimg)
-
-              let h2=document.createElement("h2")
-              h2.innerText=onlineArr[i]["heading"]
-              section.append(h2)
-
-              let para=document.createElement("p")
-              para.setAttribute("class","paras")
-              para.innerText=onlineArr[i]["para"]
-              section.append(para)
-
-           
-              let button =document.createElement("button")
-              button.setAttribute("id","add-to-cart")
+  let button =document.createElement("button")
+  button.setAttribute("class","add-to-cart")
+  button.innerText = "Add to cart"
+  button.setAttribute("data-id",medicine[i]["uuid"])
+  section.append(button)
               
-
-              button.innerText = "Add to cart"
-
-              button.setAttribute("onclick","addToCart()")
-           
-               section.append(button)
-               
-
-
-
-             
-
-            
-              let finalpage=document.getElementById("product")
-              finalpage.append(section)
-            }
-    
-           
-localStorage.setItem("array",JSON.stringify(onlineArr));  
-			
-function btn(e){
-
-let array=[];
-
-let pid={
-    newid:e,
-}
-
-array.push(pid)
-console.log(array)
-
+  let finalpage=document.getElementById("product")
+  finalpage.append(section)
 }
 
 
-		// Get the "Add to Cart" button element
-		var addToCartBtn = document.getElementById("add-to-cart");
 
-		// Add a click event listener to the button
-		addToCartBtn.addEventListener("click", function() {
-			// When the button is clicked, add the product to the cart
-			addToCart();
-		});
-
-		function addToCart() {
-			// Code to add the product to the cart goes here
-			alert("Product added to cart!");
-		}
+const addCart = document.querySelectorAll(".add-to-cart");
+addCart.forEach(function (findId) {
+  findId.addEventListener("click", function () {
+    const id_cart = this.dataset.id;
+    const product_price = parseInt(document.querySelector(".paras").innerHTML); 
+    const cart_list = JSON.parse(localStorage.getItem("cart_list")) || [];
+    const product_name = document.querySelector(".productName").innerHTML; 
+    const image_url = document.querySelector(".imageUrl").getAttribute("src");
+    const data = JSON.parse(localStorage.getItem("data"));
+    const exist = cart_list.length && JSON.parse(localStorage.getItem("cart_list")).some(
+          (data) => data.uuid == id_cart && data.data === data
+        );
+    if (exist) { 
+      alert("Sorry, the product is already added to the cart");
+      return;
+    }
+    if (!data) {
+      alert("Log In");
+      // window.location.href = "#";
+      return;
+    }
+    if (!exist) {
+      cart_list.push({
+        uuid: id_cart,
+        product_name,
+        image_url,
+        product_price,
+        userId: data,
+        product_quantity: 1,
+      });
+      localStorage.setItem("cart_list", JSON.stringify(cart_list));
+      alert("Product Added to the Cart");
+      // location.href = "#";
+    }
+  });
+});
 
       
     let cartIcon = document.querySelector('#cart-icon');
@@ -224,33 +152,47 @@ function addCartClicked(event) {
   updatetotal();
 };  
 
+let cart_list = JSON.parse(localStorage.getItem("cart_list"));
+console.log(cart_list);
 
-// == Making Function
-function ready() {
-	// Remove items from cart
-	var removeCartButtons = document.getElementsByClassName('cart-remove');
-	console.log(removeCartButtons);
-	for (var i = 0; i < removeCartButtons.length; i++) {
-		var button = removeCartButtons[i];
-		button.addEventListener('click', removeCartItem);
-	}
-	// == Quantity changes
-	var quantityInputs = document.getElementsByClassName('cart-quantity');
-	for (var i = 0; i < quantityInputs.length; i++) {
-		var input = quantityInputs[i];
-		input.addEventListener('change', quantityChanged);
-	}
-	// Add to cart
-	var addCart = document.getElementsByClassName('add-cart');
-	for (var i = 0; i < addCart.length; i++) {
-		var button = addCart[i];
-		button.addEventListener('click', addCartClicked);
-	}
+for(i=0; i < cart_list.length; i++){
+
+const containerDiv = document.createElement('div');
+containerDiv.classList.add('product-container');
+console.log(containerDiv);
+
+const imgElem = document.createElement('img');
+imgElem.src = cart_list[i]['image_url'];
+imgElem.alt = 'Product Image';
+containerDiv.append(imgElem);
+
+const detailsDiv = document.createElement('div');
+detailsDiv.classList.add('product-details');
+containerDiv.append(detailsDiv);
+
+
+const nameHeading = document.createElement('h2');
+nameHeading.classList.add('product_name');
+nameHeading.textContent = cart_list[i]['product_name'];
+detailsDiv.append(nameHeading);
+
+const priceParagraph = document.createElement('p');
+priceParagraph.classList.add('product-price');
+priceParagraph.textContent = cart_list[i]['product_price'] ;
+detailsDiv.append(priceParagraph);
+
+
+const quantityInput = document.createElement('input');
+quantityInput.type = 'number';
+quantityInput.classList.add('product-quantity');
+quantityInput.value = 1;
+quantityInput.min = 1;
+quantityInput.max = 100;
+detailsDiv.append(quantityInput);
+
+document.querySelector('div.cart_content').append(containerDiv);
 }
-
-         </script>
-      
-      </html>
-        
-
+</script>
 </body>
+</html>
+        

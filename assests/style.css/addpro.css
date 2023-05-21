@@ -73,13 +73,6 @@ body {
   .cut-short {
     width: 50px;
   }
-  
-  
-  
-  
-  
-  
-  
   .submit {
     background-color: #08d;
     border-radius: 12px;
@@ -94,5 +87,11 @@ body {
     text-align: center;
     width: 100%;
   }
-  
+             
+  .input2{
+       margin-top: 20px;
+       background-color: #eaebf3;
+    border: 0;
+    box-sizing: border-box;
+  }  
   

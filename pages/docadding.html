@@ -22,41 +22,60 @@
           <span>Doctor Name</span>
         </div>
         <div class="inputBox">
-          <input id="Special" type="text" name="" required/>
+          <input id="time" type="text" name="" required />
+          <span>Availablity</span>
+        </div>
+        <div class="inputBox">
+          <input type="file" id="myFile" name="filename">
+          <span>Certificate</span>
+        </div>
+
+        <div class="inputBox">
+          
           <span>specialist</span>
+          <select id="type">
+            <option value="Neurology">Neurology </option>
+            <option value="PHYSCOLOGY">Physcology </option>
+            <option value="Gynocology">Gynocology </option>
+            <option value="Paedtrician"> Paedtrician</option>
+            <option value="dermatology"> dermatology</option>
+            <option value="Stomach and digestion"> Stomach and digestion</option>
+            </select>
+        </div>
+        <div class="inputBox">
+          <input id="details" type="text" name="" required/>
+          <span>experience</span>
         </div>
         <div class="inputBox">
           <input id="title" type="text" name="" required/>
-          <span>experience</span>
+          <span>Description/details</span>
         </div>
         
         <button type="submit" class="btn5">Send</button></a>
       </form>    
 
       <script>
+        let value1=document.getElementById("type").value
+        console.log(value1)
                      let dataObj= JSON.parse(localStorage.getItem("data"));
-              let objObject=JSON.parse(localStorage.getItem("obj"));
+             
+
               console.log(dataObj);
-              console.log(objObject);
-              let get = objObject.find(function (obj) {
-        let checkmail = obj["useremail"];
-        if (dataObj === checkmail) {
-          return true;
-        }
-      });
+              
+      //         let get = objObject.find(function (obj) {
+      //   let checkmail = obj["useremail"];
+      //   if (dataObj === checkmail) {
+      //     return true;
+      //   }
+      // });
 
-      console.log(get)
-      let docname = document.getElementById("docname");
-          
-          docname.value =get["username"]
-            
-      
-
+      // console.log(get)
+         let docname = document.getElementById("docname");
           let form = document.getElementById("form")
           form.addEventListener ("submit",function(event){
           event.preventDefault();
 
-let special = document.getElementById("special");
+          let special = document.getElementById("type");
           let title = document.getElementById("title");
 
 
@@ -67,18 +86,43 @@ let special = document.getElementById("special");
           main["image"]=image;
           console.log(image)
     
-           let name=document.getElementById("docname").value;
-           main["docname"]=name;
+          let name=document.getElementById("docname").value;
+          main["docname"]=name;
+          console.log(name)
         
+            
+          
 
-           let spl=document.getElementById("Special").value;
-           main["Special"]=spl;
+          let spl=document.getElementById("type").value;
+          main["type"]=spl;
+          console.log(spl)
+
+
+          
+          let timing=document.getElementById("time").value;
+          main["time"]=timing;
+          console.log(timing)
+
+          main["Booked"]=false;
+
+           
 
            let exp=document.getElementById("title").value;
            main["title"]=exp;
+           console.log(exp)
 
-           let doctorid=Date.now()
-           main ["newid"]=doctorid
+
+
+           let description=document.getElementById("details").value;
+           main["description"]=description;
+           console.log(exp)
+
+           let userEmail = JSON.parse(localStorage.getItem("data"))
+           main["userEmail"]=userEmail
+
+           let new_id = crypto.randomUUID();
+      main["new_id"]=new_id;
+      console.log(new_id)
 
 
            
@@ -91,7 +135,7 @@ let special = document.getElementById("special");
 	 								 let userjs=JSON.parse(users);
                    userjs.push(main)
                    window.localStorage.setItem("whole",JSON.stringify(userjs));
-                   window.location.href="./totaladmin.html"
+                  //  window.location.href="./totaladmin.html"
 							 }
 
 

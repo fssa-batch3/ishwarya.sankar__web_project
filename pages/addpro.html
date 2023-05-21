@@ -26,9 +26,20 @@
                 <input id="price" class="input" type="text" placeholder=" " />
                 <span>Price</span>
             </div>
+            <label for="">Choose a option:</label>
+
+<select id="type">
+  <option value="skin">Skin care</option>
+  <option value="weight">weight Management</option>
+  <option value="pain">Pain relief</option>
+  <option value="diabetes">Diabetes</option>
+  <option value="baby">Baby care</option>
+  <option value="Fitness">Fitness</option>
+  <option value="Family">Family care</option>
+</select>
             <button type="submit" class="submit">submit</button>
-            <!-- <button type="submit" class="submit" class="btn5">edit</button>
-            <button type="submit" class="submit" class="btn6">delete</button> -->
+            <button type="submit" class="submit" class="btn">edit</button>
+            <button type="submit" class="submit" class="btn">delete</button> 
     </div>
     </form>
     <!-- <form id="all">
@@ -59,12 +70,15 @@
             let meddata = {};
             const Medname = document.getElementById("pname").value;
             const MedURl = document.getElementById("img").value;
-            const MedPrice = document.getElementById("price").value;
+            const MedPrice = parseFloat(document.getElementById("price").value);
+            const newtype= document.getElementById("type").value;
+              
             let id = self.crypto.randomUUID();
 
             meddata["heading"] = Medname;
             meddata["image"] = MedURl;
             meddata["para"] = MedPrice;
+            meddata["type"]=newtype;
             meddata["uuid"] = id;
 
             if (window.localStorage.getItem("Medicine") === null) {
@@ -76,6 +90,38 @@
             }
             window.location.href = "#";
         });
+        let save = document.getElementById("all");
+          save.addEventListener("submit",(event) => {
+              event.preventDefault();
+let newaddto={
+    Medname,MedURl,MedPrice
+}
+              if (mail != useremail) {
+          alert("You can't change the Email ID");
+        } else {
+          let newupdate = Object.assign(meddata,newaddto );
+          console.log(newupdate);
+          let index = profile.indexOf(meddata);
+          console.log(index);
+          profile[index] = newupdate;
+          localStorage.setItem("newproduct", JSON.stringify(profile));
+          window.location.href ="/index.html"
+          // alert("You have successfully updated your account details!");
+        }
+      });
+      let info = document.getElementById("delete");
+      info.addEventListener("click", function (event) {
+        event.preventDefault();
+        let indexof = profile.indexOf((data));
+        let failed = confirm("Delete this");
+        if (failed !== true) {
+          return;
+        } else {
+          profile.splice(indexof, 1);
+          localStorage.setItem("newproduct", JSON.stringify(profile));
+        }
+          });
+        
     </script>
 </body>
 

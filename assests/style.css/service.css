@@ -24,6 +24,7 @@
 .navbar {
     display: flex;
     justify-content: space-between;
+    margin-right: 20px;
 }
 .navbar li {
     text-decoration: none;
@@ -119,6 +120,17 @@ p {
 }
 .card:hover p {
   color: #f0f0f0;
+}
+.main h1 {
+  color: #03C988;;
+  margin-top: 1em;
+  margin-left: 2rem;
+}
+h1 span {
+  color: black;
+}
+h1 span:hover{
+color:blue;
 }
 @media screen and (min-width: 768px) {
   section {

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+<h2>Appointment</h2>
+
+</body>
+<script>
+ // Create a new table element
+var table = document.createElement("table");
+
+// Create a new row for the doctor's name
+var row = document.createElement("tr");
+var labelCell = document.createElement("td");
+labelCell.textContent = "Name";
+row.appendChild(labelCell);
+var valueCell = document.createElement("td");
+valueCell.innerHTML = '<span style="color: #0e6453;font-weight: bolder;" id="doctor_name"></span>';
+row.appendChild(valueCell);
+table.appendChild(row);
+
+// Create a new row for the date and time
+row = document.createElement("tr");
+labelCell = document.createElement("td");
+labelCell.textContent = "Date and Time";
+row.appendChild(labelCell);
+valueCell = document.createElement("td");
+valueCell.innerHTML = '<span style="color: #0e6453;font-weight: bolder;" id="date"></span>';
+row.appendChild(valueCell);
+table.appendChild(row);
+
+// Create a new row for the clinic number
+row = document.createElement("tr");
+labelCell = document.createElement("td");
+labelCell.textContent = "Number";
+row.appendChild(labelCell);
+valueCell = document.createElement("td");
+valueCell.innerHTML = '<span style="color: #0e6453;font-weight: bolder;" id="clinic"></span>';
+row.appendChild(valueCell);
+table.appendChild(row);
+
+// Create a new row for the appointment date and time
+row = document.createElement("tr");
+labelCell = document.createElement("td");
+labelCell.textContent = "appointmentDateTime";
+row.appendChild(labelCell);
+valueCell = document.createElement("td");
+valueCell.innerHTML = '<span style="color: #0e6453;font-weight: bolder;" id="id"></span>';
+row.appendChild(valueCell);
+table.appendChild(row);
+
+// Add the table to the document
+document.body.appendChild(table);
+
+// Populate the values using JavaScript
+document.getElementById("doctor_name")
+document.getElementById("date") 
+document.getElementById("clinic")
+document.getElementById("id") 
+
+
+let local = window.localStorage.getItem("obj");
+
+</script>
+</html>
+

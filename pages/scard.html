@@ -10,7 +10,7 @@
 <body>
     <form id="main">
         <div class="wrapper">
-            <div class="title">Appointment</div>
+            <div class="title"> Book Appointment</div>
             <!-- <form action="#"> -->
                 <div class="user-details">
                     <div class="input-box">
@@ -50,27 +50,23 @@
                             <input type="time"id="time"class="form-control">
                            </div>
                     </div>
-                    <div class="input-box">
-                        <span class="details" ></span>
-                        <input type="text"   placeholder="Message"id ="suffering">
-                    </div>
-                    <div class="input-box">
-                        <select id="option">
-                            <option >select specialist</option>
-                            <option value="Gynocology">Gynocology</option>
-                            <option value="Paedtrician">Paedtrician</option>
-                            <option value="neurology">neurology</option>
-                            <option value="Stomach and digestion">Stomach and digestion</option>
-                            <option value="Psycologist">Psycologist</option>
-                          </select>
-                        </div>
+                  
+                   
                 </div>
                 <div class="submit_btn">
-                    <button type="submit" class="button" value="Register">Register</button>
+                    <button  onclick="validateDate()" class="button" value="Register" >Register</button>
                 </div>
             </form>
 
 <script>
+
+   
+let date = new URLSearchParams(window.location.search);
+            let id = date.get("doc_id");
+            console.log(id);
+
+
+   
 let appointments_arr =[]
 let appointments_obj= {}
 let form = document.getElementById("main");
@@ -83,7 +79,7 @@ let city = document.getElementById("city").value;
 let address = document.getElementById("address").value;
 let date = document.getElementById("date").value;
 let time = document.getElementById("time").value;
-let suffering =document.getElementById("suffering").value
+
 let uuid = self.crypto.randomUUID()
 
 
@@ -94,23 +90,12 @@ appointments_obj["city"] = city
 appointments_obj["address"] = address
 appointments_obj["date"] = date
 appointments_obj["time"] = time
-appointments_obj["suffering"] = suffering
+
 appointments_obj["uuid"] = uuid
+appointments_obj["docId"] = id
+
             let slt = document.getElementById("option")
-            if (option.value === "Gynocology") {
-                appointments_obj["specialist"]= "Gynocology";
-            } else if (option === "Paedtrician") {
-            appointments_obj["specialist"]= "Paedtrician";
-            }
-            else if (option.value === "neurology") {
-            appointments_obj["specialist"]= "neurology";
-            }
-            else if (option.value=== "Stomach and digestion") {
-            appointments_obj["specialist"]= "Stomach and digestion";
-            }
-            else if (option.value === "Psycologist") {
-            appointments_obj["specialist"]= "Psycologist";
-            };
+          console.log(appointments_obj);
 if(window.localStorage.getItem("appointments_arr") === null){
     appointments_arr.push(appointments_obj)
 window.localStorage.setItem("appointments_arr", JSON.stringify(appointments_arr));
@@ -120,18 +105,10 @@ window.location.href="../pages/newappo.html";
 let card_data = JSON.parse(window.localStorage.getItem("appointments_arr"));
 card_data.push(appointments_obj)
 window.localStorage.setItem("appointments_arr",JSON.stringify(card_data))
-alert("Appoinment Successfully appointed")
-window.location.href="../pages/newappo.html";
+// alert("Appoinment Successfully appointed")
+window.location.href="../index.html";
 }
 });
-
-
-
-
-
-
-
-
 let dataObj= JSON.parse(localStorage.getItem("data"));
               let objObject=JSON.parse(localStorage.getItem("obj"));
               console.log(dataObj);
@@ -144,10 +121,46 @@ let dataObj= JSON.parse(localStorage.getItem("data"));
       });
 
       console.log(get)
-      let docname = document.getElementById("username");
-      docname.value=get["username"]
-          
-            
+      var today = new Date();
+        var futureDate = new Date();
+        futureDate.setDate(today.getDate() + 7);
+        var futureDateString = futureDate.toISOString().slice(0, 10);
+        var dateInput = document.getElementById('date');
+        dateInput.setAttribute('min', today.toISOString().slice(0, 10));
+        dateInput.setAttribute('max', futureDateString);
+
+var timeInput = document.getElementById('time');
+        timeInput.addEventListener('input', function () {
+            var selectedTime = new Date('2000-01-01T' + this.value + '7:00');
+            var minTime = new Date('2000-01-01T08:00:00');
+            var maxTime = new Date('2000-01-01T20:00:00');
+            if (selectedTime < minTime || selectedTime > maxTime) {
+                timeInput.setCustomValidity('Please select a time between 8 am and 8 pm.');
+            } else {
+                timeInput.setCustomValidity('');
+            }
+        });
+
+
+
+        function validateDate(){
+           
+
+            let whole = JSON.parse(localStorage.getItem("whole"));
+            let findedWhole = whole.find((F)=> F.new_id == id);
+            console.log(findedWhole);
+            findedWhole["Booked"] = true;
+            let findedWholeIndex = whole.indexOf(findedWhole);
+            whole[findedWholeIndex]=findedWhole;
+            localStorage.setItem("whole",JSON.stringify(whole))
+
+        }
+
+
+
+
+
+
 </script>
         </body>
 </html>

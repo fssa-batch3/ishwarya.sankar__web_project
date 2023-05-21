@@ -16,13 +16,14 @@
 					<input type="text"  name="reqname"id="txt" placeholder="User name" pattern="[a-zA-Z]+{2,16}" required>
 					<input type="email" name="reqemail" id="email" placeholder="Email" required>
 					<input type="number" name="reqemail" id="mble" placeholder="phone number" maxlength="10" minlength="10" required>
-					<input type="text" name="reqpass" id="swd" placeholder="address"  title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required> 
+					<!-- <input type="text" name="reqpass" id="swd" placeholder="address"  title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>  -->
 					<input type="password" name="reqpass" id="pswd" placeholder="password"  title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required> 
-					<input type="password" name="repass" id="cpswd" placeholder="confirm Password"  title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required> 
+					<input type="password" name="repass" id="cpswd" placeholder="confirm Password"  title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"  required> 
 						<select name="cars" class="Proffession" id="txt2">
 						  <option value="Doctor" id="doc">Doctor</option>
 						  <option value="Patient" id="patient">Patient</option>
 						  <option value="seller" id="patient">Seller</option>
+             
 						</select>
 					<button type="submit"  id="signin">Sign up</button>
 					<small>Already I have an Account <a href="./login.html">Login Now</a>
@@ -71,7 +72,7 @@ form.addEventListener("submit", function(e) {
   e.preventDefault();
   const name = document.getElementById("txt").value.trim();
   const email = document.getElementById("email").value.trim();
-  const address = document.getElementById("swd").value.trim();
+  // const address = document.getElementById("swd").value.trim();
   const pass = document.getElementById("pswd").value.trim();
   const pass2 = document.getElementById("cpswd").value.trim();
   const doctors = document.getElementById("txt2").value.trim();
@@ -89,26 +90,28 @@ form.addEventListener("submit", function(e) {
   object["useremail"] = email;
   object["userpassword"] = pass;
   object["userconfirmpass"] = pass2;
-  object["address"] = address;
   object["doctors"] = doctors;
   object["mobilenumber"] = phonenumber;
   object["id"] = id;
   main.push(object);
 
+  if (!localStorage.getItem("obj")) {
+      window.localStorage.setItem("obj", JSON.stringify(main));
+    }
+
   let ject = JSON.parse(localStorage.getItem("obj"));
   let is = false;
-  for (i = 0; i < ject.length; i++) {
-    if (email == ject[i]["useremail"]) {
-      is = true;
-      break;
-    }
+
+  for (i = 0; i <= ject.length; i++) {
+  //  if (email == ject[i]["useremail"]) {
+  //     is = true;
+  //     break;
+  //   } 
   }
   if (is === true) {
     alert("Email already exists");
-  } else {
-    if (window.localStorage.getItem("obj") === null) {
-      window.localStorage.setItem("obj", JSON.stringify(main));
-    } else {
+  }
+   else {
       let local = window.localStorage.getItem("obj");
       let json = JSON.parse(local);
       json.push(object);
@@ -120,7 +123,6 @@ form.addEventListener("submit", function(e) {
     } else {
       window.location.href = "./login.html";
     }
-  }
 });
 
 	</script>

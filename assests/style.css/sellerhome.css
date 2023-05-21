@@ -183,3 +183,11 @@ div#footer-upload{
 .login{
     margin-left:15rem;
 }
+.main {
+    box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, 0.9);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      align-content: center;  
+  }
+  

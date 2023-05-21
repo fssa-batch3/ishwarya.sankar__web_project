@@ -74,17 +74,12 @@ body {
     width: 50px;
   }
   
-  
-  
-  
-  
-  
-  
+ 
   .submit {
     background-color: #08d;
     border-radius: 12px;
     border: 0;
-    box-sizing: border-box;
+   
     color: #eee;
     cursor: pointer;
     font-size: 18px;
@@ -92,7 +87,12 @@ body {
     margin-top: 38px;
      outline: 0;
     text-align: center;
-    width: 100%;
+    text-decoration: none;
   }
   
-  
+  .col {
+    /* width: 100%; */
+    /* padding: 0 1em 1em 1em; */
+    margin-left: 150px;
+    text-align: center;
+  }

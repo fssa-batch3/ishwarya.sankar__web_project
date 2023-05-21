@@ -242,3 +242,39 @@ text-align: center;
 .btn-buy:hover {
 	background-color: #fff;
 }
+
+.product-container {
+    display: flex;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+  }
+  
+  .product-container img {
+    height: 100px;
+    width: 100px;
+    margin-right: 20px;
+  }
+  
+  .product-details {
+    flex: 1;
+  }
+  
+  .product-name {
+    font-size: 24px;
+    margin: 0;
+  }
+  
+  .product-price {
+    font-size: 18px;
+    margin: 5px 0;
+  }
+  
+  .product-quantity {
+    font-size: 16px;
+    padding: 5px;
+    width: 50px;
+    text-align: center;
+  }
+  

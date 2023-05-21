@@ -7,12 +7,13 @@
     <title>admin review</title>
     <link rel="stylesheet" href="../assests/style.css/adminrev.css">
     </head>
+
 <body>
     <div class="pov">
         <div class="wrapper">
-            <h1>admin page</h1>
             <h1>HEAR WHAT OUR CUSTOMERS SAY</h1>
             <h5>CHECK WHAT THEY SAY ABOUT US</h5>
+            <a href="./reviewform.html">Add Review</a>
 
             <div class="main"> 
             </div>
@@ -45,18 +46,12 @@ let h4 = document.createElement("h4")
 h4.innerText = card_content[i]["tx_t"];
 div_card.append(h4)
 
-let anchor=document.createElement("a")
-anchor.setAttribute("href","#")
-let editbutton=document.createElement("button")
-editbutton.innerText=["EDIT"]
-div_card.append(editbutton)
+}
 
-let del=document.createElement("button")
-del.innerText=["delete"]
-div_card.append(del)
-} 
-// <firstcard>
+
+
 
 
 </script>
+<script src="../header.js"></script>
 </html>

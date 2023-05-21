@@ -12,43 +12,29 @@
   <link rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js" integrity=""></script>
+  <script type="text/javascript">
+    (function () {
+        emailjs.init("xJczW25BwYvEu6S51");
+    })();
+    </script>
 </head>
 
 <body>
-<header class="main">
-  <div class="fsec"></a>
-      <h1>MED<span>LIFE</span></h1>
-  </div>
-  <div class="navbar">
-    
 
-      <ul><li><a href="./pages/about.html">About</li></a></ul>
-      <ul><li><a href="./pages/service.html">Service</li></a></ul> 
-      <ul><li><a href="./pages/product.html">Medicines</li></a></ul>
-      <ul><li><a href="./pages/online.html">Expert</li></a></ul>
-      <ul><li><a href="./pages/home.html">Review</li></a></ul>
-      <ul><li><a href="./pages/scard.html">Appoinment</li></a></ul>
-      <!-- <li><a href="./pages/sigup.html">Signup</li></a> -->
-      <ul><li><a href="./pages/login.html">Login</li></a></ul>
-      <!-- <li><a href="./pages/admin.login.html">Admin</a></li> -->
-      <a href="./pages/profile.html"><img class="edit" src="./assests/image/account.png" ></a>  </div>
-</header>
-
-
-<!-- heading -->
 <div class="section">
 <div class="para1">
   <h1>Stay Safe<br> Stay  Healthy</h1>
 
   <p class = "text text-md">Lorem, ipsum dolor sit amet consectetur adipisicing elit.<br> Totam, nulla odit esse necessitatibus corporis voluptatem?</p>
-  <button class="btn1"><a href="./pages/scard.html">FREE APPOINMENT</a></button>
+  <button class="btn1"><a href="./pages/online.html">FREE APPOINMENT</a></button>
   
 
 </div>
 <div class="img">
   <img src="./assests/image/home-img.svg" style="height:500px">
 </div>
-</div>
+</div>  
 
 
   <div class="main1">
@@ -159,17 +145,17 @@
                 <h3 class = "lead">Contact Us</h3>
               
             </div>
-            <form>
+            <form id="newform">
                 <div class = "form-element">
-                    <input type = "text" class = "form-control" placeholder="Your name">
+                    <input type = "text" class ="form-control" id="name" placeholder="Your name">
                 </div>
                 <div class = "form-element">
-                    <input type = "email" class = "form-control" placeholder="Your email">
+                    <input type = "email" class ="form-control" id="email" placeholder="Your email">
                 </div>
                 <div class = "form-element">
-                    <textarea rows = "5" placeholder="Your Message" class = "form-control"></textarea>
+                    <textarea rows = "5" placeholder="Your Message" id="message" class ="form-control"></textarea>
                 </div>
-                <button type = "submit" > Send Message</button>
+                <button type = "submit" id="submit"> Send Message</button>
             </form>
         </div>
     </div>
@@ -237,6 +223,7 @@
             </div>
             <div class="contact-details">
               <i class="fa fa-phone"></i>
+              
               <p>+1-8755856858</p>
             </div>
           </div>
@@ -253,9 +240,54 @@
         }
         </script>
         <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
-          
-
 </script>
+    <script src="./header.js"></script>
+    <script>
     
+    let newform =document.getElementById("newform")
+      newform.addEventListener("submit",(event)=>{
+        event.preventDefault();
+        
+      
+       let email = document.getElementById("email").value;
+      
+    
+      let body = "test email";
+
+      //required params to send email
+   let params = {from_name: "ishusankar14@gmail.com",
+              to_name: email,
+              message: body,
+             }
+//email sending event function
+emailjs.send("service_sp6m68x","template_1veprt4",params)
+.then((res) => {
+  console.log(res)
+
+  alert("email sent");
+})
+.catch(err => console.error(err))
+
+
+
+      });
+//logout
+// function logout_link() {
+//   const confirmation = window.confirm("Are you sure you want to Logout?");
+//   if (confirmation) {
+//     localStorage.removeItem("name_id");
+//     window.location.href = "../index.html";
+//   }
+// }
+// document.addEventListener("DOMContentLoaded", () => {
+
+//   const logoutButton = document.getElementById("logoutLink");
+//   logoutButton.addEventListener("click", logout_link);
+// });
+
+      </script>
+
+
+<script src="https://smtpjs.com/v3/smtp.js" integrity=""></script>
   </body>
 </html>

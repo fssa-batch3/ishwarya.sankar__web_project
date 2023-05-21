@@ -4,31 +4,17 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>appointments</title>
     <link rel="stylesheet" href="../assests/style.css/newappo.css" />
     <link rel="stylesheet" href="../assests/style.css/STYLE.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js" integrity=""></script>
+  <script type="text/javascript">
+    (function () {
+        emailjs.init("xJczW25BwYvEu6S51");
+    })();
+    </script>
   </head>
   <body>
-    <div class="navbar">
-       
-      <li><a href="../pages/about.html">About</li></a>
-      <li><a href="../pages/service.html">Service</li></a> 
-      <li><a href="../pages/product.html">Medicines</li></a>
-      <li><a href="../pages/online.html">Expert</li></a>
-      <li><a href="../pages/home.html">Review</li></a>
-      <li><a href="../pages/appoin.html">Appoinment</li></a>
-      <li><a href="../pages/sigup.html">Signup</li></a>
-      <li><a href="../pages/startingpage.html">Admin</a></li>
-  </div>
-
-
-
-
-
-
-
-
-
     <div class="Whole_card"></div>
   </body>
   <script>
@@ -36,7 +22,12 @@
     let card_details = JSON.parse(
       window.localStorage.getItem("appointments_arr")
     );
+  
+    
     for (let i = 0; i < card_details.length; i++) {
+    
+      
+  
       let single_card = document.createElement("div");
       single_card.setAttribute("class", "single_card");
       Whole_card.append(single_card);
@@ -82,24 +73,49 @@
       cancelbtn.setAttribute("uuid", card_details[i]["uuid"]);
       cancelbtn.innerHTML = "Cancel";
       cancelbtn.setAttribute("id", "cancel");
+      // cancelbtn.setAttribute("onclick", emailjs(card_details[i]["uuid"]));
       single_card.append(cancelbtn);
-      cancelbtn.addEventListener("click", function () {
-          if (confirm("Are you sure?")) {
-            let jsonData = JSON.parse(
-              window.localStorage.getItem("appointments_arr")
-            );
-            let uuid = cancelbtn.getAttribute("uuid");
-            console.log(uuid);
-            let indexOf = jsonData.findIndex((obj) => obj.uuid === uuid);
-            console.log(indexOf);
-            jsonData.splice(indexOf, 1);
-            window.localStorage.setItem(
-              "appointments_arr",
-              JSON.stringify(jsonData)
-            );
-            window.location.href = "../pages/newappo.html";
-          }
-        });
-      }
-  </script>
+
+
+         
+      let newbtn = document.createElement("button");
+      newbtn.setAttribute("uuid", card_details[i]["uuid"]);
+      newbtn.innerHTML = "Approve";
+      newbtn.setAttribute("id", "approve");
+      single_card.append(newbtn);
+
+    }
+     
+      
+
+let form =document.getElementById("cancel")
+      form.addEventListener("click",(event)=>{
+        event.preventDefault();
+        
+       let email = document.getElementById("email").value;
+       console.log(email);
+       console.log(event);
+      
+    
+      let body = "Your appointment has been canceled today,book your next appointment and consult the doctors";
+
+      //required params to send email
+   let params = {from_name: "ishusankar14@gmail.com",
+              to_name: email,
+              message: body,
+             }
+//email sending event function
+emailjs.send("service_sp6m68x","template_1veprt4",params)
+.then((res) => {
+  console.log(res)
+
+  alert("email sent");
+})
+.catch(err => console.error(err))
+
+
+
+      });
+</script>
+<script src="https://smtpjs.com/v3/smtp.js" integrity=""></script>
 </html>
