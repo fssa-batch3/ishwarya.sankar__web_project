@@ -17,7 +17,8 @@ const blogin=` <header class="main">
 
     <ul><li><a href="${about}">About</li></a></ul>
     <ul><li><a href="${service}">Service</li></a></ul> 
-   
+    <ul><li><a href="${medicine}">Medicine</li></a></ul>
+    
     <ul><li><a href="${review}">Review</li></a></ul>
   
     <ul><li><a href="./pages/login.html">Login</li></a></ul>`

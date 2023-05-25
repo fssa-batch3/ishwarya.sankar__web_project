@@ -25,16 +25,37 @@ tr:nth-child(even) {
 
 </body>
 <script>
+
+let main = JSON.parse(localStorage.getItem("obj"))
+console.log(main);
+let login_user = JSON.parse(localStorage.getItem("data"))
+console.log(login_user);
+// USER BOOKINGS
+let user_booking = main.find((doc)=>doc["useremail"]==login_user)
+console.log(user_booking)
+
+
+let userArr = JSON.parse(localStorage.getItem("appointments_arr"))
+
+for (let i=0; i<userArr.length; i++) {
+
+  console.log(userArr[i]["email"]);
+
+  console.log(user_booking["useremail"]);
+
+  if(userArr[i]["email"] == user_booking["useremail"]) {
  // Create a new table element
-var table = document.createElement("table");
+let table = document.createElement("table");
 
 // Create a new row for the doctor's name
-var row = document.createElement("tr");
-var labelCell = document.createElement("td");
+let row = document.createElement("tr");
+let labelCell = document.createElement("td");
 labelCell.textContent = "Name";
 row.appendChild(labelCell);
-var valueCell = document.createElement("td");
-valueCell.innerHTML = '<span style="color: #0e6453;font-weight: bolder;" id="doctor_name"></span>';
+
+let valueCell = document.createElement("td");
+valueCell.innerText = userArr[i]["fullname"]
+
 row.appendChild(valueCell);
 table.appendChild(row);
 
@@ -43,8 +64,9 @@ row = document.createElement("tr");
 labelCell = document.createElement("td");
 labelCell.textContent = "Date and Time";
 row.appendChild(labelCell);
+
 valueCell = document.createElement("td");
-valueCell.innerHTML = '<span style="color: #0e6453;font-weight: bolder;" id="date"></span>';
+valueCell.textContent = userArr[i]["time"];
 row.appendChild(valueCell);
 table.appendChild(row);
 
@@ -53,24 +75,44 @@ row = document.createElement("tr");
 labelCell = document.createElement("td");
 labelCell.textContent = "Number";
 row.appendChild(labelCell);
+
 valueCell = document.createElement("td");
-valueCell.innerHTML = '<span style="color: #0e6453;font-weight: bolder;" id="clinic"></span>';
+valueCell.textContent = userArr[i]["phonenumber"];
 row.appendChild(valueCell);
 table.appendChild(row);
 
 // Create a new row for the appointment date and time
 row = document.createElement("tr");
 labelCell = document.createElement("td");
-labelCell.textContent = "appointmentDateTime";
+labelCell.textContent = "Doctor-Id";
 row.appendChild(labelCell);
+
 valueCell = document.createElement("td");
-valueCell.innerHTML = '<span style="color: #0e6453;font-weight: bolder;" id="id"></span>';
+valueCell.textContent = userArr[i]["docId"];
 row.appendChild(valueCell);
 table.appendChild(row);
 
+//approved
+row = document.createElement("tr");
+labelCell = document.createElement("td");
+
+labelCell.textContent = "Booking status";
+row.appendChild(labelCell);
+
+valueCell = document.createElement("td");
+if( userArr[i]["approved"] == true ){
+
+  valueCell.textContent = "Approved";
+}else{
+  valueCell.textContent = "pending";
+}
+row.appendChild(valueCell);
+table.appendChild(row);
 // Add the table to the document
 document.body.appendChild(table);
 
+}
+}
 // Populate the values using JavaScript
 document.getElementById("doctor_name")
 document.getElementById("date") 

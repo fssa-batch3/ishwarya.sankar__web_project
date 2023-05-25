@@ -55,6 +55,7 @@
       </form>    
 
       <script>
+   
         let value1=document.getElementById("type").value
         console.log(value1)
                      let dataObj= JSON.parse(localStorage.getItem("data"));
@@ -70,6 +71,7 @@
       // });
 
       // console.log(get)
+
          let docname = document.getElementById("docname");
           let form = document.getElementById("form")
           form.addEventListener ("submit",function(event){
@@ -124,6 +126,8 @@
       main["new_id"]=new_id;
       console.log(new_id)
 
+
+      main["doctor"] = dataObj
 
            
            arr.push(main)

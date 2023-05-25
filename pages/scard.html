@@ -19,7 +19,7 @@
                     </div>
                     <div class="input-box">
                         <span class="details" ></span>
-                        <input type="email" placeholder="Email" id="email" >
+                        <input type="email" placeholder="Email" id="email" disabled >
                     </div>
                     <div class="input-box">
                         <span class="details" ></span>
@@ -65,11 +65,15 @@ let date = new URLSearchParams(window.location.search);
             let id = date.get("doc_id");
             console.log(id);
 
+            let log_user = JSON.parse(localStorage.getItem("data"))
+
+            document.getElementById("email").value = log_user
 
    
 let appointments_arr =[]
 let appointments_obj= {}
 let form = document.getElementById("main");
+
 form.addEventListener("submit", function (event){
     event.preventDefault();
 let fullname = document.getElementById("username").value;
@@ -90,7 +94,7 @@ appointments_obj["city"] = city
 appointments_obj["address"] = address
 appointments_obj["date"] = date
 appointments_obj["time"] = time
-
+appointments_obj["approved"] = false
 appointments_obj["uuid"] = uuid
 appointments_obj["docId"] = id
 

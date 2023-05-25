@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./productlist.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+    
+  <div class="second">
+    
+    
+    <div class="main2">
+       
+        <h1>OUR PRODUCTS</h1></div>
+                
+                 
+          
+       
+                    <i id="cart-icon" class='bx bx-shopping-bag' ></i>
+
+                    <div class="cart">
+                        <h2 class="cart-title">Your Cart</h2>
+                
+                        <div class="cart_content">
+                          <!-- <div class="product-container">
+                            <img src="path/to/product-image.jpg" alt="Product Image">
+                            <div class="product-details">
+                              <h2 class="product-name">Product Name</h2>
+                              <p class="product-price">$20.00</p>
+                              <input type="number" class="product-quantity" value="1" min="1" max="100">
+                            </div>
+                          </div> -->
+                          </div>
+                          
+                       
+                        <!-- total -->
+                        <div class="total">
+                            <div class="total-title">Total</div>
+                            <div class="total-price">$0</div>
+                        </div>
+                        <!-- buy button -->
+                        <button class="btn-buy" type="button">Buy Now</button>
+                        <!-- cart close -->
+                        <i id="close-cart" class='bx bx-x'></i>
+                    </div>
+                
+                </div>
+                </header>
+           <section id="product">
+              
+           </section>
+         
+<script>
+
+let weight = JSON.parse(localStorage.getItem("Medicine"));
+console.log(weight);
+for (let i=0; i < weight.length; i++ ){
+  let section=document.createElement("div")
+  section.setAttribute("class","container")
+
+  let secimg=document.createElement("img")
+  secimg.setAttribute('class','imageUrl')
+  secimg.setAttribute("src",weight[i]["image"])
+  section.append(secimg)
+
+  let h2=document.createElement("h2")
+  h2.setAttribute('class','productName');
+  h2.innerText= weight[i]["heading"];
+  section.append(h2)
+
+  let para=document.createElement("p")
+  para.setAttribute("class","paras")
+  para.innerText="Rs ." + weight[i]["para"];
+  section.append(para)
+
+  let button =document.createElement("button")
+  button.setAttribute("class","add-to-cart")
+  button.innerText = "Add to cart"
+  button.setAttribute("data-id",weight[i]["uuid"])
+  section.append(button)
+              
+  let finalpage=document.getElementById("product")
+  finalpage.append(section)
+}
+
+
+
+const addtocart = document.querySelectorAll(".add-to-cart");
+addtocart.forEach(function (findId) {
+  findId.addEventListener("click", function () {
+    const id_cart = this.dataset.id;
+    const product_price = parseInt(document.querySelector(".paras").innerHTML); 
+    const cart_list = JSON.parse(localStorage.getItem("cart_list")) || [];
+    const product_name = document.querySelector(".productName").innerHTML; 
+    const image_url = document.querySelector(".imageUrl").getAttribute("src");
+    const data = JSON.parse(localStorage.getItem("data"));
+    const exist = cart_list.length && JSON.parse(localStorage.getItem("cart_list")).some(
+          (data) => data.uuid == id_cart && data.data === data
+        );
+    if (exist) { 
+      alert("Sorry, the product is already added to the cart");
+      return;
+    }
+    if (!data) {
+      alert("Log In");
+      // window.location.href = "#";
+      return;
+    }
+    if (!exist) {
+      cart_list.push({
+        uuid: id_cart,
+        product_name,
+        image_url,
+        product_price,
+        userId: data,
+        product_quantity: 1,
+      });
+      localStorage.setItem("cart_list", JSON.stringify(cart_list));
+      alert("Product Added to the Cart");
+      // location.href = "#";
+    }
+  });
+});
+
+      
+    let cartIcon = document.querySelector('#cart-icon');
+let cart = document.querySelector('.cart');
+let closeCart = document.querySelector('#close-cart');
+
+// == Open cart
+cartIcon.onclick = () => {
+	cart.classList.add('active');
+};
+
+// == Close cart
+closeCart.onclick = () => {
+	cart.classList.remove('active');
+};
+function addtocartClicked(event) {
+  var button = event.target;
+  var shopProducts = button.parentElement;
+  var title = shopProducts.getElementsByClassName('product-title')[0].innerText;
+  var price = shopProducts.getElementsByClassName('price')[0].innerText;
+  var productImg = shopProducts.getElementsByClassName('product-img')[0].src;
+  addProductToCart(title, price, productImg);
+  updatetotal();
+};  
+
+let urlparams = new URLSearchParams(window.location.search);
+let thisname = urlparams.get("name");
+let thiscard = JSON.parse(localStorage.getItem("Medicine")).filter((e) => e.name === thisname)
+
+
+// let cart_list = JSON.parse(localStorage.getItem("cart_list"));
+// console.log(cart_list);
+
+for(let i=0; i < thiscard.length; i++){
+
+const containerDiv = document.createElement('div');
+containerDiv.classList.add('product-container');
+console.log(containerDiv);
+
+const imgElem = document.createElement('img');
+imgElem.src = thiscard[i]['image_url'];
+imgElem.alt = 'Product Image';
+containerDiv.append(imgElem);
+
+const detailsDiv = document.createElement('div');
+detailsDiv.classList.add('product-details');
+containerDiv.append(detailsDiv);
+
+
+const nameHeading = document.createElement('h2');
+nameHeading.classList.add('product_name');
+nameHeading.textContent = thiscard[i]['product_name'];
+detailsDiv.append(nameHeading);
+
+const priceParagraph = document.createElement('p');
+priceParagraph.classList.add('product-price');
+priceParagraph.textContent = thiscard[i]['product_price'] ;
+detailsDiv.append(priceParagraph);
+
+
+const quantityInput = document.createElement('input');
+quantityInput.type = 'number';
+quantityInput.classList.add('product-quantity');
+quantityInput.value = 1;
+quantityInput.min = 1;
+quantityInput.max = 100;
+detailsDiv.append(quantityInput);
+
+document.querySelector('div.cart_content').append(containerDiv);
+}
+</script>
+</body>
+</html>
+        

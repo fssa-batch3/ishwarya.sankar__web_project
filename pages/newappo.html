@@ -1,121 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>appointments</title>
-    <link rel="stylesheet" href="../assests/style.css/newappo.css" />
-    <link rel="stylesheet" href="../assests/style.css/STYLE.css">
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js" integrity=""></script>
-  <script type="text/javascript">
-    (function () {
-        emailjs.init("xJczW25BwYvEu6S51");
-    })();
-    </script>
-  </head>
-  <body>
-    <div class="Whole_card"></div>
-  </body>
-  <script>
-    let Whole_card = document.querySelector("div.Whole_card");
-    let card_details = JSON.parse(
-      window.localStorage.getItem("appointments_arr")
-    );
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>appointments</title>
+  <link rel="stylesheet" href="../assests/style.css/newappo.css" />
+  <link rel="stylesheet" href="../assests/style.css/STYLE.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js" integrity=""></script>
+<script type="text/javascript">
+  (function () {
+      emailjs.init("xJczW25BwYvEu6S51");
+  })();
+  </script>
+</head>
+
+<body>
+  <div class="Whole_card"></div>
+</body>
+<script>
+  let Whole_card = document.querySelector("div.Whole_card");
+  let card_details = JSON.parse(
+    window.localStorage.getItem("appointments_arr")
+  );
+
+let loger = JSON.parse(localStorage.getItem("data"))
+
+let doc = JSON.parse(localStorage.getItem("whole"))
+
+let doc_details = doc.find((mail)=>loger==mail["userEmail"])
+console.log(doc_details);
+
+  for (let i = 0; i < card_details.length; i++) {
   
-    
-    for (let i = 0; i < card_details.length; i++) {
-    
-      
-  
-      let single_card = document.createElement("div");
-      single_card.setAttribute("class", "single_card");
-      Whole_card.append(single_card);
-      //firstname//
-      let firstNameP1 = document.createElement("p");
-      firstNameP1.innerHTML = "FirstName : " + card_details[i]["fullname"];
-      single_card.append(firstNameP1);
-      //email//
-      let email = document.createElement("p");
-      email.innerHTML = "Email : " + card_details[i]["email"];
-      single_card.append(email);
-      //number//
-      let mobile = document.createElement("p");
-      mobile.innerHTML = "Phone Number : " + card_details[i]["phonenumber"];
-      single_card.append(mobile);
-      //city//
-      let citys = document.createElement("p");
-      citys.innerHTML = "City : " + card_details[i]["city"];
-      single_card.append(citys);
-      //address
-      let addres = document.createElement("p");
-      addres.innerHTML = "Address: " + card_details[i]["address"];
-      single_card.append(addres);
-      //date
-      let date1 = document.createElement("p");
-      date1.innerHTML = "Date : " + card_details[i]["date"];
-      single_card.append(date1);
-      //time
-      let time1 = document.createElement("p");
-      time1.innerHTML = "time : " + card_details[i]["time"];
-      single_card.append(time1);
-      //suffering from//
-      let suffer = document.createElement("p");
-      suffer.innerHTML = "Suffering : " + card_details[i]["suffering"];
-      single_card.append(suffer);
-      //Specialist to go//
-      let Specialist = document.createElement("p");
-      Specialist.innerHTML = "Specialist : " + card_details[i]["specialist"];
-      single_card.append(Specialist);
-      //cancel appoinment//
-      
-      let cancelbtn = document.createElement("button");
-      cancelbtn.setAttribute("uuid", card_details[i]["uuid"]);
-      cancelbtn.innerHTML = "Cancel";
-      cancelbtn.setAttribute("id", "cancel");
-      // cancelbtn.setAttribute("onclick", emailjs(card_details[i]["uuid"]));
-      single_card.append(cancelbtn);
+      if (card_details[i]["docId"] == doc_details["new_id"]) {
 
 
-         
-      let newbtn = document.createElement("button");
-      newbtn.setAttribute("uuid", card_details[i]["uuid"]);
-      newbtn.innerHTML = "Approve";
-      newbtn.setAttribute("id", "approve");
-      single_card.append(newbtn);
+
+
+
+
+
+        let single_card = document.createElement("div");
+        single_card.setAttribute("class", "single_card");
+        Whole_card.append(single_card);
+        //firstname//
+        let firstNameP1 = document.createElement("p");
+        firstNameP1.innerHTML = "FirstName : " + card_details[i]["fullname"];
+        single_card.append(firstNameP1);
+        //email//
+        let email = document.createElement("p");
+        email.innerHTML = "Email : " + card_details[i]["email"];
+        single_card.append(email);
+        //number//
+        let mobile = document.createElement("p");
+        mobile.innerHTML = "Phone Number : " + card_details[i]["phonenumber"];
+        single_card.append(mobile);
+        //city//
+        let citys = document.createElement("p");
+        citys.innerHTML = "City : " + card_details[i]["city"];
+        single_card.append(citys);
+        //address
+        let addres = document.createElement("p");
+        addres.innerHTML = "Address: " + card_details[i]["address"];
+        single_card.append(addres);
+        //date
+        let date1 = document.createElement("p");
+        date1.innerHTML = "Date : " + card_details[i]["date"];
+        single_card.append(date1);
+        //time
+        let time1 = document.createElement("p");
+        time1.innerHTML = "time : " + card_details[i]["time"];
+        single_card.append(time1);
+
+        let cancelbtn = document.createElement("button");
+        cancelbtn.setAttribute("uuid", card_details[i]["uuid"]);
+        cancelbtn.innerHTML = "Cancel";
+        cancelbtn.setAttribute("id", "cancel");
+        // cancelbtn.setAttribute("onclick", emailjs(card_details[i]["uuid"]));
+        single_card.append(cancelbtn);
+
+        
+        
+        let newbtn = document.createElement("button");
+       
+        newbtn.innerHTML = "Approve";
+        newbtn.setAttribute("id", "approve");
+        newbtn.addEventListener("click", ()=>{
+          approveAppointment( card_details[i]["uuid"])
+
+        })
+        single_card.append(newbtn);
+
+      }
+
 
     }
-     
-      
-
-let form =document.getElementById("cancel")
-      form.addEventListener("click",(event)=>{
-        event.preventDefault();
-        
-       let email = document.getElementById("email").value;
-       console.log(email);
-       console.log(event);
-      
-    
-      let body = "Your appointment has been canceled today,book your next appointment and consult the doctors";
-
-      //required params to send email
-   let params = {from_name: "ishusankar14@gmail.com",
-              to_name: email,
-              message: body,
-             }
-//email sending event function
-emailjs.send("service_sp6m68x","template_1veprt4",params)
-.then((res) => {
-  console.log(res)
-
-  alert("email sent");
-})
-.catch(err => console.error(err))
+  
 
 
 
-      });
+  let form = document.getElementById("cancel")
+  form.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    let email = document.getElementById("email").value;
+    console.log(email);
+    console.log(event);
+
+
+    let body = "Your appointment has been canceled today,book your next appointment and consult the doctors";
+
+    //required params to send email
+    let params = {
+      from_name: "ishusankar14@gmail.com",
+      to_name: email,
+      message: body,
+    }
+    //email sending event function
+    emailjs.send("service_sp6m68x", "template_1veprt4", params)
+      .then((res) => {
+        console.log(res)
+
+        alert("email sent");
+      })
+      .catch(err => console.error(err))
+
+
+
+  });
+
+  function approveAppointment(id){
+    let check = confirm("are you sure you want to approve")
+    if(check == true){
+      let arr = JSON.parse(localStorage.getItem("appointments_arr"))
+    let oneApprove = arr.find((e)=>{
+      if(e["uuid"]==id){
+        return true
+      }
+    })
+    let index = arr.indexOf(oneApprove)
+    oneApprove["approved"]= true;
+    arr[index] = oneApprove;
+    localStorage.setItem("appointments_arr",JSON.stringify(arr))
+    alert("appreoved successfully")
+
+    }
+    else{
+      return 
+    }
+   
+
+
+
+  }
+
+
+   
+
+
 </script>
 <script src="https://smtpjs.com/v3/smtp.js" integrity=""></script>
+
 </html>

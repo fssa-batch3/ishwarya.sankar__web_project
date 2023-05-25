@@ -12,7 +12,7 @@ body{
 .wrapper{
     position: absolute;
     top:50%;
-    left:50%;
+    left:20%;
     transform: translate(-50%,-50%);
     width:450px;
     height:600px;
@@ -78,5 +78,67 @@ body{
     display: flex;
   }
   
-  
+  .button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-left:900px;
+    margin-top: 200px;
+
+  }
+  .button0{
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-left:900px;
+    margin-top: 60px;
+
+  }
+  .button1{
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-left:900px;
+    margin-top: 70px;
+  }
+   .button2{
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-left:900px;
+    margin-top: 70px;
+  }
+  .button3{
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-left:900px;
+    margin-top: 70px;
+
+  }
  

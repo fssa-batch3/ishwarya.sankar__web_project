@@ -38,9 +38,9 @@
             <!-- <h4>10 + SPECIALITIES</h4>
             <h4>Consult with top doctors across specialities</h4> -->
             <h1>OUR DOCTORS</h1>
-            <input type="text" id="searchInput" placeholder="Search by name or specialist">
+            <!-- <input type="text" id="searchInput" placeholder="Search by name or specialist">
             <button id="search">####</button>
-            </div>     
+            </div>      -->
         <section id="raz">
             <!-- <div class="container">  -->
             <!-- <button class="details"><a href="./details.html"><b>Learn More</b></a></button> -->
@@ -95,20 +95,22 @@
             //  ]       
             let onlineArr = JSON.parse(localStorage.getItem("whole"));
             console.log(onlineArr);
-                for (let i = 0; i < create_card.length; i++) {
-                 onlineArr.push(create_card[i]);
-                console.log(onlineArr);
-               }
+            //     for (let i = 0; i < create_card.length; i++) {
+            //      onlineArr.push(create_card[i]);
+            //     console.log(onlineArr);
+            //    }
 
 
             for (let i = 0; i < onlineArr.length; i++) {
-                if(onlineArr[i]["Booked"] == false ){
+                
 
                     let section = document.createElement("div")
                     section.setAttribute("class", "container")
     
                     let secimg = document.createElement("img")
+                    secimg.setAttribute("class", "viewMore")
                     secimg.setAttribute("src", onlineArr[i]["image"])
+                    secimg.setAttribute("data-id",onlineArr[i].new_id);
                     section.append(secimg)
     
                     let h2 = document.createElement("h2")
@@ -131,19 +133,27 @@
                     work.innerText = "Experience : "+onlineArr[i]["title"]
                     section.append(work)
     
+                    let doctorid=JSON.parse
                     
     let anchor = document.createElement("a");
     anchor.setAttribute("href", `../pages/scard.html?doc_id=${onlineArr[i].new_id}`);
     section.appendChild(anchor);
     
-                    let button = document.createElement("button");
-    button.setAttribute("class", "btndoc");
-    button.setAttribute("id", onlineArr[i]["newid"]);
-    button.innerText = "BOOK APPOINTMENT";
-    button.setAttribute("onclick", "btn(this.id)");
-    button.setAttribute("type", "submit");
-    anchor.append(button);
-    
+    //                 let button = document.createElement("button");
+    //    button.setAttribute("class", "btndoc");
+    //    button.setAttribute("id", onlineArr[i]["newid"]);
+    //     button.innerText = "BOOK APPOINTMENT";
+    //    button.setAttribute("onclick", "btn(this.id)");
+    //   button.setAttribute("type", "submit");
+    //    anchor.append(button);
+    let button = document.createElement("button");
+button.setAttribute("class", "btndoc");
+button.setAttribute("id", onlineArr[i]["newid"]); // Use the doctor's ID as the button's ID
+button.innerText = "BOOK APPOINTMENT";
+button.setAttribute("onclick", "btn(this.id)");
+button.setAttribute("type", "submit");
+anchor.append(button);
+
     
     
     
@@ -156,99 +166,91 @@
 
 
 
-            }
-            //update//
-
-            // function btn(e) {
-
-            //     // console.log(e)
-
-
-            //     let editArr = [];
-
-            //     let doc_id = {
-            //         newid: e,
-            //     }
-            //     // console.log(doc_id);
-            //     editArr.push(doc_id)
-            //     console.log(editArr)
-
-
-            //     window.localStorage.setItem("editData", JSON.stringify(editArr));
-
-              
-
-            // }
+        
            
-
+        //     const bookCovers = document.querySelectorAll(".viewMore");
+        // bookCovers.forEach((bookCover) => {
+        //     bookCover.addEventListener("click", (event) => {
+        //         const person_data = bookCover.dataset.id;
+        //         window.location.href = `./review1.html?doctor_id=${person_data}`;
+        //     });
+        // });
 
         </script>
-</body>
 <script>
-const searchInput = document.getElementById("searchInput");
-const special = JSON.parse(localStorage.getItem("whole"));
-const searchButton = document.getElementById("search");
-function filterOnlineArr() {
-  const query = searchInput.value.toLowerCase();
-  console.log(query)
-  const filteredArr = onlineArr.filter((item) => {
-    const name = item.docname.toLowerCase();
-    const specialist = item.type.toLowerCase();
-    return name.includes(query) || specialist.includes(query);
-  });
-  filteredArr.forEach((item) => {
+    function btn(id) {
+  // Perform your existing booking logic here
+  
+  // After the booking is done, find the button element by its ID and update its text to "BOOKED"
+  const button = document.getElementById(id);
+  button.innerText = "BOOKED";
+  button.disabled = true; // Optionally disable the button to prevent further booking
+}
 
-    let section = document.createElement("div")
-                    section.setAttribute("class", "container")
+// const searchInput = document.getElementById("searchInput");
+// const special = JSON.parse(localStorage.getItem("whole"));
+// const searchButton = document.getElementById("search");
+// function filterOnlineArr() {
+//   const query = searchInput.value.toLowerCase();
+//   console.log(query)
+//   const filteredArr = onlineArr.filter((item) => {
+//     const name = item.docname.toLowerCase();
+//     const specialist = item.type.toLowerCase();
+//     return name.includes(query) || specialist.includes(query);
+//   });
+//   filteredArr.forEach((item) => {
+
+//     let section = document.createElement("div")
+//                     section.setAttribute("class", "container")
     
-                    let secimg = document.createElement("img")
-                    secimg.setAttribute("src", item["image"])
-                    section.append(secimg)
+//                     let secimg = document.createElement("img")
+//                     secimg.setAttribute("src", item["image"])
+//                     section.append(secimg)
     
-                    let h2 = document.createElement("h2")
-                    h2.innerText = "Name:"+item["docname"]
-                    section.append(h2)
+//                     let h2 = document.createElement("h2")
+//                     h2.innerText = "Name:"+item["docname"]
+//                     section.append(h2)
     
-                    let para = document.createElement("p")
-                    para.setAttribute("class", "paras")
-                    para.innerText = "Specialist :"+item["type"]
-                    section.append(para)
+//                     let para = document.createElement("p")
+//                     para.setAttribute("class", "paras")
+//                     para.innerText = "Specialist :"+item["type"]
+//                     section.append(para)
     
     
-                    let timing = document.createElement("h2")
-                    timing.setAttribute("class", "timings")
-                    timing.innerText = "Availablity :"+item["time"]
-                    section.append(timing)
+//                     let timing = document.createElement("h2")
+//                     timing.setAttribute("class", "timings")
+//                     timing.innerText = "Availablity :"+item["time"]
+//                     section.append(timing)
     
-                    let work = document.createElement("work")
-                    work.setAttribute("class", "experience")
-                    work.innerText = "Experience : "+item["title"]
-                    section.append(work)
+//                     let work = document.createElement("work")
+//                     work.setAttribute("class", "experience")
+//                     work.innerText = "Experience : "+item["title"]
+//                     section.append(work)
     
                     
-    let anchor = document.createElement("a");
-    anchor.setAttribute("href", `../pages/scard.html?doc_id=${item.new_id}`);
-    section.appendChild(anchor);
+//     let anchor = document.createElement("a");
+//     anchor.setAttribute("href", `../pages/scard.html?doc_id=${item.new_id}`);
+//     section.appendChild(anchor);
     
-                    let button = document.createElement("button");
-    button.setAttribute("class", "btndoc");
-    button.setAttribute("id", item["newid"]);
-    button.innerText = "BOOK APPOINTMENT";
-    button.setAttribute("onclick", "btn(this.id)");
-    button.setAttribute("type", "submit");
-    anchor.append(button);
-    
-    
+//                     let button = document.createElement("button");
+//     button.setAttribute("class", "btndoc");
+//     button.setAttribute("id", item["newid"]);
+//     button.innerText = "BOOK APPOINTMENT";
+//     button.setAttribute("onclick", "btn(this.id)");
+//     button.setAttribute("type", "submit");
+//     anchor.append(button);
     
     
-                    let details = document.createElement("btn")
-                    details.setAttribute("details", "./details.html")
-                    section.append(details)
-                    let finalpage = document.getElementById("raz")
-                    finalpage.append(section)
-  });
-}
-searchButton.addEventListener("click", filterOnlineArr);
+    
+    
+//                     let details = document.createElement("btn")
+//                     details.setAttribute("details", "./details.html")
+//                     section.append(details)
+//                     let finalpage = document.getElementById("raz")
+//                     finalpage.append(section)
+//   });
+// }
+// searchButton.addEventListener("click", filterOnlineArr);
 
 </script>
 <script src="../header.js"></script>
