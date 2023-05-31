@@ -172,6 +172,9 @@ body {
     color: #e7e7e8;
     right: 14%;
 }
+.hidden {
+    display: none;
+}
 
 
 /* End */
@@ -259,7 +262,7 @@ body {
                         <tr>
                             <td>Password</td>
                             <td>:</td>
-                            <td id="password"></td>
+                            <td id="password" class="hidden"></td>
                         </tr>
                         <tr>
                             <td>Proffesion</td>
@@ -287,5 +290,13 @@ body {
           document.getElementById("email").innerHTML=data["useremail"];
           document.getElementById("password").innerHTML=data["userpassword"]
           document.getElementById("proffesion").innerHTML=data["doctors"]
+
+          let password = "mypassword"; // Replace with your password
+
+// Replace each character in the password with an asterisk
+let maskedPassword = password.replace(/./g, "*");
+
+document.getElementById("password").textContent = maskedPassword;
+
 </script>
 </html>

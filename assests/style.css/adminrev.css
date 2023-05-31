@@ -1,17 +1,23 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 *{
     margin:0;
-    padding:0;
-    box-sizing:border-box;
-    
+    text-decoration: none;
+    font-family: 'poppins';
+   
+}
+body{
+      margin: 0px;
 }
 .wrapper{
   
 
    background-color: lightblue;
      min-height: 100vh; 
-    margin: 0 auto;
+ 
     display:flex;
-     overflow: hidden;
+  
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -41,7 +47,7 @@
 }
 .card{
         width:300px;
-        height:400px;
+        height:200px;
         border-radius: 15px;
         margin: 5px;
         padding: 20px 30px;
@@ -89,16 +95,44 @@
        background: rgb(249, 249, 249);
     
 }
-.main{
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        margin-top:200px;
-}
-.pov{
-       overflow: hidden;
-}
-    .main{
-        display: grid;
-     grid-template-columns: repeat(3, 1fr);
+
+  
+      
+     .main h1 {
+        color: #03C988;;
+        margin-top: 1em;
+        margin-left: 2rem;
     }
+    h1 span {
+        color: black;
+    }
+    h1 span:hover{
+      color:blue;
+    }
+    .main {
+        box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.9);
+    
+          display: flex;
+          justify-content: space-between;
+        
+          align-content: center;
+          text-align: center;
+          background-color: white;
+         
+          position: fixed;
+         width:1500px;
+          background-color: white;
+         
+      }
+      .navbar {
+          display: flex;
+          justify-content: space-between;
+          margin-right:7em;
+      }
+      .navbar li {
+          text-decoration: none;
+          margin: 2.7em 0px 30px 40px;
+          color: rgb(248, 251, 245);
+      }
+       
+      

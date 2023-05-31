@@ -1,4 +1,4 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -26,23 +26,23 @@
                 <input id="price" class="input" type="text" placeholder=" " />
                 <span>Price</span>
             </div>
-            <label for="">Choose a option:</label>
+            <label for="type">Choose a option:</label>
 
-<select id="type">
-  <option value="skin">Skin care</option>
-  <option value="weight">weight Management</option>
-  <option value="pain">Pain relief</option>
-  <option value="diabetes">Diabetes</option>
-  <option value="baby">Baby care</option>
-  <option value="Fitness">Fitness</option>
-  <option value="Family">Family care</option>
-</select>
+        <select id="type">
+             <option value="Skin care">Skin care</option>
+             <option value="weight Management">weight Management</option>
+             <option value="Pain relief">Pain relief</option>
+              <option value="Diabetes">Diabetes</option>
+              <option value="Baby care">Baby care</option>
+              <option value="Fitness">Fitness</option>
+              <option value="Family care">Family care</option>
+        </select>
             <button type="submit" class="submit">submit</button>
             <button type="submit" class="submit" class="btn">edit</button>
             <button type="submit" class="submit" class="btn">delete</button> 
-    </div>
+    <!-- </div> -->
     </form>
-     <form id="all">
+    <!-- <form id="all">
         <div class="inputBox">
           <input id="img" type="url" name="" required="required" />
           <span>Image Url</span>
@@ -62,8 +62,7 @@
     <!-- <button type="submit" class="btn5" id="form">Send</button>
         <button type="submit" id="editer" class="btn5">edit</button>
       </form> -->
-    
-    <!-- </body><script>
+    <script>
         let arr = [];
         let form = document.getElementById("all");
         form.addEventListener("submit", function (event) {
@@ -75,11 +74,12 @@
             const newtype= document.getElementById("type").value;
             console.log(MedURl);
               
-            let id = self.crypto.randomUUID();
+            // let id = self.crypto.randomUUID();
+            let id = Date.now()
 
-            meddata["heading"] = Medname;
-            meddata["image"] = MedURl;
-            meddata["para"] = MedPrice;
+            meddata["name"] = Medname;
+            meddata["img"] = MedURl;
+            meddata["price"] = MedPrice;
             meddata["type"]=newtype;
             meddata["uuid"] = id;
 
@@ -92,22 +92,23 @@
             }
             window.location.href = "#";
         });
-        let save = document.getElementById("all");
-          save.addEventListener("submit",(event) => {
-          event.preventDefault();
+    //     let save = document.getElementById("all");
+    //       save.addEventListener("submit",(event) => {
+    //       event.preventDefault();
      
-        //       if (mail != useremail) {
-        //   alert("You can't change the Email ID");
-        // } else {
-        //   let newupdate = Object.assign(arr,newaddto );
-        //   console.log(newupdate);
-        //   let index = profile.indexOf(meddata);
-        //   console.log(index);
-        //   profile[index] = newupdate;
-        //   localStorage.setItem("newproduct", JSON.stringify(profile));
-        //   window.location.href ="/index.html"
-          // alert("You have successfully updated your account details!");
-        
+    //     //       if (mail != useremail) {
+    //     //   alert("You can't change the Email ID");
+    //     // } else {
+    //       let newupdate = Object.assign(arr,newaddto );
+    //       console.log(newupdate);
+    //       let index = profile.indexOf(meddata);
+    //       console.log(index);
+    //       profile[index] = newupdate;
+    //       localStorage.setItem("newproduct", JSON.stringify(profile));
+    //       window.location.href ="/index.html"
+    //       // alert("You have successfully updated your account details!");
+    //     // }
+    //   });
       // let info = document.getElementById("delete");
       // info.addEventListener("click", function (event) {
       //   event.preventDefault();
@@ -119,7 +120,8 @@
       //     profile.splice(indexof, 1);
       //     localStorage.setItem("newproduct", JSON.stringify(profile));
       //   }
-          });
-      
-</script>
-</html> --> 
+      //     });
+        
+    </script>
+ </body>
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="./productlist.css" />
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
+
+<body>
+  <div class="second">
+    <div class="main2">
+      <h1>OUR PRODUCTS</h1>
+    </div>
+    ​
+    <i id="cart-icon" class="bx bx-shopping-bag"></i>
+    ​
+    <div class="cart">
+      <h2 class="cart-title">Your Cart</h2>
+      ​
+      <div class="cart_content">
+         <!-- <div class="product-container"> -->
+                            <!-- <img src="path/to/product-image.jpg" alt="Product Image">
+                            <div class="product-details">
+                              <h2 class="product-name">Product Name</h2>
+                              <p class="product-price">$20.00</p>
+                              <input type="number" class="product-quantity" value="1" min="1" max="100">
+                            </div>
+                          </div>  -->
+      </div>
+      ​
+      <!-- total -->
+      <div class="total">
+        <div class="total-title">Total</div>
+        <div class="total-price" id="total_price"></div>
+      </div>
+      <!-- buy button -->
+      <a href="../pages/payment.html"><button class="btn-buy" type="button">Buy Now</button></a>
+      <!-- cart close -->
+      <i id="close-cart" class="bx bx-x"></i>
+    </div>
+  </div>
+  <!-- </header> -->
+  <section id="product"></section>
+  ​
+  <script>
+    let weight = JSON.parse(localStorage.getItem("Medicine"));
+    console.log(weight);
+    for (let i = 0; i < weight.length; i++) {
+      let section = document.createElement("div");
+      section.setAttribute("class", "container");
+
+      let secimg = document.createElement("img");
+      secimg.setAttribute("class", "imageUrl");
+      secimg.setAttribute("src", weight[i]["img"]);
+      section.append(secimg);
+
+      let h2 = document.createElement("h2");
+      h2.setAttribute("class", "productName");
+      h2.innerText = weight[i]["name"];
+      section.append(h2);
+
+      let para = document.createElement("p");
+      para.setAttribute("class", "price");
+      para.innerText = weight[i]["price"];
+      section.append(para);
+
+      let type = document.createElement("p");
+      type.setAttribute("class", "types");
+      type.innerText = weight[i]["type"];
+      section.append(type);
+
+      let button = document.createElement("button");
+      button.setAttribute("class", "add-to-cart");
+      button.innerText = "Add to cart";
+      button.setAttribute("id", "submit");
+      button.setAttribute("value", "submit");
+      button.setAttribute("id", weight[i]["uuid"]);
+      button.setAttribute("onclick", "addProduct(this.id)");
+      section.append(button);
+
+      function addProduct(uuid) {
+        event.preventDefault();
+        console.log(uuid);
+
+        let addData = JSON.parse(localStorage.getItem("cart_list"));
+        // console.log(addData);
+
+        // console.log(Card);
+
+        //   let Card = JSON.parse(localStorage.getItem("Medicine"));
+        let currentProduct;
+
+        for (let i = 0; i < weight.length; i++) {
+          if (weight[i]["uuid"] == uuid) {
+            currentProduct = weight[i];
+          }
+        }
+
+        console.log(currentProduct);
+
+        //  code for set the automatic qty for user as 1kg and it stores in local storage
+        let arr = [];
+        // console.log(arr);
+        currentProduct["product_quantity"] = "1";
+        arr.push(currentProduct["product_quantity"]);
+
+        // msg for confirm to add to cart
+        let msg = confirm(
+          "Are you sure you want to add this product to your cart"
+        );
+        if (msg !== true) {
+          return;
+        } else {
+          if (addData === null) {
+            let array = [];
+            array.push(currentProduct);
+            localStorage.setItem("cart_list", JSON.stringify(array));
+          } else {
+            addData.push(currentProduct);
+            localStorage.setItem("cart_list", JSON.stringify(addData));
+          }
+        }
+      }
+
+      let finalpage = document.getElementById("product");
+      finalpage.append(section);
+    }
+
+    let cartIcon = document.querySelector("#cart-icon");
+    let cart = document.querySelector(".cart");
+    let closeCart = document.querySelector("#close-cart");
+
+    // == Open cart
+    cartIcon.onclick = () => {
+      cart.classList.add("active");
+    };
+
+    // == Close cart
+    closeCart.onclick = () => {
+      cart.classList.remove("active");
+    };
+    function addtocartClicked(event) {
+      var button = event.target;
+      var shopProducts = button.parentElement;
+      var title =
+        shopProducts.getElementsByClassName("product-title")[i].innerText;
+      var price = shopProducts.getElementsByClassName("price")[i].innerText;
+      var productImg =
+        shopProducts.getElementsByClassName("product-img")[i].src;
+      addProductToCart(title, price, productImg);
+      updatetotal();
+    }
+
+    let urlparams = new URLSearchParams(window.location.search);
+    let thisname = urlparams.get("name");
+    //   let thiscard = JSON.parse(localStorage.getItem("cart_list"));
+    let cart_list = JSON.parse(localStorage.getItem("cart_list"));
+    // console.log(cart_list);
+
+    let total = 0;
+
+    for (let i = 0; i < cart_list.length; i++) {
+      const containerDiv = document.createElement("div");
+      containerDiv.classList.add("product-container");
+      console.log(containerDiv);
+
+      const imgElem = document.createElement("img");
+      imgElem.setAttribute = ("value", cart_list[i]["img"]);
+      imgElem.alt = "Product Image";
+      containerDiv.append(imgElem);
+
+      const detailsDiv = document.createElement("div");
+      detailsDiv.classList.add("product-details");
+      containerDiv.append(detailsDiv);
+
+      const nameHeading = document.createElement("h2");
+      nameHeading.classList.add("product_name");
+      nameHeading.textContent = cart_list[i]["pname"];
+      detailsDiv.append(nameHeading);
+
+      const priceParagraph = document.createElement("p");
+      priceParagraph.classList.add("product_price");
+      priceParagraph.textContent = cart_list[i]["price"];
+      detailsDiv.append(priceParagraph);
+
+      const quantityInput = document.createElement("input");
+      quantityInput.type = "number";
+      quantityInput.classList.add("product_quantity");
+      quantityInput.value = 1;
+      quantityInput.min = 1;
+      quantityInput.max = 100;
+      detailsDiv.append(quantityInput);
+
+      // for total amount
+      total +=
+        parseInt(cart_list[i]["price"]) *
+        parseInt(cart_list[i]["product_quantity"]);
+
+      console.log(total);
+
+      document.querySelector("div.cart_content").append(containerDiv);
+    }
+    // set place for show total amount
+    let total_value = document.getElementById("total_price");
+    total_value.append("₹" + total);
+  </script>
+</body>
+
+</html>

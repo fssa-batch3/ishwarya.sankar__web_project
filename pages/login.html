@@ -11,13 +11,13 @@
 <body>
     <div class="login">
         <form id="log" >
-            <label for="chk" aria-hidden="true"  >Login</label>
-            <input type="email" id="mail" placeholder="Email"  >
+            <label for="mail" aria-hidden="true"  >Login</label>
+            <input type="email" id="mail" placeholder="Email"  value="kishor14@gmail.com" >
             <!-- <input type="text" id="adres" placeholder="address">
             <input type="number" id="phne" placeholder="phonenumber"  > -->
-            <input type="password" id="swd" placeholder="Password">
+            <input type="password" id="swd" placeholder="Password" value="kishore">
             
-            <button type="submit" id="login" onclick="userLogin()" >Login</button>
+            <button type="submit" id="login" >Login</button>
             <small>Don't have an Account <a href="./sigup.html">Signin Now</a>
             </small>
         </form>
@@ -25,19 +25,34 @@
 </body>
 
     <script>
-         let form=document.getElementById("log")
+
+        
+let userpersonaa = localStorage.getItem("userpersona");
+ console.log(userpersonaa);
+
+ console.log(typeof userpersonaa);
+ 
+         let form=document.getElementById("log");
       form.addEventListener("submit",  function (event){
             event.preventDefault()
             let main=JSON.parse(window.localStorage.getItem("obj"));
-            console.log(main)
+            console.log(main);
                      
-								 const email2=document.getElementById("mail").value;
-                                 const password2=document.getElementById("swd").value;
-                                   console.log(email2);
+			 const email2=document.getElementById("mail").value;
+             const password2=document.getElementById("swd").value;
+             console.log(email2);
                             
                           
          let match=false;
-         let userType;
+         let userType = localStorage.getItem("userpersona");
+         let username= JSON.parse(localStorage.getItem("obj"));
+         console.log(username);
+         let type;
+         for (let i=0; i < username.length; i++) {
+             type=username[i]["doctors"];
+            }
+            console.log(type);
+
 
 								 for(let i=0;i<main.length;i++){
 									if(
@@ -59,8 +74,18 @@
 						 }
        
                          if (match===true){
-                            alert("SUCCESS")
-                            window.location.href = "../index.html";
+                            alert("SUCCESS");
+                            
+                            if(type === "Doctor"){
+                            window.location.href="../pages/doctors.home.html"
+                        }
+                        else if(type === "Patient"){
+                            window.location.href="../index.html"
+                        }
+                        else {
+                            window.location.href="../pages/seller.html"
+                        }
+                            
                          }
                          else{
                             alert("Failed")
@@ -68,16 +93,9 @@
                         });
 
 
-                      document.getElementById("login").addEventListener("click",()=>{
-                        if(userType=="ishusankar14@gmail.com"){
-                            window.location.href="../pages/admin_.html"
-                        }
-                        else if(userType="Patient"){
-                            window.location.href="../index.html"
-                        }
-                        else if(userType="Seller"){
-                            window.location.href="../pages/seller.html"
-                        }
-                      })     
+                    //   document.getElementById("login").addEventListener("click",()=>{
+                       
+                    //   })     
+
     </script>
 </html>

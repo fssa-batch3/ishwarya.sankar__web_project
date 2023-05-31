@@ -12,23 +12,49 @@
  
 
 
-    <form id="form">
+    <form id="form" class="FORM">
         <div class="inputBox">
           <input id="image" type="text" name="" required />
           <span>Image Url</span>
         </div>
         <div class="inputBox">
+          <input id="" type="number" pattern="[A-Za-z]{2}\d{4}" required />
+          <span>License Number</span>
+        </div>
+        <div class="inputBox">
+          <input id="" type="text" name="" required />
+          <span> Last Worked in</span>
+        </div>
+        <label for="Course completed">Choose a course:</label>
+
+        <select name="cars" id="cars">
+          <option value="volvo">MBBS.MD</option>
+          <option value="saab">MBBS MS</option>
+          
+        </select>
+
+        <div class="inputBox">
           <input id="docname" type="text" name="" required />
           <span>Doctor Name</span>
         </div>
         <div class="inputBox">
-          <input id="time" type="text" name="" required />
-          <span>Availablity</span>
-        </div>
+        <select id="time">
+          <span>Timing</span>
+          <option value=" 10am-12pm"> 10am-12pm</option>
+          <option value="1pm-4pm"> 1pm-4pm</option>
+          <option value="4pm-6pm">4pm-6pm </option>
+          <option value="6pm-7pm">6pm-7pm </option>
+          <option value="7am-9pm"> 7am-9pm</option>
+          <option value="7pm-10pm">7pm-10pm</option>
+          </select></div>
         <div class="inputBox">
-          <input type="file" id="myFile" name="filename">
+          <input type="file" type="file" name="filename">
           <span>Certificate</span>
         </div>
+        <div class="inputBox">
+          <input id="" type="text" name=""  placeholder="123456789012" required />
+          <span>Aadhar number</span>
+          <div class="inputBox">
 
         <div class="inputBox">
           
@@ -43,7 +69,7 @@
             </select>
         </div>
         <div class="inputBox">
-          <input id="details" type="text" name="" required/>
+          <input id="details" type="number"pattern="\d{2}" required/>
           <span>experience</span>
         </div>
         <div class="inputBox">

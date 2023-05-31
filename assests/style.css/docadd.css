@@ -1,6 +1,6 @@
 body {
   align-items: center;
-  background-color: #e9e4e4;
+  background-color: #fff;
   display: flex;
   justify-content: center;
   height: 100vh;
@@ -12,6 +12,7 @@ body {
   height: 650px;
   padding: 20px;
   width: 350px;
+  
 }
 
 .inputBox {
@@ -21,6 +22,20 @@ body {
   font-weight: 600;
   margin-top: 30px;
 }
+.FORM {
+    width: 50%;
+    padding: 12px;
+    border: 20px solid #7dc78e;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+    margin-left: 200px;
+    padding: 10px;
+
+   
+  }
 
 
 

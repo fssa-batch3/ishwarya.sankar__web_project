@@ -13,7 +13,7 @@
         <div class="wrapper">
             <h1>HEAR WHAT OUR CUSTOMERS SAY</h1>
             <h5>CHECK WHAT THEY SAY ABOUT US</h5>
-            <a href="./reviewform.html">Add Review</a>
+            <a  id="reviewLink" href="./reviewform.html" >Add Review</a>
 
             <div class="main"> 
             </div>
@@ -30,9 +30,9 @@ let div_card = document.createElement("div")
 div_card.setAttribute("class", "card")
 div_cards.append(div_card)
 
-let cardimage = document.createElement("img")
-cardimage.setAttribute("src", card_content[i]["im_g"]);
-div_card.append(cardimage)
+// let cardimage = document.createElement("img")
+// cardimage.setAttribute("src", card_content[i]["im_g"]);
+// div_card.append(cardimage)
 
 let paragraph = document.createElement("p")
 paragraph.innerText = card_content[i]["Sp_l"];
@@ -50,6 +50,17 @@ div_card.append(h4)
 
 
 
+// let newdata = true;
+
+
+// let reviewLink = document.getElementById('obj');
+
+
+// if (newdata==data) {
+//   reviewLink.style.display = 'inline';
+// } else {
+//   reviewLink.style.display = 'none';
+// }
 
 
 </script>

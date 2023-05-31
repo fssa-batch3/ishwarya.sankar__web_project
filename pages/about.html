@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>about page</title>
     <link rel="stylesheet" href="../assests/style.css/about.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
 </head>
 <body>
   <section class="about" id="about">
@@ -22,9 +25,71 @@
         </div>
     </div>
 </header>
-</section>
+<h1>Frequently Asked Questions</h1>
+<div class="faq-container">
+  <div class="faq">
+    <h3 class="faq-title">
+How to book an appointment?    </h3>
+    <p class="faq-text">You can
+      a) Call our Customer Care number: 1860 500 7788
+      b) Or send an SMS/whatsapp to 9701003333
+      c) Or log on to www.apolloclinic.com and request an appointment
+      d) Or directly walk in to the nearest Apollo Clinic</p>
+    <button class="faq-toggle">
+      <i class="fas fa-angle-down"></i>
+    </button>
+  </div>
+
+  <div class="faq active">
+    <h3 class="faq-title">
+What are the service available in medlife?    </h3>
+    <p class="faq-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod nobis, repellat neque non dicta
+      fugiat veritatis sit delectus perspiciatis quis?</p>
+    <button class="faq-toggle">
+      <i class="fas fa-angle-down"></i>
+    </button>
+  </div>
+
+  <div class="faq">
+    <h3 class="faq-title">
+ What are the working hours?    </h3>
+    <p class="faq-text">To make it convenient for you, your neighbourhood Apollo Clinic is open from 8 AM to 8 PM. We work on Sundays also, for more detail please call 1860 500 7788</p>
+    <button class="faq-toggle">
+      <i class="fas fa-angle-down"></i>
+    </button>
+  </div>
+
+  <div class="faq">
+    <h3 class="faq-title">
+can emergencies treated here?    </h3>
+    <p class="faq-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod nobis, repellat neque non dicta
+      fugiat veritatis sit delectus perspiciatis quis?</p>
+    <button class="faq-toggle">
+      <i class="fas fa-angle-down"></i>
+    </button>
+  </div>
+
+  <div class="faq">
+    <h3 class="faq-title">
+    Are all doctors available daily?    </h3>
+    <p class="faq-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod nobis, repellat neque non dicta
+      fugiat veritatis sit delectus perspiciatis quis?</p>
+    <button class="faq-toggle">
+      <i class="fas fa-angle-down"></i>
+    </button>
+  </div>
+</div>
 
       <script src="../header.js"></script>
-      
+      <script>
+        const buttons = document.querySelectorAll(".faq-toggle");
+
+buttons.forEach((button) => {
+  button.addEventListener("click", () =>
+    button.parentElement.classList.toggle("active")
+  );
+});
+
+      </script>
 </body>
 </html>

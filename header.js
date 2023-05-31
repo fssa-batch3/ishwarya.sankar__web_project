@@ -7,6 +7,7 @@ const review = `${myOrigin}/pages/review edit.html`;
 const expert = `${myOrigin}/pages/online.html`;
 const medicine = `${myOrigin}/pages/product.html`;
 const profile = `${myOrigin}/pages/nwproifle.html`;
+const doctor = `${myOrigin}/pages/doctoradding.html`;
 
 const blogin=` <header class="main">
 <div class="fsec">
