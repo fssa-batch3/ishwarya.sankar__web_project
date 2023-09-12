@@ -1,127 +1,100 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<style>
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Appointments</title>
+    <style>
+      body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 20px;
 }
 
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
+h1 {
+    color: #333;
+}
+
+.table-container {
+    margin-top: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ccc;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+
+thead {
+    background-color: #333;
+    color: #fff;
 }
 
 tr:nth-child(even) {
-  background-color: #dddddd;
+    background-color: #f2f2f2;
 }
-</style>
+
+tr:hover {
+    background-color: #ddd;
+}
+
+    </style>
 </head>
 <body>
+    <h1>Doctor Appointments</h1>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Doctor Name</th>
+                    <th>Specialist</th>
+                    <th>Appointment Status</th>
+                </tr>
+            </thead>
+            <tbody id="appointment-table-body">
+                <!-- Appointments will be dynamically inserted here -->
+            </tbody>
+        </table>
+    </div>
 
-<h2>Appointment</h2>
+    <script >
+      document.addEventListener("DOMContentLoaded", function () {
+    // Retrieve doctor appointment data from localStorage
+    let appointmentsData = JSON.parse(localStorage.getItem("appointments_arr")) || [];
 
+    // Reference to the table body
+    let tableBody = document.getElementById("appointment-table-body");
+
+    // Loop through appointments and create table rows
+    appointmentsData.forEach(function (appointment) {
+        let row = document.createElement("tr");
+
+        let doctorNameCell = document.createElement("td");
+        doctorNameCell.textContent = appointment.fullname;
+        row.appendChild(doctorNameCell);
+
+        let specialistCell = document.createElement("td");
+        specialistCell.textContent = appointment.specialist;
+        row.appendChild(specialistCell);
+
+        let appointmentStatusCell = document.createElement("td");
+        appointmentStatusCell.textContent = appointment.approved ? "Approved" : "Pending";
+        row.appendChild(appointmentStatusCell);
+
+        tableBody.appendChild(row);
+    });
+});
+
+    </script>
 </body>
-<script>
-
-let main = JSON.parse(localStorage.getItem("obj"))
-console.log(main);
-let login_user = JSON.parse(localStorage.getItem("data"))
-console.log(login_user);
-// USER BOOKINGS
-let user_booking = main.find((doc)=>doc["useremail"]==login_user)
-console.log(user_booking)
-
-
-let userArr = JSON.parse(localStorage.getItem("appointments_arr"))
-
-for (let i=0; i<userArr.length; i++) {
-
-  console.log(userArr[i]["email"]);
-
-  console.log(user_booking["useremail"]);
-
-  if(userArr[i]["email"] == user_booking["useremail"]) {
- // Create a new table element
-let table = document.createElement("table");
-
-// Create a new row for the doctor's name
-let row = document.createElement("tr");
-let labelCell = document.createElement("td");
-labelCell.textContent = "Name";
-row.appendChild(labelCell);
-
-let valueCell = document.createElement("td");
-valueCell.innerText = userArr[i]["fullname"]
-
-row.appendChild(valueCell);
-table.appendChild(row);
-
-// Create a new row for the date and time
-row = document.createElement("tr");
-labelCell = document.createElement("td");
-labelCell.textContent = "Date and Time";
-row.appendChild(labelCell);
-
-valueCell = document.createElement("td");
-valueCell.textContent = userArr[i]["time"];
-row.appendChild(valueCell);
-table.appendChild(row);
-
-// Create a new row for the clinic number
-row = document.createElement("tr");
-labelCell = document.createElement("td");
-labelCell.textContent = "Number";
-row.appendChild(labelCell);
-
-valueCell = document.createElement("td");
-valueCell.textContent = userArr[i]["phonenumber"];
-row.appendChild(valueCell);
-table.appendChild(row);
-
-// Create a new row for the appointment date and time
-row = document.createElement("tr");
-labelCell = document.createElement("td");
-labelCell.textContent = "Doctor-Id";
-row.appendChild(labelCell);
-
-valueCell = document.createElement("td");
-valueCell.textContent = userArr[i]["docId"];
-row.appendChild(valueCell);
-table.appendChild(row);
-
-//approved
-row = document.createElement("tr");
-labelCell = document.createElement("td");
-
-labelCell.textContent = "Booking status";
-row.appendChild(labelCell);
-
-valueCell = document.createElement("td");
-if( userArr[i]["approved"] == true ){
-
-  valueCell.textContent = "Approved";
-}else{
-  valueCell.textContent = "They will get you back ";
-}
-row.appendChild(valueCell);
-table.appendChild(row);
-// Add the table to the document
-document.body.appendChild(table);
-
-}
-}
-// Populate the values using JavaScript
-document.getElementById("doctor_name")
-document.getElementById("date") 
-document.getElementById("clinic")
-document.getElementById("id") 
-
-
-let local = window.localStorage.getItem("obj");
-
-</script>
 </html>
-

@@ -4,80 +4,43 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../assests/style.css/online.css">
+    <title>Doctor List</title>
     <style>
         /* Additional CSS styles for doctor cards */
-.doctor-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-.doctor-card {
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    padding: 10px;
-    margin: 10px;
-    width: calc(43.33% - 20px); /* Three cards per row with some margin */
-    box-sizing: border-box;
-    background-color: #fff;
-}
-
-.doctor-card img {
-    max-width: 100%;
-    height: auto;
-}
-
-.doctor-info {
-    padding: 10px;
-}
-
-.btn-book-appointment {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
+        .doctor-card {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
+            width: 300px; /* Adjust card width as needed */
+            float: left;
+            box-sizing: border-box;
+            background-color: #fff;
+        }
+        .doctor-card img {
+            max-width: 100%;
+            height: auto;
+        }
+        .doctor-info {
+            padding: 10px;
+        }
+        .btn-book-appointment {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
-    <section class="first-fold">
-        <div class="first">
-            <div class="content">
-                <h1>Skip the Travel!</h1>
-                <h3>TAKE ONLINE DOCTOR CONSULTATION </h1>
-                 
-
-            </div>
-            <p class="description">
-                Private consultation + audio call .Start at just "₹199"
-            </p>
-            <a class="primary-button" href="../pages/book.html">CONSULT NOW</a>
-
-        </div>
-        <div class="second">
-            <img alt="med banner" class="imageweb" src="../assests/image/homepage-hero-image-web-v1.png" height="250px"
-                width="auto">
-
-        </div>
-    </section>
-    
-    <section class="second">
-        <div class="main2">
-            <h1>OUR DOCTORS</h1>
-            <section id="raz">
-                <!-- Doctor cards will be dynamically generated here -->
-            </section>
-        </div>
-    </section>
-
+    <h1>Doctor List</h1>
+    <div id="doctorList">
+        <!-- Doctor cards will be dynamically generated here -->
+    </div>
     <script>
         // Retrieve and display the list of doctors from localStorage
-        let doctorList = document.getElementById("raz");
+        let doctorList = document.getElementById("doctorList");
         let doctors = JSON.parse(localStorage.getItem("doctors")) || [];
 
         doctors.forEach(function(doctor, index) {
@@ -110,15 +73,10 @@
             let bookButton = document.createElement("button");
             bookButton.classList.add("btn-book-appointment");
             bookButton.innerText = "Book Appointment";
-            
             bookButton.onclick = function() {
                 // Handle booking logic here
                 alert("Booking appointment with " + doctor.docname);
-                window.location.href="scard.html";
-
             };
-            
-          
             doctorInfo.appendChild(bookButton);
 
             doctorCard.appendChild(doctorInfo);
@@ -126,9 +84,5 @@
             doctorList.appendChild(doctorCard);
         });
     </script>
-    <script>
-
-    </script>
-    <script src="../header.js"></script>
 </body>
 </html>

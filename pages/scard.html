@@ -41,15 +41,7 @@
                             <input type="date"id="date"class="form-control">
                         </div>
                     </div>
-                    <!---->
-                    <div class="form-group row">
-                        <label class="col-sm-4 col-lg-4">
-                           Time
-                        </label>
-                        <div class="col-sm-8 col-lg-8">
-                            <input type="time"id="time"class="form-control">
-                           </div>
-                    </div>
+                 
                   
                    
                 </div>
@@ -82,7 +74,6 @@ let phonenumber = document.getElementById("mobile").value;
 let city = document.getElementById("city").value;
 let address = document.getElementById("address").value;
 let date = document.getElementById("date").value;
-let time = document.getElementById("time").value;
 
 let uuid = self.crypto.randomUUID()
 
@@ -93,7 +84,6 @@ appointments_obj["phonenumber"] = phonenumber
 appointments_obj["city"] = city
 appointments_obj["address"] = address
 appointments_obj["date"] = date
-appointments_obj["time"] = time
 appointments_obj["approved"] = false
 appointments_obj["uuid"] = uuid
 appointments_obj["docId"] = id
@@ -159,6 +149,40 @@ var timeInput = document.getElementById('time');
             localStorage.setItem("whole",JSON.stringify(whole))
 
         }
+
+        let appointments_ar = JSON.parse(localStorage.getItem("appointments_arr")) || [];
+
+// ... Your existing code ...
+
+form.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    // ... Your existing code ...
+
+    let uuid = self.crypto.randomUUID();
+
+    // Create an object for the appointment
+    let appointments_obj = {
+        fullname: fullname,
+        email: email.toLowerCase(),
+        phonenumber: phonenumber,
+        city: city,
+        address: address,
+        date: date,
+        time: time,
+        approved: false,
+        uuid: uuid,
+        docId: id
+    };
+
+    // Add the appointment to the array
+    appointments_ar.push(appointments_obj);
+
+    // Store the updated array in local storage
+    localStorage.setItem("appointments_ar", JSON.stringify(appointments_ar));
+
+    // ... Your existing code ...
+});
 
 
 

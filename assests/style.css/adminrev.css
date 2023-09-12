@@ -5,17 +5,19 @@
     margin:0;
     text-decoration: none;
     font-family: 'poppins';
+    height:min-content
    
 }
 body{
       margin: 0px;
+      height:fit-content;
 }
 .wrapper{
   
 
    background-color: lightblue;
-     min-height: 100vh; 
- 
+       height:800px;
+
     display:flex;
   
     flex-direction: column;
@@ -24,13 +26,7 @@ body{
       color:#fff;        
 }
 .wrapper h1{
-    font-size: 36px;
-    margin-top: 10px;
-    display: flex;
-    font-weight: 500px;
-  
-    text-align: center;
-    color: #04040487;
+   
 }
 .wrapper h5{
        font-size:26px;
@@ -52,7 +48,6 @@ body{
         margin: 5px;
         padding: 20px 30px;
         background: rgba(104, 212, 160, 0.37);
-        position:relative;
         top:-100px;
         box-shadow:10px 20px 25px rgba(0,0,0,0,2);
         color: #060606;
@@ -110,19 +105,12 @@ body{
       color:blue;
     }
     .main {
-        box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.9);
-    
+     
           display: flex;
           justify-content: space-between;
         
           align-content: center;
-          text-align: center;
-          background-color: white;
-         
-          position: fixed;
-         width:1500px;
-          background-color: white;
-         
+        
       }
       .navbar {
           display: flex;

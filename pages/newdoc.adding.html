@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor List</title>
+    <style>
+        /* Additional CSS styles for doctor cards */
+        .doctor-card {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
+            width: 300px; /* Adjust card width as needed */
+            float: left;
+            box-sizing: border-box;
+            background-color: #fff;
+        }
+        .doctor-card img {
+            max-width: 100%;
+            height: auto;
+        }
+        .doctor-info {
+            padding: 10px;
+        }
+        .btn-book-appointment {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Doctor List</h1>
+
+    <form id="doctorForm">
+        <label for="docname">Name:</label>
+        <input type="text" id="docname" required><br><br>
+
+        <label for="type">Specialist:</label>
+        <input type="text" id="type" required><br><br>
+
+        <label for="time">Availability:</label>
+        <input type="text" id="time" required><br><br>
+
+        <label for="description">Experience:</label>
+        <textarea id="description" required></textarea><br><br>
+
+        <label for="image">Image URL:</label>
+        <input type="url" id="image" required><br><br>
+
+        <button type="submit">Add Doctor</button>
+    </form>
+
+    <div id="doctorList">
+        <!-- Doctor cards will be dynamically generated here -->
+    </div>
+
+    <script>
+        // Retrieve and display the list of doctors from localStorage
+        let doctorList = document.getElementById("doctorList");
+        let doctors = JSON.parse(localStorage.getItem("doctors")) || [];
+
+        function generateDoctorCard(doctor) {
+            let doctorCard = document.createElement("div");
+            doctorCard.classList.add("doctor-card");
+
+            let image = document.createElement("img");
+            image.src = doctor.image;
+            doctorCard.appendChild(image);
+
+            let doctorInfo = document.createElement("div");
+            doctorInfo.classList.add("doctor-info");
+
+            let name = document.createElement("h2");
+            name.innerText = "Name: " + doctor.docname;
+            doctorInfo.appendChild(name);
+
+            let specialist = document.createElement("p");
+            specialist.innerText = "Specialist: " + doctor.type;
+            doctorInfo.appendChild(specialist);
+
+            let availability = document.createElement("p");
+            availability.innerText = "Availability: " + doctor.time;
+            doctorInfo.appendChild(availability);
+
+            let experience = document.createElement("p");
+            experience.innerText = "Experience: " + doctor.description;
+            doctorInfo.appendChild(experience);
+
+            let bookButton = document.createElement("button");
+            bookButton.classList.add("btn-book-appointment");
+            bookButton.innerText = "Book Appointment";
+            bookButton.onclick = function() {
+                // Handle booking logic here
+                alert("Booking appointment with " + doctor.docname);
+            };
+            doctorInfo.appendChild(bookButton);
+
+            doctorCard.appendChild(doctorInfo);
+
+            return doctorCard;
+        }
+
+        doctors.forEach(function(doctor) {
+            doctorList.appendChild(generateDoctorCard(doctor));
+        });
+
+        // Handle form submission with validation
+        let doctorForm = document.getElementById("doctorForm");
+        doctorForm.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            // Validate inputs
+            let docnameInput = document.getElementById("docname");
+            let typeInput = document.getElementById("type");
+            let timeInput = document.getElementById("time");
+            let descriptionInput = document.getElementById("description");
+            let imageInput = document.getElementById("image");
+
+            if (
+                docnameInput.value.trim() === "" ||
+                typeInput.value.trim() === "" ||
+                timeInput.value.trim() === "" ||
+                descriptionInput.value.trim() === "" ||
+                imageInput.value.trim() === ""
+            ) {
+                alert("Please fill in all fields.");
+                return;
+            }
+
+            // Create a new doctor object
+            let newDoctor = {
+                docname: docnameInput.value,
+                type: typeInput.value,
+                time: timeInput.value,
+                description: descriptionInput.value,
+                image: imageInput.value,
+            };
+
+            // Add the new doctor to the existing list
+            doctors.push(newDoctor);
+
+            // Save the updated doctor list to local storage
+            localStorage.setItem("doctors", JSON.stringify(doctors));
+
+            // Clear the form inputs
+            doctorForm.reset();
+
+            // Display the new doctor card
+            let doctorCard = generateDoctorCard(newDoctor);
+            doctorList.appendChild(doctorCard);
+        });
+
+
+        function generateDoctorCard(doctor, index) {
+    let doctorCard = document.createElement("div");
+    doctorCard.classList.add("doctor-card");
+
+    let image = document.createElement("img");
+    image.src = doctor.image;
+    doctorCard.appendChild(image);
+
+    let doctorInfo = document.createElement("div");
+    doctorInfo.classList.add("doctor-info");
+
+    let name = document.createElement("h2");
+    name.innerText = "Name: " + doctor.docname;
+    doctorInfo.appendChild(name);
+
+    let specialist = document.createElement("p");
+    specialist.innerText = "Specialist: " + doctor.type;
+    doctorInfo.appendChild(specialist);
+
+    let availability = document.createElement("p");
+    availability.innerText = "Availability: " + doctor.time;
+    doctorInfo.appendChild(availability);
+
+    let experience = document.createElement("p");
+    experience.innerText = "Experience: " + doctor.description;
+    doctorInfo.appendChild(experience);
+
+    let editButton = document.createElement("button");
+    editButton.innerText = "Edit";
+    editButton.onclick = function () {
+        // Handle edit logic here
+        editDoctor(index);
+    };
+    doctorInfo.appendChild(editButton);
+
+    let deleteButton = document.createElement("button");
+    deleteButton.innerText = "Delete";
+    deleteButton.onclick = function () {
+        // Handle delete logic here
+        deleteDoctor(index);
+    };
+    doctorInfo.appendChild(deleteButton);
+
+    doctorCard.appendChild(doctorInfo);
+
+    return doctorCard;
+}
+function editDoctor(index) {
+    
+    const updatedDoctor = { ...doctors[index] };
+    updatedDoctor.docname = prompt("Enter updated name:", updatedDoctor.docname);
+    updatedDoctor.type = prompt("Enter updated specialist:", updatedDoctor.type);
+    updatedDoctor.time = prompt("Enter updated availability:", updatedDoctor.time);
+    updatedDoctor.description = prompt("Enter updated experience:", updatedDoctor.description);
+    updatedDoctor.image = prompt("Enter updated image URL:", updatedDoctor.image);
+
+    // Update the doctor in the array
+    doctors[index] = updatedDoctor;
+
+    // Update the local storage
+    localStorage.setItem("doctors", JSON.stringify(doctors));
+
+    // Regenerate the doctor list
+    regenerateDoctorList();
+}
+
+function deleteDoctor(index) {
+    // Implement the logic to delete the doctor here
+    if (confirm("Are you sure you want to delete this doctor?")) {
+        // Remove the doctor from the array
+        doctors.splice(index, 1);
+
+        // Update the local storage
+        localStorage.setItem("doctors", JSON.stringify(doctors));
+
+        // Regenerate the doctor list
+        regenerateDoctorList();
+    }
+}
+function regenerateDoctorList() {
+    doctorList.innerHTML = ""; // Clear the existing doctor list
+
+    // Regenerate the doctor cards
+    doctors.forEach(function (doctor, index) {
+        let doctorCard = generateDoctorCard(doctor, index);
+        doctorList.appendChild(doctorCard);
+    });
+}
+
+
+    </script>
+</body>
+</html>

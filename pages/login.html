@@ -12,11 +12,11 @@
     <div class="login">
         <form id="log" >
             <label for="mail" aria-hidden="true"  >Login</label>
-            <input type="email" id="mail" placeholder="Email"  value="kishor14@gmail.com" >
+            <input type="email" id="mail" placeholder="Email"  >
             <!-- <input type="text" id="adres" placeholder="address">
             <input type="number" id="phne" placeholder="phonenumber"  > -->
-            <input type="password" id="swd" placeholder="Password" value="kishore">
-            
+            <input type="password" id="swd" placeholder="Password" >
+            <a href=></a>
             <button type="submit" id="login" >Login</button>
             <small>Don't have an Account <a href="./sigup.html">Signin Now</a>
             </small>
@@ -77,13 +77,14 @@ let userpersonaa = localStorage.getItem("userpersona");
                             alert("SUCCESS");
                             
                             if(type === "Doctor"){
-                            window.location.href="../pages/doctors.home.html"
+                            window.location.href="../pages/newdochome.html"
                         }
                         else if(type === "Patient"){
                             window.location.href="../index.html"
                         }
                         else {
-                            window.location.href="../pages/seller.html"
+                            window.location.href="../pages/newserv.html"
+                            
                         }
                             
                          }

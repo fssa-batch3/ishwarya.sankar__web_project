@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicine Price Tracker</title>
+    <link rel="stylesheet" href="../assests/style.css/new.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.3.2/uuid.min.js"></script>
+
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap');
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        min-height: 100vh;
+        font-family: 'Poppins', sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #7d82b8;
+        color: #fff;
+    }
+
+    .container {
+        max-width: 500px;
+        padding: 20px 30px;
+        background-color: #613275;
+        text-align: center;
+        border-radius: 5px;
+    }
+
+    h1 {
+        font-size: 30px;
+        font-weight: 400;
+        letter-spacing: 5px;
+        text-transform: uppercase;
+        margin-top: 20px;
+    }
+
+    form {
+        width: 100%;
+        margin: 20px 0;
+    }
+
+    label {
+        color: #f7a9a8;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    .form-control {
+        width: 100%;
+        height: 40px;
+        display: block;
+        border: none;
+        margin-bottom: 20px;
+        padding: 10px;
+        text-transform: uppercase;
+        background-color: transparent;
+        border-bottom: 1px solid #ef798a;
+        color: #f7a9a8;
+    }
+
+    .form-control:focus {
+        outline: none;
+    }
+
+    ::placeholder {
+        color: #f7a9a8;
+    }
+
+    .btn {
+        width: 70%;
+        padding: 12px 0;
+        font-size: 15px;
+        text-transform: uppercase;
+        font-weight: 700;
+        background-color: #f7a9a8;
+        border: none;
+        color: #ef798a;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .medicine-card {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin: 10px;
+        width: 300px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        display: inline-block;
+        vertical-align: top;
+        background-color: #fff;
+        border-radius: 5px;
+    }
+
+    .medicine-card h2 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .medicine-card img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .cart-summary {
+        margin-top: 20px;
+        border: 1px solid #ccc;
+        padding: 10px;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 250px;
+        background-color: #fff;
+        border-radius: 5px;
+    }
+
+    .cart-summary h2 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .cart-items {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .cart-item {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        align-items: center;
+    }
+
+    .cart-item button {
+        background-color: #ef798a;
+        color: #fff;
+        border: none;
+        padding: 5px 10px;
+        font-size: 12px;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+
+    .cart-item button:hover {
+        background-color: #f44d67;
+    }
+
+    #totalPrice {
+        font-weight: 700;
+    }
+</style>
+
+<body>
+    <!-- Container for the whole page -->
+    <div class="container">
+        <h1 class="mt-5">Medicine Price Tracker</h1>
+        <!-- Form for adding medicines -->
+        <form id="medicineForm" class="mt-4">
+            <div class="form-group">
+                <label for="medicineName">Medicine Name:</label>
+                <!-- Input field for medicine name -->
+                <input type="text" class="form-control" id="medicineName" required>
+            </div>
+            <div class="form-group">
+                <label for="medicinePrice">Medicine Price (Rupees):</label>
+                <!-- Input field for medicine price -->
+                <input type="number" class="form-control" id="medicinePrice" required>
+            </div>
+            <div class="form-group">
+                <label for="medicineImage">Medicine Image (JPG URL):</label>
+                <!-- Input field for medicine image URL -->
+                <input type="url" class="form-control" id="medicineImage" required>
+            </div>
+            <!-- Button for submitting the form -->
+            <button type="submit" class="btn btn-primary">Add Medicine</button>
+        </form>
+    </div>
+    
+    <!-- Container for displaying medicines -->
+    <div id="medicineList" class="container mt-4">
+        <!-- Display medicines here -->
+    </div>
+    
+    <!-- Include Bootstrap JS and jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        
+        // Function to add a medicine to local storage and display it
+        function addMedicine() {
+            const medicineName = document.getElementById('medicineName').value;
+            const medicinePrice = document.getElementById('medicinePrice').value;
+            const medicineImage = document.getElementById('medicineImage').value;
+
+            // Validate input (you can add more specific validation)
+            if (!medicineName || !medicinePrice || !medicineImage) {
+                alert('Please fill in all fields.');
+                return;
+            }
+
+            const medicine = {
+                name: medicineName,
+                price: medicinePrice,
+                image: medicineImage,
+            };
+
+            // Store medicine in local storage
+            const medicines = JSON.parse(localStorage.getItem('medicines')) || [];
+            medicines.push(medicine);
+            localStorage.setItem('medicines', JSON.stringify(medicines));
+
+            // Clear form
+            document.getElementById('medicineForm').reset();
+
+            // Update medicine list
+            displayMedicines();
+        }
+
+        // Function to display medicines from local storage
+        function displayMedicines() {
+            const medicineList = document.getElementById('medicineList');
+            const medicines = JSON.parse(localStorage.getItem('medicines')) || [];
+
+            medicineList.innerHTML = '';
+
+            medicines.forEach((medicine, index) => {
+                const medicineDiv = document.createElement('div');
+                medicineDiv.classList.add('media', 'border', 'p-3');
+                medicineDiv.innerHTML = `
+                    <img src="${medicine.image}" alt="${medicine.name}" class="mr-3 mt-3 rounded-circle" style="width:60px;">
+                    <div class="media-body">
+                        <h4>${medicine.name}</h4>
+                        <p>Price: ${medicine.price} Rupees</p>
+                        <!-- Edit and Delete buttons -->
+                        <button class="btn btn-info" onclick="editMedicine(${index})">Edit</button>
+                        <button class="btn btn-danger" onclick="deleteMedicine(${index})">Delete</button>
+                    </div>
+                `;
+
+                medicineList.appendChild(medicineDiv);
+            });
+        }
+
+        // Event listener for form submission
+        document.getElementById('medicineForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            addMedicine();
+        });
+
+        // Initial display of medicines
+        displayMedicines();
+
+        // Function to edit a medicine
+        function editMedicine(index) {
+            // Retrieve medicines from local storage
+            const medicines = JSON.parse(localStorage.getItem('medicines')) || [];
+
+            // Prompt the user to enter updated information
+            const updatedName = prompt('Enter updated medicine name:', medicines[index].name);
+            const updatedPrice = prompt('Enter updated medicine price:', medicines[index].price);
+            const updatedImage = prompt('Enter updated medicine image URL:', medicines[index].image);
+
+            // Update the medicine object
+            medicines[index].name = updatedName;
+            medicines[index].price = updatedPrice;
+            medicines[index].image = updatedImage;
+
+            // Save the updated medicines array back to local storage
+            localStorage.setItem('medicines', JSON.stringify(medicines));
+
+            // Update the displayed medicines
+            displayMedicines();
+        }
+
+        // Function to delete a medicine
+        function deleteMedicine(index) {
+            // Retrieve medicines from local storage
+            const medicines = JSON.parse(localStorage.getItem('medicines')) || [];
+
+            // Remove the medicine at the specified index
+            medicines.splice(index, 1);
+
+            // Save the updated medicines array back to local storage
+            localStorage.setItem('medicines', JSON.stringify(medicines));
+
+            // Update the displayed medicines
+            displayMedicines();
+        }
+        // Function to add a medicine to local storage with a random UUID
+function addMedicine() {
+    const medicineName = document.getElementById('medicineName').value;
+    const medicinePrice = document.getElementById('medicinePrice').value;
+    const medicineImage = document.getElementById('medicineImage').value;
+
+    // Validate input (you can add more specific validation)
+    if (!medicineName || !medicinePrice || !medicineImage) {
+        alert('Please fill in all fields.');
+        return;
+    }
+
+    // Generate a random UUID for the medicine
+    const medicineId = uuid.v4();
+
+    const medicine = {
+        uuid: medicineId, // Store the UUID in the medicine object
+        name: medicineName,
+        price: medicinePrice,
+        image: medicineImage,
+    };
+
+    // Store medicine in local storage
+    const medicines = JSON.parse(localStorage.getItem('medicines')) || [];
+    medicines.push(medicine);
+    localStorage.setItem('medicines', JSON.stringify(medicines));
+
+    // Clear form
+    document.getElementById('medicineForm').reset();
+
+    // Update medicine list
+    displayMedicines();
+}
+
+    </script>
+</body>
+</html>

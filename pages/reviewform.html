@@ -10,6 +10,9 @@
 </head>
 
 <body>
+  <div class="container">
+
+
   <form id="form">
     <!-- <div class="inputBox">
       <input id="im_g" type="text" name="" required="required" />
@@ -39,11 +42,13 @@
           <span>Image Url</span>
       </div> -->
       <div class="input-container ic2">
-          <input id="dname" class="input" type="text" placeholder=" Patient name"  required/>
+        <input id="dname" class="input" type="text" placeholder="Patient name" pattern="^[a-zA-Z\s]+$" required />
+
           <span>Patient Name</span>
       </div>
       <div class="input-container ic2">
-          <input id="Sp_l" class="input" type="text" placeholder="Illness " required />
+        <input id="Sp_l" class="input" type="text" placeholder="Illness" pattern="^[a-zA-Z\s]+$" required />
+
           <span>illness</span>
       </div>
       <div class="input-container ic2">
@@ -51,7 +56,8 @@
         <span>review about hospital</span>
     </div>
     <div class="input-container ic2">
-      <input id="email" class="input" type="text" placeholder="Email id "  required/>
+      <input id="email" class="input" type="text" placeholder="Email id" pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}" required />
+
       <span>Email Id</span>
   </div>
   <button type="submit" class="submit">submit</button>

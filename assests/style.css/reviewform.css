@@ -1,3 +1,73 @@
+
+/* Assuming this is the content of your 'reviewform.css' stylesheet */
+* {
+  box-sizing: border-box;
+  margin: 20px auto;
+  padding: 0;
+}
+
+/* Style for the container */
+.container {
+  max-width: 900px; 
+  /* Set the maximum width of the container */
+  max-height: 600px;
+  height:600px;
+  margin: 0 auto; /* Center the container horizontally */
+  padding: 20px; /* Add some padding around the container */
+  border: 1px solid #ccc; /* Add a border to the container */
+  border-radius: 10px; /* Add rounded corners to the container */
+  background-color: #fff; /* Set a background color for the container */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+}
+
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+}
+
+/* Other styles for your elements go here */
+
+/* For the input containers */
+.input-container {
+  margin-bottom: 15px;
+}
+
+.input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  font-size: 14px;
+}
+
+/* For the buttons */
+.submit, .btn5 {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit:hover, .btn5:hover {
+  background-color: #0056b3;
+}
+
+/* For the title and subtitle */
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
 body {
   align-items: center;
   background-color: #5ec590;

@@ -4,100 +4,175 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../assests/style.css/edit.css">
+    <title>Edit Profile</title>
+    <style>
+        /* Reset some default browser styles */
+        body, html {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Apply styles to the container and center it on the page */
+        .containermain {
+            width: 30%;
+            margin: 0 auto;
+            margin-top: 50px;
+            padding: 20px;
+            border: 1px solid #8c3131;
+            border-radius: 5px;
+        }
+
+        /* Style the form inputs and labels */
+        .input {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="url"] {
+            width: 50%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-size: 14px;
+            margin-top: 3px;
+        }
+
+        /* Add colors to input fields */
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="url"] {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+
+        /* Style the buttons */
+        .btn {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        #delete {
+            background-color: #dc3545;
+        }
+
+        /* Center the buttons */
+        button[type="submit"],
+        #delete {
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        /* Remove underline from links */
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+    </style>
 </head>
 <body>
- <form id="saveEdit">
- <div class="containermain">
-  <div class="input"><label>Name:</label><input id="name" type="text" maxlength="20"></div>
-  <!-- <div class="input"><label >Mobile-Number:</label><input id="phno"  type="number" maxlength="10"></div> -->
-  <div class="input"><label >Email:</label><input id="email"  type="email" disabled ></div>
-  <div class="input"><label >Password:</label><input id="password"  type="password" ></div>
-  <div class="input"><label >Image:</label><input id="password"  type="url" ></div>
-  <!-- <a class="inputs" href="../pages/appoin.html"> -->
-    <button type="submit"  class="btn">Save</button>
-    <button onclick="Delete" id ="delete" class="btn">Delete</button>
-
-  </form>
-  <!-- </a> -->
-    
-  
-
-
-
-
-
-
-
-
-
-
-
-
+    <form id="saveEdit" class="containermain">
+        <div class="input">
+            <label>Name:</label>
+            <input id="name" type="text" maxlength="20" required pattern="[A-Za-z\s]{1,}">
+        </div>
+        <!-- <div class="input">
+            <label>Mobile-Number:</label>
+            <input id="phno" type="number" maxlength="10">
+        </div> -->
+        <div class="input">
+            <label>Email:</label>
+            <input id="email" type="email" disabled>
+        </div>
+        <div class="input">
+            <label>Password:</label>
+            <input id="password" type="password" minlength="8">
+        </div>
+        <div class="input">
+            <label>Image URL:</label>
+            <input id="image" type="url">
+        </div>
+        <button type="submit" class="btn">Save</button>
+        <button onclick="Delete" id="delete" class="btn">Delete</button>
+    </form>
 </body>
 <script>
-     let profile=JSON.parse(localStorage.getItem("obj"));
-     let mail = JSON.parse(localStorage.getItem("data"))
-    //  let data = profile.find((F) => F.useremail == mail)
-    //       console.log(profile);
+    let profile = JSON.parse(localStorage.getItem("obj"));
+    let mail = JSON.parse(localStorage.getItem("data"))
 
-    let data = profile.find(function (obj){
-      let email =obj["useremail"]
-      if(mail == email){
-        return true
-      }
-    } )
-          console.log(profile);
-
-
-          document.getElementById("name").value=data["username"];
-          document.getElementById("email").value=data["useremail"];
-          document.getElementById("password").value=data["userpassword"]
-
-//validation
-          let save = document.getElementById("saveEdit");
-          save.addEventListener("submit",(event) => {
-              event.preventDefault();
-
-              let useremail = document.getElementById("email").value;
-              let username = document.getElementById("name").value;
-              let userpassword = document.getElementById("password").value;
-
-              let newData = {
-                useremail,username,userpassword
-              }
-              console.log(newData)
-              if (mail != useremail) {
-          alert("You can't change the Email ID");
-        } else {
-          let update = Object.assign(data, newData);
-          console.log(update);
-          let index = profile.indexOf(data);
-          console.log(index);
-          profile[index] = update;
-          localStorage.setItem("obj", JSON.stringify(profile));
-          window.location.href ="/index.html"
-          // alert("You have successfully updated your account details!");
+    let data = profile.find(function (obj) {
+        let email = obj["useremail"]
+        if (mail == email) {
+            return true;
         }
-      });
-      let info = document.getElementById("delete");
-      info.addEventListener("click", function (event) {
+    });
+
+    document.getElementById("name").value = data["username"];
+    document.getElementById("email").value = data["useremail"];
+    document.getElementById("password").value = data["userpassword"];
+
+    // Validation
+    let save = document.getElementById("saveEdit");
+    save.addEventListener("submit", (event) => {
         event.preventDefault();
-        let indexof = profile.indexOf((data));
+
+        let useremail = document.getElementById("email").value;
+        let username = document.getElementById("name").value;
+        let userpassword = document.getElementById("password").value;
+        let imageUrl = document.getElementById("image").value;
+
+        let nameRegex = /^[A-Za-z\s]+$/;
+        let passwordRegex = /^.{8,}$/;
+
+        if (!nameRegex.test(username)) {
+            alert("Invalid name. Please use only letters and spaces.");
+        } else if (!passwordRegex.test(userpassword)) {
+            alert("Password must be at least 8 characters long.");
+        } else {
+            let newData = {
+                useremail,
+                username,
+                userpassword,
+                imageUrl
+            };
+
+            if (mail != useremail) {
+                alert("You can't change the Email ID");
+            } else {
+                let update = Object.assign(data, newData);
+                let index = profile.indexOf(data);
+                profile[index] = update;
+                localStorage.setItem("obj", JSON.stringify(profile));
+                window.location.href = "/index.html";
+            }
+        }
+    });
+
+    let info = document.getElementById("delete");
+    info.addEventListener("click", function (event) {
+        event.preventDefault();
+        let indexof = profile.indexOf(data);
         let failed = confirm("Delete this");
         if (failed !== true) {
-          return;
+            return;
         } else {
-          profile.splice(indexof, 1);
-          localStorage.setItem("obj", JSON.stringify(profile));
+            profile.splice(indexof, 1);
+            localStorage.setItem("obj", JSON.stringify(profile));
         }
-          });
-            
-              
-           
-
-      
+    });
+    
 </script>
-</body>
 </html>

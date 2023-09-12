@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- ... (head section) ... -->
+</head>
+
+<body>
+    <div class="form">
+        <form id="editForm">
+            <!-- ... (your input fields) ... -->
+            <button type="submit" class="submit">Save Changes</button>
+        </form>
+    </div>
+    <script>
+        const editForm = document.getElementById("editForm");
+        const urlParams = new URLSearchParams(window.location.search);
+        const itemId = urlParams.get("id");
+
+        // Populate the form fields with existing data based on itemId
+        // You can retrieve the item data from the arr array using the itemId
+
+        editForm.addEventListener("submit", function(event) {
+            event.preventDefault();
+            // Update the edited data in the arr array based on itemId
+            // Save the updated arr array to local storage
+            // Redirect back to the index.html page
+            window.location.href = "index.html";
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Medicine</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="text"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+    </style>
+</head>
+<body>
+    <h1>Order Medicine</h1>
+    <form id="orderForm">
+        <label for="houseNo">House No:</label>
+        <input type="text" id="houseNo" required>
+        
+        <label for="roadNo">Road No:</label>
+        <input type="text" id="roadNo" required>
+        
+        <label for="pincode">Pincode:</label>
+        <input type="text" id="pincode" required>
+        
+        <label for="city">City:</label>
+        <input type="text" id="city" required>
+
+        <label for="state">State:</label>
+        <input type="text" id="state" required>
+
+        <label for="famousPlace">Famous Place Nearby:</label>
+        <input type="text" id="famousPlace" required>
+
+        <label for="contact">Contact Details:</label>
+        <input type="text" id="contact" required>
+
+        <label for="paymentMethod">Payment Method:</label>
+        <select id="paymentMethod" required>
+            <option value="cashOnDelivery">Cash on Delivery</option>
+        </select>
+
+        <button type="submit">Place Order</button>
+    </form>
+
+    <script>
+        document.getElementById('orderForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const houseNo = document.getElementById('houseNo').value;
+    const roadNo = document.getElementById('roadNo').value;
+    const pincode = document.getElementById('pincode').value;
+    const city = document.getElementById('city').value;
+    const state = document.getElementById('state').value;
+    const famousPlace = document.getElementById('famousPlace').value;
+    const contact = document.getElementById('contact').value;
+    const paymentMethod = document.getElementById('paymentMethod').value;
+
+    // Create an object for the booked medicine details
+    const bookedMedicine = {
+        houseNo,
+        roadNo,
+        pincode,
+        city,
+        state,
+        famousPlace,
+        contact,
+        paymentMethod,
+    };
+
+    // Store booked medicine details in local storage
+    localStorage.setItem('bookedMedicine', JSON.stringify(bookedMedicine));
+
+    // Redirect to the "Booked Successfully" page
+    window.location.href = 'sucess.html';
+});
+
+    </script>
+</body>
+</html>
