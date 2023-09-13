@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+</style>
+</head>
+<body>
+
+<h1>User Data</h1>
+
+<table id="customers">
+  <tr>
+    <th>User Name</th>
+    <th>Email</th>
+    <th>Phone Number</th>
+    <th>Password</th>
+    <th>Profession</th>
+  </tr>
+</table>
+
+
+
+
+<script>
+// Function to display data in the table
+function displayData() {
+  let userData = JSON.parse(localStorage.getItem("obj"));
+  let dataTable = document.getElementById("customers");
+
+  // Clear the existing table rows
+  dataTable.innerHTML = "";
+
+  // Create table header
+  let headerRow = dataTable.insertRow(0);
+  let headers = ["User Name", "Email", "Phone Number", "Password", "Profession"];
+
+  for (let i = 0; i < headers.length; i++) {
+    let th = document.createElement("th");
+    th.innerText = headers[i];
+    headerRow.appendChild(th);
+  }
+
+  // Populate the table with data
+  if (userData) {
+    for (let i = 0; i < userData.length; i++) {
+      let user = userData[i];
+      let row = dataTable.insertRow(i + 1);
+
+      let userNameCell = row.insertCell(0);
+      let emailCell = row.insertCell(1);
+      let phoneNumberCell = row.insertCell(2);
+      let passwordCell = row.insertCell(3);
+      let professionCell = row.insertCell(4);
+
+      userNameCell.innerText = user.username;
+      emailCell.innerText = user.useremail;
+      phoneNumberCell.innerText = user.mobilenumber;
+      passwordCell.innerText = user.userpassword;
+      professionCell.innerText = user.doctors;
+    }
+  }
+}
+
+// Display data when the page loads
+displayData();
+
+// Add event listener to the form for data submission
+let form = document.getElementById("inputForm");
+form.addEventListener("submit", function(e) {
+  e.preventDefault();
+  let main = JSON.parse(localStorage.getItem("obj")) || [];
+  const name = document.getElementById("txt").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const phonenumber = document.getElementById("mble").value.trim();
+  const pass = document.getElementById("pswd").value.trim();
+  const doctors = document.getElementById("txt2").value.trim();
+
+  if (main) {
+    let object = {
+      username: name,
+      useremail: email,
+      mobilenumber: phonenumber,
+      userpassword: pass,
+      doctors: doctors,
+    };
+
+    main.push(object);
+
+    // Update localStorage
+    localStorage.setItem("obj", JSON.stringify(main));
+
+    // Display updated data in the table
+    displayData();
+
+    // Clear the form fields
+    form.reset();
+  }
+});
+</script>
+
+</body>
+</html>
