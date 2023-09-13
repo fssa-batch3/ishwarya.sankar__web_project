@@ -15,27 +15,33 @@
 <!-- form -->
    <div class="containermain">
     <div class="input"><label>Name:</label><input id="name" type="text" maxlength="20"></div>
-    <!-- <div class="input"><label >Mobile-Number:</label><input id="phno"  type="number" maxlength="10"></div> -->
     <div class="input"><label >Email:</label><input id="email"  type="email" ></div>
     <div class="input"><label >Password:</label><input id="password"  type="password" ></div>
-    <a class="inputs" href="../pages/appoin.html"><a class="btn">Save</a></a>
+    <!-- <a class="inputs" href="../pages/appoin.html"><a class="btn">Save</a></a> -->
       <a class="btn"  href="../pages/edit.html">EDIT PAGE</a>
+      <div>   </div>
     
 
     <!-- form ends -->
-
+  <div class="test"></div>
                   
    </div>
    <script>
-          let profile=JSON.parse(window.localStorage.getItem("data"));
+          let profile=JSON.parse(window.localStorage.getItem("obj"));
+          let user=JSON.parse(window.localStorage.getItem("data"));
+
+          let userData = profile.find(e=>e["useremail"] === user)
+
           console.log(profile);
-          document.getElementById("name").value=profile[0]["username"];
-          document.getElementById("email").value=profile[0]["useremail"];
-          document.getElementById("password").value=profile[0]["userpassword"]
+          document.getElementById("name").value=userData["username"];
+          document.getElementById("email").value=userData["useremail"];
+          document.getElementById("password").value=userData["userpassword"]
+          
 
 
 
    </script>
+
 </body>
 </html>
     

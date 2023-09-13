@@ -12,9 +12,12 @@
         <form id="log" >
             <label for="chk" aria-hidden="true"  >Login</label>
             <input type="email" id="mail" placeholder="Email"  >
-            <input type="password" id="swd" placeholder="Password"  pattern="(" title=" and at least 8 or more characters">
+            <input type="text" id="adres" placeholder="address">
+            <input type="number" id="phne" placeholder="phonenumber"  >
+            <input type="password" id="swd" placeholder="Password">
             <button type="submit" id="login" onclick="userLogin()" >Login</button>
         </form>
+        <a href="./profile.html">location</a>
     </div>
 </body>
 
@@ -23,11 +26,14 @@
         function userLogin(){
             // event.preventDefault()
             let main=JSON.parse(window.localStorage.getItem("obj"));
+            console.log(main)
                         const arr=[]                         
                                    console.log(main)
 								 const email2=document.getElementById("mail").value;
-                 			     const password2=document.getElementById("swd").value;
-                                //   console.log(email2);
+                                 const address2=document.getElementById("adres").value;
+                 			     const phone=document.getElementById("phne").value;
+                                  const password2=document.getElementById("swd").value;
+                                   console.log(email2);
                                 // function checkPassword(){
         //      if (password2!==confirm_password){
         //          alert("Re-enter the Password");
@@ -35,8 +41,7 @@
         //      }    else{
         //         alert("Password Matched");
         //    }
-        //  }
-                                 let match=false;
+        //  }                              //  let match=false;
 								 for(let i=0;i<main.length;i++){
 									if(
 										email2 ===main[i].useremail&&
@@ -44,8 +49,8 @@
                                   
 									){
                                       match=true;
-                                     arr.push(main[i])
-                                     window.localStorage.setItem("data",JSON.stringify(arr));
+            
+                                     window.localStorage.setItem("data",JSON.stringify(main[i].useremail));
 									 break;
 								 }
                                     else{
@@ -56,10 +61,13 @@
        
                          if (match==true){
                             alert("SUCCESS")
+                            window.location.href = ".\profile.html"
                          }
                          else{
                             alert("Failed")
                          }}
+
+                        
         // function validate(){
                              
 

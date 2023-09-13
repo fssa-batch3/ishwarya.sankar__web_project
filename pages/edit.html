@@ -8,18 +8,6 @@
     <link rel="stylesheet" href="../assests/style.css/edit.css">
 </head>
 <body>
-    <!-- <div class="containermain">
-    <div class="input"><label>Name:</label><input id="name" type="text" maxlength="20"></div>
-      <div class="input"><label >Mobile-Number:</label><input id="phno"  type="number" maxlength="10"></div>  -->
-    <!-- <div class="input"><label >Email:</label><input id="email"  type="email" ></div>
-    <div class="input"><label >Password:</label><input id="password"  type="password" ></div>
-    <a class="inputs" href="../pages/appoin.html"><button class="btn" id="saveEdit">Save</button></a>
-     <button class="btn1">DELETE</button>  -->
-
-    <!-- </form>
-  </div>
-</section>
- -->
  <form id="saveEdit">
  <div class="containermain">
   <div class="input"><label>Name:</label><input id="name" type="text" maxlength="20"></div>
@@ -28,7 +16,7 @@
   <div class="input"><label >Password:</label><input id="password"  type="password" ></div>
   <!-- <a class="inputs" href="../pages/appoin.html"> -->
     <button type="submit"  class="btn">Save</button>
-    <button type="submit"  class="btn">Delete</button>
+    <button onclick="Delete" id ="delete" class="btn">Delete</button>
 
   </form>
   <!-- </a> -->
@@ -48,11 +36,23 @@
 
 </body>
 <script>
-     let profile=JSON.parse(localStorage.getItem("data"));
+     let profile=JSON.parse(localStorage.getItem("obj"));
+     let mail = JSON.parse(localStorage.getItem("data"))
+    //  let data = profile.find((F) => F.useremail == mail)
+    //       console.log(profile);
+
+    let data = profile.find(function (obj){
+      let email =obj["useremail"]
+      if(mail == email){
+        return true
+      }
+    } )
           console.log(profile);
-          document.getElementById("name").value=profile[0]["username"];
-          document.getElementById("email").value=profile[0]["useremail"];
-          document.getElementById("password").value=profile[0]["userpassword"]
+
+
+          document.getElementById("name").value=data["username"];
+          document.getElementById("email").value=data["useremail"];
+          document.getElementById("password").value=data["userpassword"]
 
 //validation
           let save = document.getElementById("saveEdit");
@@ -66,33 +66,58 @@
               let newData = {
                 useremail,username,userpassword
               }
-              let data = JSON.parse(localStorage.getItem("data"));
-            console.log(data)
-            let olddata = data.find(i => i.useremail == useremail)
-            console.log(olddata)
-            if (olddata == undefined) {
-                alert("Email Id not match")
-            }
+              console.log(newData)
+              if (mail != useremail) {
+          alert("You can't change the Email ID");
+        } else {
+          let update = Object.assign(data, newData);
+          console.log(update);
+          let index = profile.indexOf(data);
+          console.log(index);
+          profile[index] = update;
+          localStorage.setItem("obj", JSON.stringify(profile));
+          // alert("You have successfully updated your account details!");
+        }
+      });
+      let info = document.getElementById("delete");
+      info.addEventListener("click", function (event) {
+        event.preventDefault();
+        let indexof = profile.indexOf((data));
+        let failed = confirm("Delete this");
+        if (failed !== true) {
+          return;
+        } else {
+          profile.splice(indexof, 1);
+          localStorage.setItem("obj", JSON.stringify(profile));
+        }
+          });
             
-            else {
-                let updated = Object.assign(olddata, newData);
-                console.log(data)
-                console.log(olddata)
-                let index = data.indexOf(olddata.email);
-                data[index] = updated;
-                console.log(data)
-                localStorage.setItem("data", JSON.stringify(data));
-                window.location.href=""
-          }
-        });
+              
+            // let olddata = data.find(i => i.useremail == email)
+            // console.log(olddata)
+        //     let currentDoctor = doctorData.find(function (cal) {
+        //         let id = cal["id"];
+        //         if (doctorId === id) {
+        //             return true;
+        //         }
+        //     if (olddata == undefined) {
+        //         alert("Email Id not match")
+        //     }
+            
+        //     else {
+        //         let updated = Object.assign(olddata, newData);
+        //         console.log(data)
+        //         console.log(olddata)
+        //         let index = data.indexOf(olddata.email);
+        //         data[index] = updated;
+        //         console.log(data)
+        //         localStorage.setItem("data", JSON.stringify(data));
+        //         window.location.href=""
+        //   }
+        // })});
 
-        // delete the account
-       
 
-        //Get New userDatas
-// Get Old User Datas
-// check if email not match alert otherwise combine the old and new userdatas./
-// find the old userdata index in the array/
-// replace the combined data in the old data index/
+      
 </script>
+</body>
 </html>
