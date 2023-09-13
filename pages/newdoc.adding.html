@@ -6,6 +6,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Doctor List</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+*{
+    font-family: "poppins";
+    background-color: rgba(247, 249, 250, 0.742);
+}
+        /* Reset default form styles */
+form {
+    font-family: Arial, sans-serif;
+    margin: 0 auto;
+    max-width: 400px;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid #0f0f0f; /* Add a border to the form */
+       
+}
+
+/* Style form labels */
+form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Style form input fields */
+form input[type="text"],
+form input[type="url"],
+form textarea {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+/* Style form input fields on focus */
+form input[type="text"]:focus,
+form input[type="url"]:focus,
+form textarea:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Style the submit button */
+form button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Style the submit button on hover */
+form button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Add some spacing to the form */
+form br {
+    display: none;
+    content: "";
+    margin: 10px 0;
+}
+
+
         /* Additional CSS styles for doctor cards */
         .doctor-card {
             border: 1px solid #ccc;
@@ -31,10 +99,14 @@
             border-radius: 5px;
             cursor: pointer;
         }
+        .h1{
+position: relative;  
+margin-left: 640px; 
+     }
     </style>
 </head>
 <body>
-    <h1>Doctor List</h1>
+    <h1 class="h1">Adding Doctor</h1>
 
     <form id="doctorForm">
         <label for="docname">Name:</label>
@@ -204,7 +276,8 @@
     return doctorCard;
 }
 function editDoctor(index) {
-    
+    // Implement the logic to edit the doctor here
+    // Prompt the user for updated information and update the doctor object
     const updatedDoctor = { ...doctors[index] };
     updatedDoctor.docname = prompt("Enter updated name:", updatedDoctor.docname);
     updatedDoctor.type = prompt("Enter updated specialist:", updatedDoctor.type);
