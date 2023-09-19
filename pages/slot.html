@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Availability</title>
+    <style>
+        /* Style form and inputs */
+        form {
+            font-family: Arial, sans-serif;
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        /* Style slots */
+        .slots {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .slot-button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <form id="doctorForm">
+        <label for="docname">Name:</label>
+        <input type="text" id="docname" required><br><br>
+
+        <label for="type">Specialist:</label>
+        <input type="text" id="type" required><br><br>
+
+        <label for="experience">Experience:</label>
+        <input type="text" id="experience" required><br><br>
+
+        <label for="availability">Availability (10:00 AM - 12:00 PM):</label>
+        <input type="text" id="availability" required placeholder="e.g., 10:00 AM - 11:45 AM"><br><br>
+
+        <button type="submit">Add Doctor</button>
+    </form>
+
+    <div class="slots">
+        <!-- Slots will be dynamically generated here -->
+    </div>
+
+    <script>
+        const form = document.getElementById("doctorForm");
+        const slotsContainer = document.querySelector(".slots");
+
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const docname = document.getElementById("docname").value.trim();
+            const type = document.getElementById("type").value.trim();
+            const experience = document.getElementById("experience").value.trim();
+            const availability = document.getElementById("availability").value.trim();
+
+            if (!docname || !type || !experience || !availability) {
+                alert("Please fill out all fields.");
+                return;
+            }
+
+            // Split the availability into start and end times
+            const [startTime, endTime] = availability.split(" - ");
+
+            // Create slots for every 15 minutes within the specified time range
+            const slotInterval = 15; // in minutes
+            let currentTime = new Date(`2023-09-13 ${startTime}`);
+            const endTimeDate = new Date(`2023-09-13 ${endTime}`);
+
+            while (currentTime < endTimeDate) {
+                const slotButton = document.createElement("button");
+                slotButton.classList.add("slot-button");
+                slotButton.innerText = currentTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                slotsContainer.appendChild(slotButton);
+
+                // Increment time by the slot interval
+                currentTime.setMinutes(currentTime.getMinutes() + slotInterval);
+            }
+
+            // You can store the doctor details or slots data as needed
+            alert("Doctor added successfully!");
+            form.reset();
+        });
+        
+    </script>
+</body>
+</html>
